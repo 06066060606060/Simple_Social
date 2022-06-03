@@ -4,7 +4,7 @@
             class="flex items-center px-2 py-2"> <img src="/img/logo.png" alt="Kutty Logo" /> </a>
         <nav class="text-sm font-medium text-gray-500" aria-label="Main Navigation"> <a
                 class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
-                href="#"> <i class="pr-4 fa-brands fa-github" id="github"></i>Accueil</a> <a
+                href="#"> <i class="fa-solid fa-house"></i>Accueil</a> <a
                 class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
                 href="#"> <i class="fa-brands fa-github pr4" id="github"></i> </a> <a
                 class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
@@ -38,6 +38,15 @@
     <div class="fixed inset-0 z-10 w-screen h-screen bg-black bg-opacity-25 md:hidden" x-show.transition="sideBar"
         x-cloak></div>
 </section>
+
+<!-- component -->
+<ul class="flex w-auto font-sans border rounded border-slate-500">
+    <li><a class="block px-3 py-2 text-blue-500 border-r hover:text-white hover:bg-blue-500 border-slate-500" href="#">Previous</a></li>
+    <li><a class="block px-3 py-2 text-blue-500 border-r hover:text-white hover:bg-blue-500 border-slate-500" href="#">1</a></li>
+    <li><a class="block px-3 py-2 text-blue-500 border-r hover:text-white hover:bg-blue-500 border-slate-500" href="#">2</a></li>
+    <li><a class="block px-3 py-2 text-blue-500 border-r hover:text-white hover:bg-blue-500 border-slate-500" href="#">3</a></li>
+    <li><a class="block px-3 py-2 text-blue-500 hover:text-white hover:bg-blue-500" href="#">Next</a></li>
+  </ul>
     
 
 
