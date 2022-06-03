@@ -1,5 +1,5 @@
 <section class="min-h-screen bg-gray-50" x-data="{ sideBar: false }">
-    <nav class="absolute top-0 left-0 z-20 h-auto pb-10 overflow-x-hidden overflow-y-auto transition origin-left transform bg-gray-900 w-60 md:translate-x-0"
+    <nav class="absolute left-0 z-20 h-full pb-10 overflow-x-hidden overflow-y-auto transition origin-left transform bg-gray-900 w-60 md:translate-x-0"
         :class="{ '-translate-x-full': !sideBar, 'translate-x-0': sideBar }" @click.away="sideBar = false"> <a
             href="/" class="flex items-center px-4 py-5"> <img src="/brand/kutty-logo-white.png" alt="Kutty Logo"
                 class="w-20" /> </a>
@@ -93,7 +93,7 @@
                         <path
                             d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
                     </svg> </a> <a href="#" class="ml-4 avatar avatar-sm"> <img src="/placeholder.jpg"
-                        alt="Photo of Praveen Juge" /> </a> </div>
+                        alt="./img/Ellispe2.png" /> </a> </div>
         </header>
         <div class="p-4">
             <!-- Add content here, remove div below -->
