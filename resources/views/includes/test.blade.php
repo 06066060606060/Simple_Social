@@ -4,17 +4,17 @@
             class="flex items-center px-2 py-2"> <img src="/img/logo.png" alt="Kutty Logo" /> </a>
         <nav class="text-sm font-medium text-gray-500" aria-label="Main Navigation"> <a
                 class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
-                href="#"> <i class="fa-brands fa-github" id="github"></i></a> <a
+                href="#"> <i class="fa-brands fa-github pr-4" id="github"></i>Accueil</a> <a
                 class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
-                href="#"> <i class="fa-brands fa-github" id="github"></i> </a> <a
-                class="flex items-center px-4 py-3 text-gray-200 transition bg-gray-800 cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
-                href="#"> <i class="fa-brands fa-github" id="github"></i></a> <a
+                href="#"> <i class="fa-brands fa-github pr4" id="github"></i> </a> <a
                 class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
-                href="#"> <i class="fa-brands fa-github" id="github"></i> </a>
+                href="#"> <i class="fa-brands fa-github pr-4" id="github"></i></a> <a
+                class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
+                href="#"> <i class="fa-brands fa-github pr-4" id="github"></i> </a>
             <a class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
-                href="#"> <i class="fa-brands fa-github" id="github"></i> </a> <a
+                href="#"> <i class="fa-brands fa-github pr-4" id="github"></i> </a> <a
                 class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
-                href="#"><i class="fa-brands fa-github" id="github"></i></a>
+                href="#"><i class="fa-brands fa-github pr-4" id="github"></i></a>
         </nav>
     </nav>
     <div class="ml-0 transition md:ml-60">
