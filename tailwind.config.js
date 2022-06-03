@@ -8,4 +8,6 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+
+  plugins: [require("kutty")],
 }
