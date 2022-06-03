@@ -8819,6 +8819,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -8936,5 +8940,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:text-center {
     text-align: center;
+  }
+}
+@media (min-width: 1024px) {
+
+  .lg\:h-48 {
+    height: 12rem;
   }
 }
