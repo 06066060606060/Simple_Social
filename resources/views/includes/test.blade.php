@@ -30,22 +30,51 @@
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg> <input class="bg-transparent border-0 form-input" placeholder="Search for articles..." />
             </div>
+
+
             @guest
             <div class="flex flex-row">
             @include('includes.register_modal')
             @include('includes.login_modal')
             </div>
             @endguest
+
             @auth
-                <div class="flex items-center"> <a href="#" class="flex text-gray-500"> <i class="fa-solid fa-bell"></i>
-                    </a>
-                    <a href="#" class="ml-4 mr-4 avatar avatar-sm"> <img src="./img/Ellipse2.png" alt="Photo" /> </a>
-                    <div class="flex items-center justify-center">
-                        <a href="/logout"
-                            class="px-4 py-2 mx-1 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-gray-300 focus:ring-opacity-50" />
-                        Logout
-                        </a>
-                    </div>
+                <div class="flex items-center"> <a href="#" class="flex text-gray-500"> <i class="fa-solid fa-bell pr-4"></i>
+                    <div class="relative" x-data="{ isOpen: false}">
+                        <button 
+                                @click="isOpen = !isOpen" 
+                                @keydown.escape="isOpen = false" 
+                                class="flex items-center" 
+                        >
+                            <img src="./img/Ellipse2.png" alt="Photo" class="pt-1 h-12 w-12" /> 
+                        
+                        </button>
+                        <ul x-show="isOpen"
+                        @click.away="isOpen = false"
+                        class="absolute font-normal bg-white shadow overflow-hidden rounded w-48 border mt-2 py-1 right-0 z-20"
+                    >  
+                        <li>
+                            <a href="#" class="flex items-center px-3 py-3 hover:bg-gray-200">
+                                <i class="fa-solid fa-user pr-2 text-gray-500"></i>
+                                <span class="ml-2">Profil</span>
+                            </a>
+                        </li>
+                        <li class="border-b border-gray-400">
+                            <a href="#" class="flex items-center px-3 py-3 hover:bg-gray-200">
+                                <i class="fa-solid fa-gear pr-2 text-gray-500"></i>
+                                <span class="ml-2">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="flex items-center px-3 py-3 hover:bg-gray-200">
+                                <i class="fa-solid fa-right-from-bracket pr-2 text-gray-500"></i>
+                                <span class="ml-2">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                      
                 @endauth
 
             </div>
