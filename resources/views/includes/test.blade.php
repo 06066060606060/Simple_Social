@@ -1,5 +1,5 @@
 <section class="min-h-screen bg-gray-50" x-data="{ sideBar: false }">
-    <nav class="fixed top-0 left-0 z-20 h-full pb-10 overflow-x-hidden overflow-y-auto transition origin-left transform bg-gray-900 w-60 md:translate-x-0"
+    <nav class="absolute left-0 z-20 h-full pb-10 overflow-x-hidden overflow-y-auto transition origin-left transform bg-gray-900 w-60 md:translate-x-0"
         :class="{ '-translate-x-full': !sideBar, 'translate-x-0': sideBar }" @click.away="sideBar = false"> <a href="/"
             class="flex items-center px-4 py-5"> <img src="/brand/kutty-logo-white.png" alt="Kutty Logo"
                 class="w-20" /> </a>
