@@ -76,6 +76,14 @@
     <div class="ml-0 transition md:ml-60">
         <header class="flex items-center justify-between w-full px-4 h-14"> <button
                 class="block btn btn-light-secondary md:hidden" @click.stop="sideBar = true"> <span
+<<<<<<< HEAD
+                    class="sr-only">Menu</span><i class="fa-brands fa-github" id="github"></i> </button>
+            <div class="hidden -ml-3 form-icon md:block w-96"> <i class="fa-brands fa-github" id="github"></i>
+                <input class="bg-transparent border-0 form-input" placeholder="Search for articles..." />
+            </div>
+            <div class="flex items-center"> <a href="#" class="flex text-gray-500"> <i class="fa-brands fa-github"
+                        id="github"></i> </a> <a href="#" class="ml-4 avatar avatar-sm"> <img src="/placeholder.jpg"
+=======
                     class="sr-only">Menu</span> <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
@@ -92,6 +100,7 @@
                         <path
                             d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
                     </svg> </a> <a href="#" class="ml-4 avatar avatar-sm"> <img src="/placeholder.jpg"
+>>>>>>> 0ac62f25783138f464a5c9368ae002ae5e7619de
                         alt="Photo of Praveen Juge" /> </a> </div>
         </header>
         <div class="p-4">
