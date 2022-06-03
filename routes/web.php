@@ -31,3 +31,4 @@ Route::get('/login', [AuthController::class, 'logged'])->name('login');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/profile', [AuthController::class, 'profile'])->name('profile');

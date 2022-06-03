@@ -20,34 +20,32 @@
 
 
     <div class="ml-0 transition md:ml-60">
-        <header class="flex items-center justify-between w-full px-4 h-14"> <button class="block btn btn-light-secondary md:hidden" @click.stop="sideBar = true"> <span class="sr-only">Menu</span> <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+        <header class="flex items-center justify-between w-full px-4 h-14"> <button
+                class="block btn btn-light-secondary md:hidden" @click.stop="sideBar = true"> <span
+                    class="sr-only">Menu</span> <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                        clip-rule="evenodd" />
                 </svg> </button>
-            <div class="hidden -ml-3 form-icon md:block w-96"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <div class="hidden -ml-3 form-icon md:block w-96"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg> <input class="bg-transparent border-0 form-input" placeholder="Search for articles..." /> </div>
-            <div class="flex items-center"> <a href="#" class="flex text-gray-500"> <svg class="w-5 h-5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
-                    </svg> </a> <a href="#" class="ml-4 avatar avatar-sm"> <img src="./img/Ellipse2.png" alt="Photo of Praveen Juge" /> </a> </div>
+            <div class="flex items-center"> <a href="#" class="flex text-gray-500"> <svg class="w-5 h-5 shrink-0"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                            d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+                    </svg> </a> <a href="#" class="ml-4 avatar avatar-sm"> <img src="./img/Ellipse2.png"
+                        alt="Photo of Praveen Juge" /> </a> </div>
         </header>
         <div class="p-4">
-            <!-- Add content here, remove div below -->
-            <div class="-mt-2 border-4 border-dashed rounded h-96"></div>
-        </div>
-    </div> <!-- Sidebar Backdrop -->
-    <div class="fixed inset-0 z-10 w-screen h-screen bg-black bg-opacity-25 md:hidden" x-show.transition="sideBar"
-        x-cloak></div>
+            @include('includes.profiletest')
+
+        </div> <!-- Sidebar Backdrop -->
+        <div class="fixed inset-0 z-10 w-screen h-screen bg-black bg-opacity-25 md:hidden" x-show.transition="sideBar"
+            x-cloak></div>
 </section>
-
-<!-- component -->
-<ul class="flex w-auto font-sans border rounded border-slate-500">
-    <li><a class="block px-3 py-2 text-blue-500 border-r hover:text-white hover:bg-blue-500 border-slate-500" href="#">Previous</a></li>
-    <li><a class="block px-3 py-2 text-blue-500 border-r hover:text-white hover:bg-blue-500 border-slate-500" href="#">1</a></li>
-    <li><a class="block px-3 py-2 text-blue-500 border-r hover:text-white hover:bg-blue-500 border-slate-500" href="#">2</a></li>
-    <li><a class="block px-3 py-2 text-blue-500 border-r hover:text-white hover:bg-blue-500 border-slate-500" href="#">3</a></li>
-    <li><a class="block px-3 py-2 text-blue-500 hover:text-white hover:bg-blue-500" href="#">Next</a></li>
-  </ul>
-    
-
 
 

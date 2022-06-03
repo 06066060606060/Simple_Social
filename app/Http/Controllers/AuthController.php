@@ -59,4 +59,9 @@ class AuthController extends Controller
         $request->session()->invalidate();
         return redirect('/');
     }
+
+    public function profile()
+    {
+        return view('includes.profiletest');
+    }
 }
