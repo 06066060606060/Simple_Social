@@ -46,7 +46,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials, $remember = true)) {
             $request->session()->regenerate();
-            return redirect()->intended('test')->with('logged', 'user logged');
+            return redirect('/')->with('logged', 'user logged');
         }
         return view('error');
     }
