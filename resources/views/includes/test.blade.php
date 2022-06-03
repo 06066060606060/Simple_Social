@@ -1,8 +1,7 @@
 <section class="min-h-screen bg-gray-50" x-data="{ sideBar: false }">
     <nav class="absolute left-0 z-20 h-full pb-10 overflow-x-hidden overflow-y-auto transition origin-left transform bg-gray-900 w-60 md:translate-x-0"
         :class="{ '-translate-x-full': !sideBar, 'translate-x-0': sideBar }" @click.away="sideBar = false"> <a href="/"
-            class="flex items-center px-4 py-5"> <img src="/brand/kutty-logo-white.png" alt="Kutty Logo"
-                class="w-20" /> </a>
+            class="flex items-center px-2 py-2"> <img src="/img/logo.png" alt="Kutty Logo" /> </a>
         <nav class="text-sm font-medium text-gray-500" aria-label="Main Navigation"> <a
                 class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200"
                 href="#"> <i class="fa-brands fa-github" id="github"></i></a> <a
@@ -27,7 +26,7 @@
                 </svg> <input class="bg-transparent border-0 form-input" placeholder="Search for articles..." /> </div>
             <div class="flex items-center"> <a href="#" class="flex text-gray-500"> <svg class="shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
-                    </svg> </a> <a href="#" class="ml-4 avatar avatar-sm"> <img src="/placeholder.jpg" alt="Photo of Praveen Juge" /> </a> </div>
+                    </svg> </a> <a href="#" class="ml-4 avatar avatar-sm"> <img src="./img/Ellipse2.png" alt="Photo of Praveen Juge" /> </a> </div>
         </header>
         <div class="p-4">
             <!-- Add content here, remove div below -->
