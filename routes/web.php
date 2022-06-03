@@ -20,6 +20,9 @@ Route::get('/', function () {
 });
 
 Route::view('/test', 'test');
+
+Route::view('/ProfileTest', 'ProfileTest');
+
 // la partie authentication
 
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');

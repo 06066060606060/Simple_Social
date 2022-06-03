@@ -1,5 +1,5 @@
 @extends('layouts.app')
 @section('main')
-@include('includes.test')
+@include('includes.ProfileTest')
 @endsection
 
