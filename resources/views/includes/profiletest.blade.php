@@ -51,15 +51,16 @@
                 On and on and on</p>
             <p>...</p>
         </div>
-        
+
         <div class="flex  my-4  w-full mx-auto mb-6 space-x-2  md:w-3/4 lg:w-1/2">
 
             <a href="#" class=" avatar avatar-sm">
                 <img src="./img/Ellipse2.png" alt="Photo of Praveen Juge" />
             </a>
 
-            <input class="w-full rounded-lg placeholder:text-white  bg-slate-300 border-0 form-input" type="text" placeholder="Ecrivez un commentaire ">
-       
+            <input class="w-full rounded-lg placeholder:text-white  bg-slate-300 border-0 form-input" type="text"
+                placeholder="Ecrivez un commentaire ">
+
         </div>
 
         <div class="flex border-y border-gray-200  w-full mx-auto mb-6 space-x-2 text-left md:w-3/4 lg:w-1/2">
@@ -67,25 +68,28 @@
             <a href="#" class=" avatar avatar-sm">
                 <img src="./img/Ellipse2.png" alt="Photo of Praveen Juge" />
             </a>
-            <a href="">
-                <p class="text-base font-bold text-black lg: ml-3  "> jok pololo </p>
-            </a>
-            <div>
-
+            <div class="flex flex-col">
+                <a href="">
+                    <p class="text-base font-bold text-black lg: ml-3  "> jok pololo </p>
+                </a>
+                <p class="w-full rounded-lg placeholder:text-white  bg-slate-300 border-0">Lifе goes on and on and on
+                    and on and on and
+                    On and on and on
+                    On and on and on and on and on and
+                    On and on and on
+                    On and on and on and on and on and
+                    On and on and on
+                    On and on and on and on and on and
+                    On and on and on
+                </p>
+                <div class="flex  justify-end w-full mx-auto my-4 space-x-2   ">
+                    <i class="mr-3 fa-solid fa-thumbs-up "></i>
+                    <i class="page fa-solid fa-thumbs-down "></i>
+                    <i class="fa-solid page fa-share "></i>
+                    <i class="fa-solid page fa-ellipsis"></i>
+                </div>
             </div>
 
-        </div>
-
-        <div class="flex flex-col w-full mx-auto mb-6 space-x-2 text-left md:w-3/4 lg:w-1/2">
-            <div class=" -ml-3 form-icon md:block ">
-                <input class="w-full rounded  border-0 form-input" type="text" placeholder="Ecrivez un commentaire ">
-            </div>
-        </div>
-        <div class="flex items-center justify-end w-full mx-auto mb-6 space-x-2 text-left md:w-3/4 lg:w-1/2">
-            <i class="mr-3 fa-solid fa-thumbs-up "></i>
-            <i class="page fa-solid fa-thumbs-down "></i>
-            <i class="fa-solid page fa-share "></i>
-            <i class="fa-solid page fa-ellipsis"></i>
         </div>
 
         <div class="flex items-center w-full mx-auto mb-6 space-x-2 text-left md:w-3/4 lg:w-1/2">
