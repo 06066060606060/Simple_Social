@@ -28,17 +28,13 @@
                 No surprise the Devil Wears Prada, baby (Okay)
                 Feelin’ like I’m drownin’ in some lava lately (Yuh)
                 I taught you some game and you still tryna play me (Ha-ha, okay)
-                Gotta tell myself, “Keep your cool (Huh, yuh, huh), simmer down” (Huh, yuh)
-                They say shit that go around will come back around (Huh, huh, huh)
-                Try to keep my tool, huh, like a mechanic now (Huh, huh yuh)
-                No matter what goes down
             </p>
 
         {{-- like --}}
 
             <div class="flex flex-row justify-end w-full mx-auto my-4 space-x-2 px-1 mb-2 border-b border-gray-300">
               <a href="" > <i class="fa-solid fa-heart px-1 py-2"></i></a>
-              <span>13</span>
+              <span class="pt-1">13</span>
             </div>
         </div>
 

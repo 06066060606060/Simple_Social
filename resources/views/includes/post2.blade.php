@@ -27,11 +27,7 @@
                 I been seein’ you in designer lately (Yuh)
                 No surprise the Devil Wears Prada, baby (Okay)
                 Feelin’ like I’m drownin’ in some lava lately (Yuh)
-                I taught you some game and you still tryna play me (Ha-ha, okay)
-                Gotta tell myself, “Keep your cool (Huh, yuh, huh), simmer down” (Huh, yuh)
-                They say shit that go around will come back around (Huh, huh, huh)
-                Try to keep my tool, huh, like a mechanic now (Huh, huh yuh)
-                No matter what goes down
+
             </p>
 
         {{-- like --}}
