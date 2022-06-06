@@ -1,5 +1,4 @@
 @extends('layouts.app')
 @section('main')
-@include('includes.test')
+@include('includes.home')
 @endsection
-

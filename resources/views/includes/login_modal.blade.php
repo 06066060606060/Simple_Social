@@ -1,7 +1,7 @@
 <div x-data="{ modelOpen: false }">
 
     <button @click="modelOpen =!modelOpen"
-    class="flex items-center justify-center px-4 py-2 mx-1 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-800 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
+    class="flex items-center justify-center px-4 py-2 mx-1 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-800 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-gray-300 focus:ring-opacity-50">
     <span>Login</span>
 </button>
 
@@ -39,7 +39,7 @@
                             <input class="form-input" type="password" name="password" placeholder="••••••••" required />
                           </label>
                           <div class="flex items-center justify-center">
-                            <input type="submit"  class="px-4 py-2 mx-1 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-red-300 focus:ring-opacity-50" value="Login" />
+                            <input type="submit"  class="px-4 py-2 mx-1 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-gray-300 focus:ring-opacity-50" value="Login" />
                           </div>
                         </form>
                       </div>
