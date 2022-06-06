@@ -3,7 +3,7 @@
 
     <article class="px-4  py-24 mx-auto max-w-7xl" itemid="#" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="w-full mx-auto mb-10 text-left md:w-3/4 lg:w-1/2">
-            <div class="pb-6 mb-6 border-b border-gray-200">
+            <div class="pb-6 mb-6 ">
                 <div class="flex items-center my-4 border-t border-gray-200">
                     <a href="#" class=" avatar avatar-sm">
                         <img src="./img/Ellipse2.png" alt="Photo of Praveen Juge" />
@@ -24,7 +24,7 @@
 
             </div>
 
-            <img src="./img/logo.png" class="w-full h-64 bg-center rounded " alt="Kutty" />
+            <img src="./img/logo.png" class="w-full h-64 bg-center rounded border-y border-gray-200" alt="Kutty" />
         </div>
 
 
@@ -83,10 +83,10 @@
                     On and on and on
                 </p>
                 <div class="flex  justify-end w-full mx-auto my-4 space-x-2   ">
-                    <i class="mr-3 fa-solid fa-thumbs-up "></i>
-                    <i class="page fa-solid fa-thumbs-down "></i>
-                    <i class="fa-solid page fa-share "></i>
-                    <i class="fa-solid page fa-ellipsis"></i>
+                    <i class=" fa-solid fa-thumbs-up "></i>
+                    <i class=" fa-solid fa-thumbs-down "></i>
+                    <i class="fa-solid  fa-share "></i>
+                    <i class="fa-solid  fa-ellipsis"></i>
                 </div>
             </div>
 

@@ -9162,14 +9162,14 @@ a.dropdown-item, .prose a.dropdown-item {
 .ml-3 {
   margin-left: 0.75rem;
 }
-.-ml-3 {
-  margin-left: -0.75rem;
-}
 .mr-3 {
   margin-right: 0.75rem;
 }
 .ml-0 {
   margin-left: 0px;
+}
+.-ml-3 {
+  margin-left: -0.75rem;
 }
 .ml-4 {
   margin-left: 1rem;
@@ -9316,6 +9316,10 @@ a.dropdown-item, .prose a.dropdown-item {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
@@ -9326,18 +9330,6 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .bg-transparent {
   background-color: transparent;
-}
-.bg-slate-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
-}
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
-}
-.bg-slate-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
