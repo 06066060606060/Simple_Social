@@ -19,9 +19,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::view('/test', 'test');
-// la partie authentication
-
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
 
 Route::post('/registration', [AuthController::class, 'registration'])->name('registration');

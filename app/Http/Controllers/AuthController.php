@@ -28,7 +28,7 @@ class AuthController extends Controller
         $user->email = $validate['email'];
         $user->password = Hash::make($validate['password']);
         $user->save();
-        return redirect()->Route('login');
+        return redirect('/');
     }
 
     public function logged()
@@ -46,7 +46,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials, $remember = true)) {
             $request->session()->regenerate();
-            return redirect()->intended('test')->with('logged', 'user logged');
+            return redirect('/')->with('logged', 'user logged');
         }
         return view('error');
     }
