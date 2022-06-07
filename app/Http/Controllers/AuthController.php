@@ -64,4 +64,9 @@ class AuthController extends Controller
     {
         return view('includes.profiletest');
     }
+    public function listeAmis()
+    {
+        return view('includes.listeAmis');
+    }
+    
 }
