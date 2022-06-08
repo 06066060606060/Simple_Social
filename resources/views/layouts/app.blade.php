@@ -28,6 +28,9 @@
     </div>
 
     <div class="column side">
+      @auth
+      @include('includes.account')
+      @endauth
       @include('includes.right')
     </div>
 

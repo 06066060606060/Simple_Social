@@ -23,42 +23,40 @@ class Controller extends BaseController
         return view('includes.listeAmis');
     }
 
-    public function boucleBackend(){
+    public function boucleBackend()
+    {
         $users = User::All();
-       
-        return view('index', [
+
+        return view('back', [
 
             'users' => $users,
 
         ]);
+        return redirect()->route('backend');
     }
-  
+
 
     public function update(Request $request, $id)
     {
-  
-          
-        $users= User::where('id', '=', $id);
+
+
+        $users = User::where('id', '=', $id);
         $users->update([
             'pseudo' => $request->pseudo,
             'name' => $request->name,
             'email' => $request->email,
-            'password'=> Hash::make($request->password)
+            'password' => Hash::make($request->password)
         ]);
 
-    return redirect('/')->with('modifié','Film modifié');
-    
+        return redirect('/')->with('modifié', ' modifié');
     }
 
     public function delete($id)
     {
-        
-        $user = User::where('id','=',$id);
-        
-        $user->delete();
-        return redirect('/');
-        
-        
-}
-}
 
+        $user = User::where('id', '=', $id);
+
+        $user->delete();
+        return redirect('/backend');
+    }
+}

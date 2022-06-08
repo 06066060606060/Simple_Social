@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
 
 Route::post('/registration', [AuthController::class, 'registration'])->name('registration');
@@ -30,7 +31,7 @@ Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('aut
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/', [Controller::class, 'boucleBackend']);
+Route::get('/backend', [Controller::class, 'boucleBackend']);
 
 Route::delete('/delete/{id}', [Controller::class, 'delete'])->whereNumber('id')->name('delete');
 

@@ -1,4 +1,4 @@
-<nav class="pt-8 text-gray-500">
+<nav class="pt-4 text-gray-500">
     <h1 class="mb-3 text-center text-gray-300">
         Liste d'Amis
     </h1>
