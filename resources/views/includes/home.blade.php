@@ -60,10 +60,11 @@
     {{-- BOUCLE MUR ACCUEIL --}}
     <div class="flex flex-row">
         <div class="flex flex-col w-3/4" x-show="mur">
-            @include('includes.post')
+            {{-- @include('includes.post')
             @include('includes.post2')
             @include('includes.post')
-            @include('includes.post2')
+            @include('includes.post2') --}}
+            @include('includes.decouvrir')
         </div>
         <div class="flex flex-col w-3/4" x-show="settings">
             @include('includes.backend')
