@@ -84,12 +84,12 @@ img{
 
 /* Left and right column */
 .column.side {
-  width: 25%;
+  width: 20%;
 }
 
 /* Middle column */
 .column.middle {
-  width: 50%;
+  width: 60%;
 }
 
 /* Clear floats after the columns */
@@ -98,6 +98,8 @@ img{
   display: table;
   clear: both;
 }
+
+
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {

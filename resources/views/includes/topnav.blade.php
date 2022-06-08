@@ -1,4 +1,4 @@
-<section class="flex items-center justify-between w-full h-24 px-4 pt-1">
+<section class="flex items-center justify-between w-full h-64 px-4 pt-1">
 
     <div class="form-icon md:block w-96">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

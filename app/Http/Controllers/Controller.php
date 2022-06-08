@@ -60,5 +60,15 @@ class Controller extends BaseController
         
         
 }
+
+public function boucleListeAmis(){
+    $users = User::All();
+   
+    return view('LiAmis', [
+
+        'users' => $users,
+
+    ]);
+}
 }
 

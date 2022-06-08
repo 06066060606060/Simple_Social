@@ -1,5 +1,5 @@
 
-<div x-cloak class="px-4 pt-1">
+<div class="px-4 pt-1">
     <div class="text-gray-800 bg-gray-100" x-data="{ selected: 'option-1' }">
         <nav class="bg-gray-300">
             <ul class="flex font-bold">

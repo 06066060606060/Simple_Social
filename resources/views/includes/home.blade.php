@@ -1,3 +1,3 @@
    <div class="flex flex-row">
-            @include('includes.post')
+            @include('includes.LiAmis')
     </div>
