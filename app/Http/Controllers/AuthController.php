@@ -19,6 +19,7 @@ class AuthController extends Controller
     public function registration(Request $request)
     {
         $validate = $request->validate([
+            'pseudo' => 'required',
             'name' => 'required',
             'email' => 'required|unique:users,email|max:255',
             'password' => 'required',
@@ -26,6 +27,7 @@ class AuthController extends Controller
 
         $user = new User();
         $user->name = $validate['name'];
+        $user->pseudo = $validate['pseudo'];
         $user->email = $validate['email'];
         $user->password = Hash::make($validate['password']);
         $user->save();
@@ -81,20 +83,7 @@ class AuthController extends Controller
     }
   
 
-    public function update(Request $request, $id)
-    {
-  
-          
-        $users= User::where('id', '=', $id);
-        $users->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password'=> Hash::make($request->password)
-        ]);
-
-    return redirect('/')->with('modifié','Film modifié');
-    
-    }
+   
 
     public function delete($id)
     {
