@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 7f4987fc1a856e823e98ae3f4b11564985f8841f
 <div x-cloak class="px-4 pt-1">
     <div class="text-gray-800 bg-gray-100" x-data="{ selected: 'option-1' }">
         <nav class="bg-gray-300">

@@ -51,8 +51,6 @@ img{
   align-items: center;
   border-bottom: 4px solid rgb(17, 24, 39);
 }
-<<<<<<< HEAD
-=======
 
 .header {
   text-align: center;
@@ -86,12 +84,12 @@ img{
 
 /* Left and right column */
 .column.side {
-  width: 25%;
+  width: 20%;
 }
 
 /* Middle column */
 .column.middle {
-  width: 50%;
+  width: 60%;
 }
 
 /* Clear floats after the columns */
@@ -107,4 +105,3 @@ img{
     width: 100%;
   }
 }
->>>>>>> 7f4987fc1a856e823e98ae3f4b11564985f8841f
