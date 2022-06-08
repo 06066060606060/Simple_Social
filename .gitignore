@@ -17,4 +17,8 @@ public/css/app.css
 <<<<<<< HEAD
 =======
 /public/css/app.css
+<<<<<<< HEAD
 >>>>>>> edac13baad9baf897e037251ab7e15044591b1b1
+=======
+public/{css,js,build}
+>>>>>>> 7f4987fc1a856e823e98ae3f4b11564985f8841f
