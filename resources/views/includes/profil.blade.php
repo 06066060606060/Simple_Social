@@ -1,7 +1,7 @@
 
-<section class="px-4 pt-1 mx-auto max-w-7xl">
-    <h1 class="mb-3 text-3xl font-bold text-center text-gray-900 md:leading-tight md:text-4xl">
- Profil:
+<section class="mx-4 mt-1 bg-gray-100 max-w-7xl">
+    <h1 class="mb-3 text-3xl font-bold text-center text-black md:leading-tight md:text-4xl">
+ Profil
     </h1>
     <div class="w-full mx-auto text-left bg-gray-100 lg:w-full md:text-center">
         <div class="" style="background-image:url('./img/backg.jpeg')">

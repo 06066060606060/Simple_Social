@@ -1,5 +1,9 @@
 <div class="shadow-sm">
+<<<<<<< HEAD
     <div class="flex items-center justify-between px-4 py-2 mx-auto" >
+=======
+    <div class="flex items-center justify-between px-4 py-1 mx-auto" >
+>>>>>>> 4bd216b123f8591a2e8d04cf3c9eb8889904b8b8
 
       <div class="flex items-center space-x-4">
   
@@ -36,10 +40,16 @@
   
       <nav class="items-center hidden space-x-8 text-sm font-medium lg:justify-end lg:flex lg:flex-1 lg:w-0">
       @auth
+<<<<<<< HEAD
         <a class="text-gray-900" href="backend">Backend</a>
         <a class="text-gray-900" href="">test</a>
         <a class="text-gray-900" href="">test1</a>
         <a class="flex-shrink-0 pl-4 text-gray-900" href="/logout">logout</a>
+=======
+        <a class="text-gray-900" href="backend">Administration</a>
+        <a class="text-gray-900" href=""><i class="ml-2 -mt-6 text-white fa-solid fa-gear hover:text-black"></i></a>
+          <a class="pl-4" href="/logout"><i class="ml-4 -mt-6 text-white fa-solid fa-right-from-bracket hover:text-black"></i></a>
+>>>>>>> 4bd216b123f8591a2e8d04cf3c9eb8889904b8b8
       @endauth
     </nav>
       @guest
@@ -58,13 +68,23 @@
         <nav
           class="flex items-center justify-center overflow-x-auto text-sm font-medium"
         >
+<<<<<<< HEAD
         <a class="text-gray-900" href="backend">Backend</a>
         <a class="text-gray-900" href="">test</a>
         <a class="text-gray-900" href="">test1</a>
           <a class="flex-shrink-0 pl-4 text-gray-900" href="/logout">logout</a>
+=======
+        <a class="text-gray-900" href="backend">Administration</a>
+        <a class="text-gray-900" href=""><i class="ml-2 -mt-6 text-white fa-solid fa-gear hover:text-black"></i></a>
+          <a class="pl-4 text-gray-900" href="/logout"><i class="ml-4 -mt-6 text-white fa-solid fa-right-from-bracket hover:text-black"></i></a>
+>>>>>>> 4bd216b123f8591a2e8d04cf3c9eb8889904b8b8
         </nav>
       </div>
     @endauth
    
+<<<<<<< HEAD
   </div>
    
+=======
+  </div>
+>>>>>>> 4bd216b123f8591a2e8d04cf3c9eb8889904b8b8
