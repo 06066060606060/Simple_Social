@@ -9,7 +9,7 @@
                 <img src="/img/avatar.png" class="w-24 h-24 rounded-full" alt="Logo" />
             </div>
         </div>
-        <h1 class="p-2 mb-6 text-xs font-bold tracking-widest text-purple-900 uppercase">Praveen Juge</h1>
+        <h1 class="p-2 mb-6 text-xs font-bold tracking-widest text-purple-900 uppercase">{{ Auth::user()->name }}</h1>
       <p class="p-4 mb-6 text-xl font-bold text-gray-900 md:leading-tight md:text-3xl">
         “With their reliable and developer-friendly tools, our engineering team is freed up to focus on product and customer experiences.”
       </p>
