@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,9 @@ Route::get('/login', [AuthController::class, 'logged'])->name('login');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/', [Controller::class, 'boucleBackend']);
+
+Route::delete('/delete/{id}', [Controller::class, 'delete'])->whereNumber('id')->name('delete');
+
+Route::post('/update/{id}', [Controller::class, 'update'])->whereNumber('id')->name('update');
