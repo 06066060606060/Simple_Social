@@ -19,12 +19,15 @@ Route::get('/', function () {
     return view('index');
 });
 
+<<<<<<< HEAD
 Route::view('/test', 'test');
 
 Route::view('/ProfileTest', 'ProfileTest');
 
 // la partie authentication
 
+=======
+>>>>>>> edac13baad9baf897e037251ab7e15044591b1b1
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
 
 Route::post('/registration', [AuthController::class, 'registration'])->name('registration');

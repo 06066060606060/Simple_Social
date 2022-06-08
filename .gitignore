@@ -14,3 +14,7 @@ yarn-error.log
 /.idea
 /.vscode
 public/css/app.css
+<<<<<<< HEAD
+=======
+/public/css/app.css
+>>>>>>> edac13baad9baf897e037251ab7e15044591b1b1
