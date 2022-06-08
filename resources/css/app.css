@@ -79,6 +79,7 @@ img{
 .column {
   float: left;
   background-color: rgb(17, 24, 39);
+ height: 200vh;
 }
 
 /* Left and right column */

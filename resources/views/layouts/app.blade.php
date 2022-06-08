@@ -29,7 +29,7 @@
 
     <div class="column side">
       @auth
-      @include('includes.account')
+      @include('includes.logged')
       @endauth
       @include('includes.right')
     </div>

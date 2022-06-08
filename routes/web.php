@@ -31,6 +31,10 @@ Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('aut
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/profil', [Controller::class, 'boucleProfil']);
+
+Route::get('/amis', [Controller::class, 'listeAmis']);
+
 Route::get('/backend', [Controller::class, 'boucleBackend']);
 
 Route::delete('/delete/{id}', [Controller::class, 'delete'])->whereNumber('id')->name('delete');

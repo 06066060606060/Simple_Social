@@ -64,5 +64,12 @@
             </div>
 
         </div>
+        <div x-show.transition.in.opacity.duration.750ms="selected === 'option-2'" class="p-4">
+test
+        </div>
+
+        <div x-show.transition.in.opacity.duration.750ms="selected === 'option-3'" class="p-4">
+          ...
+      </div>
     </div>
 </div>

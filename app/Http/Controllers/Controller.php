@@ -20,7 +20,7 @@ class Controller extends BaseController
     }
     public function listeAmis()
     {
-        return view('includes.listeAmis');
+        return view('amis');
     }
 
     public function boucleBackend()
@@ -35,6 +35,17 @@ class Controller extends BaseController
         return redirect()->route('backend');
     }
 
+    public function boucleProfil()
+    {
+        $users = User::All();
+
+        return view('account', [
+
+            'users' => $users,
+
+        ]);
+        return redirect()->route('profil');
+    }
 
     public function update(Request $request, $id)
     {
