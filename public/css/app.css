@@ -9889,7 +9889,7 @@ img{
      }
 
 .banner{
-  z-index: 100;
+  z-index: 10;
   position: -webkit-sticky;
   position: sticky;
   background-size: cover;

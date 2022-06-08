@@ -5,7 +5,7 @@
         <span>Register</span>
     </button>
 
-    <div x-cloak x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
+    <div x-cloak x-show="modelOpen" class="fixed inset-0 overflow-y-auto z-100 overflow" aria-labelledby="modal-title"
         role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
             <div x-cloak @click="modelOpen = false" x-show="modelOpen"
@@ -22,7 +22,7 @@
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
 
-                <section>
+                <section class="">
                     <div class="flex items-center justify-center space-x-4">
                         <h1 class="text-4xl font-medium text-gray-800">Créer un compte</h1>
 
@@ -35,9 +35,9 @@
                         <div>
                             <div class="flex flex-row pb-2">
                                 <div class="w-1/3 mt-4">
-                                    <label for="name"
+                                    <label for="pseudo"
                                         class="block text-sm text-gray-700 capitalize dark:text-gray-600">Pseudo</label>
-                                    <input type="text" name="name"
+                                    <input type="text" name="pseudo"
                                         class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
                                         required>
                                 </div>
@@ -51,6 +51,13 @@
                                 <div class="w-1/3">
                                     <img id="img-output">
                                 </div>
+                            </div>
+                            <div>
+                                <label for="name"
+                                    class="block text-sm text-gray-700 capitalize dark:text-gray-600">Nom Prénom</label>
+                                <input type="text" name="name" placeholder=""
+                                    class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
+                                    required>
                             </div>
                             <div>
                                 <label for="email"

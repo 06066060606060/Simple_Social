@@ -73,6 +73,7 @@
         </div>
 
         {{--  --}}
+        
         <div class="flex w-1/4 h-screen mt-1 bg-gray-900">
 
             {{-- BOUCLE SUGGESTION D AMIS --}}
