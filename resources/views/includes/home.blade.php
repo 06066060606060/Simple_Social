@@ -60,7 +60,7 @@
     {{-- BOUCLE MUR ACCUEIL --}}
     <div class="flex flex-row">
         <div class="flex flex-col w-3/4" x-show="mur">
-            @include('includes.post')
+            @include('includes.LiAmis')
 
         </div>
         <div class="flex flex-col w-3/4" x-show="settings">
