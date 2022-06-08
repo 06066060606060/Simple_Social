@@ -9426,6 +9426,9 @@ a.dropdown-item, .prose a.dropdown-item {
 .h-6 {
   height: 1.5rem;
 }
+.h-24 {
+  height: 6rem;
+}
 .h-10 {
   height: 2.5rem;
 }
@@ -9476,6 +9479,9 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .w-6 {
   width: 1.5rem;
+}
+.w-24 {
+  width: 6rem;
 }
 .w-1\/3 {
   width: 33.333333%;
@@ -9830,6 +9836,9 @@ a.dropdown-item, .prose a.dropdown-item {
 .font-normal {
   font-weight: 400;
 }
+.uppercase {
+  text-transform: uppercase;
+}
 .capitalize {
   text-transform: capitalize;
 }
@@ -9847,6 +9856,9 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .tracking-wide {
   letter-spacing: 0.025em;
+}
+.tracking-widest {
+  letter-spacing: 0.1em;
 }
 .text-gray-500 {
   --tw-text-opacity: 1;
@@ -9895,6 +9907,10 @@ a.dropdown-item, .prose a.dropdown-item {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-purple-900 {
+  --tw-text-opacity: 1;
+  color: rgb(88 28 135 / var(--tw-text-opacity));
 }
 .placeholder-gray-400::-moz-placeholder {
   --tw-placeholder-opacity: 1;
@@ -10014,7 +10030,7 @@ img{
      }
 
 .banner{
-  z-index: 10;
+  z-index: 100;
   position: -webkit-sticky;
   position: sticky;
   background-size: cover;
@@ -10260,6 +10276,11 @@ img{
     line-height: 2.5rem;
   }
 
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .md\:leading-tight {
     line-height: 1.25;
   }
@@ -10289,6 +10310,10 @@ img{
 
   .lg\:w-32 {
     width: 8rem;
+  }
+
+  .lg\:w-full {
+    width: 100%;
   }
 
   .lg\:max-w-screen-xl {
@@ -10333,3 +10358,4 @@ img{
     max-width: 42rem;
   }
 }
+

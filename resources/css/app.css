@@ -40,7 +40,7 @@ img{
      }
 
 .banner{
-  z-index: 10;
+  z-index: 100;
   position: sticky;
   background-size: cover;
   top: 0;

@@ -1,5 +1,5 @@
 <div class="ml-0 transition md:ml-60 z-1">
-    <section class="flex items-center justify-between w-full px-4 h-14 pt-1">
+    <section class="flex items-center justify-between w-full px-4 pt-1 h-14">
         <button class="block btn btn-light-secondary md:hidden" @click.stop="sideBar = true">
             <span class="sr-only">Menu</span>
             <i class="fa-solid fa-bars"></i>
@@ -9,7 +9,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg> <input class="bg-gray-50 border-0 form-input" placeholder="Recherche..." />
+            </svg> <input class="border-0 bg-gray-50 form-input" placeholder="Recherche..." />
         </div>
 
 
@@ -31,13 +31,13 @@
                         <ul x-show="isOpen" @click.away="isOpen = false"
                             class="absolute right-0 z-20 w-48 py-1 mt-2 overflow-hidden font-normal bg-gray-900 border rounded shadow ">
                             <li>
-                                <a href="#" class="flex items-center px-3 py-3 hover:bg-gray-800 hover:text-gray-200">
+                                <a href="#" @click="profils = true, mur = false, settings = false"  class="flex items-center px-3 py-3 hover:bg-gray-800 hover:text-gray-200">
                                     <i class="pr-2 text-gray-300 fa-solid fa-user"></i>
                                     <span class="ml-2">Profil</span>
                                 </a>
                             </li>
                             <li class="border-b border-black">
-                                <a href="#" @click="settings = true, mur = false"
+                                <a href="#" @click="settings = true, mur = false, profils = false"
                                     class="flex items-center px-3 py-3 hover:bg-gray-800 hover:text-gray-200">
                                     <i class="pr-2 text-gray-300 fa-solid fa-gear"></i>
                                     <span class="ml-2">Administration</span>
@@ -61,27 +61,31 @@
     <div class="flex flex-row">
         <div class="flex flex-col w-3/4" x-show="mur">
             @include('includes.post')
-            @include('includes.post2')
-            @include('includes.post')
-            @include('includes.post2')
+
         </div>
         <div class="flex flex-col w-3/4" x-show="settings">
             @include('includes.backend')
         </div>
+
+        <div class="flex flex-col w-3/4" x-show="profils">
+            @include('includes.profil')
+
+        </div>
+
         {{--  --}}
-        <div class="flex bg-gray-900 w-1/4 h-screen mt-1">
+        <div class="flex w-1/4 h-screen mt-1 bg-gray-900">
 
             {{-- BOUCLE SUGGESTION D AMIS --}}
             <div class="flex flex-col w-full">
 
                 <div class="flex flex-row items-center text-xs lg:text-base ">
-                    <i class="fa-solid fa-users text-gray-400 pl-4 lg:pl-10"></i>
-                    <h1 class="block py-4 lg:pl-4 text-gray-500 md:pl-2 pl-1">Suggestions d'amis</h1>
+                    <i class="pl-4 text-gray-400 fa-solid fa-users lg:pl-10"></i>
+                    <h1 class="block py-4 pl-1 text-gray-500 lg:pl-4 md:pl-2">Suggestions d'amis</h1>
                 </div>
 
                 <div class="w-auto">
-                    <div class="border-y border-gray-800">
-                        <a class="flex items-center px-1 py-3 transition cursor-pointer group text-gray-500 hover:bg-gray-800 hover:text-gray-200 lg:pl-8"
+                    <div class="border-gray-800 border-y">
+                        <a class="flex items-center px-1 py-3 text-gray-500 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200 lg:pl-8"
                             href="#">
                             <img class="w-8 h-8 ml-4 rounded-full" src="./img/Ellipse2.png" alt="Avatar" />
                             <span class="pl-2">John Doe</span>
@@ -90,8 +94,8 @@
                 </div>
 
                 <div class="w-auto">
-                    <div class="border-y border-gray-800">
-                        <a class="flex items-center px-1 py-3 transition cursor-pointer group text-gray-500 hover:bg-gray-800 hover:text-gray-200 lg:pl-8"
+                    <div class="border-gray-800 border-y">
+                        <a class="flex items-center px-1 py-3 text-gray-500 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200 lg:pl-8"
                             href="#">
                             <img class="w-8 h-8 ml-4 rounded-full" src="./img/Ellipse2.png" alt="Avatar" />
                             <span class="pl-2">John Doe</span>
@@ -100,8 +104,8 @@
                 </div>
 
                 <div class="w-auto">
-                    <div class="border-y border-gray-800">
-                        <a class="flex items-center px-1 py-3 transition cursor-pointer group text-gray-500 hover:bg-gray-800 hover:text-gray-200 lg:pl-8"
+                    <div class="border-gray-800 border-y">
+                        <a class="flex items-center px-1 py-3 text-gray-500 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200 lg:pl-8"
                             href="#">
                             <img class="w-8 h-8 ml-4 rounded-full" src="./img/Ellipse2.png" alt="Avatar" />
                             <span class="pl-2">John Doe</span>
