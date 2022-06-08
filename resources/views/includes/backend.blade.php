@@ -1,6 +1,6 @@
 
-<div x-cloak class="pt-1 px-4">
-    <div class="bg-gray-100 text-gray-800" x-data="{ selected: 'option-1' }">
+<div x-cloak class="px-4 pt-1">
+    <div class="text-gray-800 bg-gray-100" x-data="{ selected: 'option-1' }">
         <nav class="bg-gray-300">
             <ul class="flex font-bold">
                 <li class="px-4 py-2" x-bind:class="{ 'bg-gray-100': selected === 'option-1' }">
@@ -16,16 +16,16 @@
         </nav>
     
           <div x-show.transition.in.opacity.duration.750ms="selected === 'option-1'" class="p-4">
-            <div class="text-gray-900 tracking-wider leading-normal">
+            <div class="leading-normal tracking-wider text-gray-900">
               <div class="w-full px-2">
           
-                  <div id='recipients' class="p-4 mt-6 lg:mt-0 rounded shadow bg-white">
+                  <div id='recipients' class="p-4 mt-6 bg-white rounded shadow lg:mt-0">
                       <table class="w-full">
                           <thead>
-                              <div class="text-center font-bold break-normal py-2 text-xl md:text-2xl mb-1">
+                              <div class="py-2 mb-1 text-xl font-bold text-center break-normal md:text-2xl">
                                   <h1 class=>Liste des Utilisateurs:</h1>
                               </div>
-                              <tr class="border rounded bg-gray-400">
+                              <tr class="bg-gray-400 border rounded">
                                   <th class="px-2">Avatar</th>
                                   <th class="px-2">Pseudo</th>
                                   <th class="px-2">Email</th>
@@ -37,27 +37,16 @@
                           <tbody>
           
                               {{-- BOUCLE USER --}}
-          
+                            @foreach ( $users as $user )
+                                
+                           
                               <tr class="text-center border-b">
-                                  <td class="px-2 py-2"><img class="mx-auto py-2" src="./img/Ellipse2.png" alt=""></td>
-                                  <td class="px-2 text-blue-600"><a href="">Tiger Nixon</a></td>
-                                  <td class="px-2">Sycdcdcdcdcste@gmail.com</td>
+                                  <td class="px-2 py-2"><img class="py-2 mx-auto" src="./img/Ellipse2.png" alt=""></td>
+                                  <td class="px-2 text-blue-600"><a href="">{{$user->name}}</a></td>
+                                  <td class="px-2">{{$user->email}}</td>
                                   <td class="px-2">admin</td>
                                   <td class="px-2">1</td>
-                                  <td class="flex flex-row justify-center px-2 mt-2 pt-4">
-                                      @auth
-                                          @include('includes.edit')
-                                          @include('includes.delete')
-                                      @endauth
-                                  </td>
-                              </tr>
-                              <tr class="text-center border-b">
-                                  <td class="px-2 py-2"><img class="mx-auto py-2" src="./img/Ellipse2.png" alt=""></td>
-                                  <td class="px-2 text-blue-600"><a href="">Tiger Nixon</a></td>
-                                  <td class="px-2">Sycdcdcdcdcste@gmail.com</td>
-                                  <td class="px-2">admin</td>
-                                  <td class="px-2">1</td>
-                                  <td class="flex flex-row justify-center px-2 mt-2 pt-4">
+                                  <td class="flex flex-row justify-center items-center px-2 pt-4 mt-2">
                                       @auth
                                           @include('includes.edit')
                                           @include('includes.delete')
@@ -66,7 +55,10 @@
                               </tr>
                              
                              
-          
+                              @endforeach
+                             
+                             
+    
           
                               {{-- FIN  BOUCLE USER --}}
           

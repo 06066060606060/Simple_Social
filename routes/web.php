@@ -16,7 +16,7 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index')->name('index');
 });
 
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
@@ -28,3 +28,10 @@ Route::get('/login', [AuthController::class, 'logged'])->name('login');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/', [AuthController::class, 'boucleBackend']);
+
+Route::delete('/delete/{id}', [AuthController::class, 'delete'])->whereNumber('id')->name('delete');
+
+Route::post('/update/{id}', [AuthController::class, 'update'])->whereNumber('id')->name('update');
+

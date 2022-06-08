@@ -7,8 +7,6 @@
 @import "~@fortawesome/fontawesome-free/css/brands";
 
 
-<<<<<<< HEAD
-=======
 *::selection{
     background-color: rgb(4, 0, 66);
     color: white;
@@ -53,4 +51,3 @@ img{
   align-items: center;
   border-bottom: 4px solid rgb(17, 24, 39);
 }
->>>>>>> edac13baad9baf897e037251ab7e15044591b1b1
