@@ -1,6 +1,6 @@
 <div class="mx-4 my-1 rounded">
     <article class="px-4 pt-2 bg-gray-100 max-w-7xl">
-        <form method="post" action="/addpost">
+        <form method="post" action="/addpost" enctype="multipart/form-data">
         {{-- ajouter commentaires --}}
         <div class="flex flex-row w-full mt-2 space-x-2">
             <img src="{{ Storage::url(Auth::user()->photo) }}" class="w-12 h-12 pt-1 rounded-full" />

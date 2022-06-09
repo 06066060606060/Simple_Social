@@ -93,14 +93,11 @@ class Controller extends BaseController
 
 public function AddPost(Request $request)
 {
-    $validate = $request->validate([
-        'content' => 'required',
-    ]);
-    dd($request);
+   
     $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
     $post = new Posts();
     $post->user_id = $request->id;
-    $post->content = $validate['content'];
+    $post->content = $request->content;
     $post->image = $path;
     $post->save();
     return redirect('/')->with('ajouté', ' ');
