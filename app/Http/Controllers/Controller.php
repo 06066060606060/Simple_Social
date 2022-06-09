@@ -37,8 +37,8 @@ class Controller extends BaseController
 
     public function boucleProfil()
     {
-        $users = User::All();
-
+        $users = User::with('id','=', 2);
+        
         return view('account', [
 
             'users' => $users,

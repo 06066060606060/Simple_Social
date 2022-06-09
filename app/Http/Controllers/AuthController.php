@@ -63,37 +63,12 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function profile()
-    {
-        return view('includes.profiletest');
-    }
-    public function listeAmis()
-    {
-        return view('includes.listeAmis');
-    }
+   
 
-    public function boucleBackend(){
-        $users = User::All();
-       
-        return view('index', [
-
-            'users' => $users,
-
-        ]);
-    }
   
 
    
 
-    public function delete($id)
-    {
-        
-        $user = User::where('id','=',$id);
-        
-        $user->delete();
-        return redirect('/');
-        
-        
-}
+
     
 }
