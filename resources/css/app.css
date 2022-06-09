@@ -5,3 +5,200 @@
 @import "~@fortawesome/fontawesome-free/css/regular";
 @import "~@fortawesome/fontawesome-free/css/solid";
 @import "~@fortawesome/fontawesome-free/css/brands";
+
+
+*::selection{
+    background-color: rgb(4, 0, 66);
+    color: white;
+  }
+html{
+    background-color: rgb(11, 11, 11);
+}
+img{
+  user-select: none;
+}
+
+  body {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+#img-output {
+    margin-left: 20px;
+    border-radius: 100%;
+    height: 120px;
+    width: 120px;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+}
+
+    [x-cloak] { 
+        display: none
+     }
+
+.banner{
+  z-index: 10;
+  position: sticky;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  height: 195px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 4px solid rgb(17, 24, 39);
+}
+
+.header {
+  text-align: center;
+}
+
+.topnav {
+  z-index: 10;
+  position: sticky;
+  top: 195px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  color: black;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  background-color: rgb(17, 24, 39);
+  height: 100vw;
+}
+
+/* Left and right column */
+.column.sideL {
+  width: 20%;
+}
+.left{
+  position: fixed;
+  top: 100;
+}
+.column.sideR {
+  width: 20%;
+  display: block;
+}
+
+.right{
+  position: fixed;
+  top: 100;
+}
+
+/* Middle column */
+.column.middle {
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout______________________________________________________________________________*/
+@media screen and (max-width: 600px) {
+  .banner{
+    height: 95px;
+  }
+
+  .topnav {
+    top: 95px;
+  }
+
+  .left{
+    position: relative;
+  }
+
+  .right{
+    position: relative;
+  }
+  .column.sideL, .column.sideR, .column.middle {
+    width: 100%;
+  }
+  .column.sideL {
+   height: auto;
+  }
+  .column.sideR {
+    display: none;
+    height: auto;
+
+   }
+}
+
+/* CRUD_________________________________________________________________________________________________________ */
+.dataTables_wrapper select,
+.dataTables_wrapper .dataTables_filter input {
+  color: black;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  line-height: 1.25;
+  border-width: 2px;
+  border-radius: .25rem;
+  border-color: #4f4f4f;
+  background-color: #CBD5E1;
+}
+
+/*Row Hover*/
+table.dataTable.hover tbody tr:hover,
+table.dataTable.display tbody tr:hover {
+  background-color: #838383b0;
+}
+
+/*Pagination Buttons*/
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+/*Pagination Buttons - Current selected */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  color: #fff !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+  font-weight: 700;
+  background: #5e5e5e !important;
+  border: 1px solid transparent;
+}
+
+/*Pagination Buttons - Hover */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: #fff !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+  font-weight: 700;
+  background: #5e5e5e !important;
+  border: 1px solid transparent;
+}
+
+/*Add padding to bottom border */
+table.dataTable.no-footer {
+  border-bottom: 1px solid #e2e8f0;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+/*Change colour of responsive icon*/
+table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+  background-color: #5e5e5e !important;
+}

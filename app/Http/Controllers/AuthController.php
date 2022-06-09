@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
@@ -18,6 +19,7 @@ class AuthController extends Controller
     public function registration(Request $request)
     {
         $validate = $request->validate([
+            'pseudo' => 'required',
             'name' => 'required',
             'email' => 'required|unique:users,email|max:255',
             'password' => 'required',
@@ -25,10 +27,11 @@ class AuthController extends Controller
 
         $user = new User();
         $user->name = $validate['name'];
+        $user->pseudo = $validate['pseudo'];
         $user->email = $validate['email'];
         $user->password = Hash::make($validate['password']);
         $user->save();
-        return redirect()->Route('login');
+        return redirect('/');
     }
 
     public function logged()
@@ -46,7 +49,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials, $remember = true)) {
             $request->session()->regenerate();
-            return redirect()->intended('test')->with('logged', 'user logged');
+            return redirect('/')->with('logged', 'user logged');
         }
         return view('error');
     }
@@ -59,4 +62,13 @@ class AuthController extends Controller
         $request->session()->invalidate();
         return redirect('/');
     }
+
+   
+
+  
+
+   
+
+
+    
 }

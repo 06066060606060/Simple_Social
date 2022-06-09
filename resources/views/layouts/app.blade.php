@@ -1,28 +1,38 @@
 <!doctype html>
 
 <html>
+
 <head>
     @include('includes.head')
 </head>
 
 <body>
 
-    <header>
+    <header class="header banner">
         @include('includes.header')
     </header>
 
-    <main>
-        @yield('main')
-    </main>
 
-    <main>
-        @yield('content')
-    </main>
-    
-    <footer>
-        @include('includes.footer')
-    </footer>
+    <div class="topnav">
+        @include('includes.topnav')
+    </div>
 
+    <div class="row">
+        <div class="column sideL">
+            @include('includes.left')
+
+        </div>
+
+        <div class="column middle">
+            @yield('main')
+            @include('includes.footer')
+        </div>
+
+        <div class="column sideR">
+            @include('includes.right')
+
+        </div>
 
 </body>
+
 </html>

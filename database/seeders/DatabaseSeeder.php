@@ -4,6 +4,12 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Posts;
+use App\Models\Interets;
+use App\Models\Likes;
+use App\Models\Comments;
+use App\Models\UsersInterets;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +20,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory(20)->create();
+        Posts::factory(20)->create();
+        Interets::factory(10)->create();
+        Likes::factory(20)->create();
+        Comments::factory(10)->create();
+        UsersInterets::factory(10)->create();
     }
 }
