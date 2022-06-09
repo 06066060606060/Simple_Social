@@ -18,10 +18,7 @@ class Controller extends BaseController
     {
         return view('includes.profiletest');
     }
-    public function listeAmis()
-    {
-        return view('amis');
-    }
+
 
     public function boucleBackend()
     {
@@ -69,5 +66,16 @@ class Controller extends BaseController
 
         $user->delete();
         return redirect('/backend');
+    }
+
+
+    public function listeAmis(){
+        $users = User::All();
+       
+        return view('amis', [
+    
+            'users' => $users,
+    
+        ]);
     }
 }

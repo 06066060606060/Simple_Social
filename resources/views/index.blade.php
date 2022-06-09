@@ -3,5 +3,7 @@
 @auth
 @include('includes.newpost') 
 @endauth
-@include('includes.home')
+@include('home')
+
 @endsection
+
