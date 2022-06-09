@@ -2,7 +2,7 @@
 
 
 
-<nav class="flex flex-col pt-8 text-gray-500 ">
+<nav class="flex right flex-col pt-8 text-gray-500 ">
     @auth
     @include('includes.logged')
 @endauth
@@ -32,7 +32,7 @@
             </div>
  {{-- ---------------------    ------------------------------------------------  -----------------------------  --}}  
             <div class="flex justify-center w-full my-3">
-                <button class=" p-1.5 text-[8px] md:text-[10px] mx-1 md:p-0.5 lg:text-sm  font-bold text-white transition duration-300 ease-in-out bg-blue-500 rounded hover:bg-blue-600"> Ajouter </button>
+                <button class=" before:content-['Ajouter'] hover:before:content-['oue_sur_?'] p-1.5 text-[8px] md:text-[10px] mx-1 md:p-0.5 lg:text-sm  font-bold text-white transition duration-300 ease-in-out bg-blue-500 rounded hover:bg-blue-600"> </button>
                 <button class=" p-1.5 text-[8px]  md:text-[10px] mx-1  md:p-0.5 lg:text-sm  font-bold text-white transition duration-300 ease-in-out rounded bg-slate-500 hover:bg-slate-600"> Suprimer </button>
             </div>
            

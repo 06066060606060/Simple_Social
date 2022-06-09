@@ -16,7 +16,9 @@
       <p class="p-4 mb-6 text-xl font-bold text-gray-900 md:leading-tight md:text-3xl">
         “With their reliable and developer-friendly tools, our engineering team is freed up to focus on product and customer experiences.”
       </p>
-      {{ Auth::user()->pseudo }}
+      @foreach($users as $user)
+      {{ $user->bio }}
+      @endforeach
     </div>
 
   </section>
