@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Posts;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,10 +24,11 @@ class Controller extends BaseController
     public function boucleBackend()
     {
         $users = User::All();
+        $posts = Posts::All();
 
         return view('back', [
 
-            'users' => $users,
+            'users' => $users,'posts' =>$posts
 
         ]);
         return redirect()->route('backend');
@@ -34,11 +36,14 @@ class Controller extends BaseController
 
     public function boucleProfil()
     {
-        $users = User::with('id','=', 2);
+        $users = User::All()->where('id','=',2);
+        
+        
         
         return view('account', [
 
             'users' => $users,
+            
 
         ]);
         return redirect()->route('profil');
@@ -59,6 +64,22 @@ class Controller extends BaseController
         return redirect('/')->with('modifié', ' modifié');
     }
 
+
+
+    public function updatePost(Request $request, $id)
+    {
+
+
+        $posts = Posts::where('id', '=', $id);
+        $posts->update([
+            'content' => $request->content,
+            
+           
+        ]);
+
+        return redirect('/')->with('modifié', ' modifié');
+    }
+
     public function delete($id)
     {
 
@@ -67,6 +88,16 @@ class Controller extends BaseController
         $user->delete();
         return redirect('/backend');
     }
+
+    public function deletePost($id)
+    {
+
+        $post = Posts::where('id', '=', $id);
+
+        $post->delete();
+        return redirect('/backend');
+    }
+
 
 
     public function listeAmis(){

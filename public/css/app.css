@@ -10108,6 +10108,26 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.before\:contents::before {
+  content: var(--tw-content);
+  display: contents;
+}
+.before\:content-\[\]::before {
+  --tw-content: ;
+  content: var(--tw-content);
+}
+.before\:content-\[\'ajouter\'\]::before {
+  --tw-content: 'ajouter';
+  content: var(--tw-content);
+}
+.before\:content-\[\'Ajouter\'\]::before {
+  --tw-content: 'Ajouter';
+  content: var(--tw-content);
+}
+.after\:content-\[\'skusku\'\]::after {
+  --tw-content: 'skusku';
+  content: var(--tw-content);
+}
 .hover\:bg-gray-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
@@ -10151,6 +10171,66 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.hover\:content-\[\'skusku\'\]:hover {
+  --tw-content: 'skusku';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'skusku\'\]:hover::before {
+  --tw-content: 'skusku';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'touchepasli\'\]:hover::before {
+  --tw-content: 'touchepasli';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'touche_pas_li\'\]:hover::before {
+  --tw-content: 'touche pas li';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'continue_defile_chef\'\]:hover::before {
+  --tw-content: 'continue defile chef';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'el_jamon\'\]:hover::before {
+  --tw-content: 'el jamon';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'suprimer_quand_meme\'\]:hover::before {
+  --tw-content: 'suprimer quand meme';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'non_suprimer\'\]:hover::before {
+  --tw-content: 'non suprimer';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'suprimer_jok_pololo\'\]:hover::before {
+  --tw-content: 'suprimer jok pololo';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'suprimer_jok_\'\]:hover::before {
+  --tw-content: 'suprimer jok ';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'urgh\'\]:hover::before {
+  --tw-content: 'urgh';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'oue-sur_\?\'\]:hover::before {
+  --tw-content: 'oue-sur ?';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'oue_sur_\?\'\]:hover::before {
+  --tw-content: 'oue sur ?';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'oue_s\FBre_\?\'\]:hover::before {
+  --tw-content: 'oue sûre ?';
+  content: var(--tw-content);
+}
+.hover\:after\:content-\[\'skusku\'\]:hover::after {
+  --tw-content: 'skusku';
+  content: var(--tw-content);
 }
 .focus\:z-10:focus {
   z-index: 10;
