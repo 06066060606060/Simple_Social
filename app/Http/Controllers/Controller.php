@@ -21,19 +21,21 @@ class Controller extends BaseController
 
       // boucle crud users_______________________________
 
-    public function boucleBackend()
-    {
-        $users = User::All();
+      public function boucleBackend()
+      {
+          $users = User::All();
+          $posts = Posts::All();
+  
+          return view('back', [
+  
+              'users' => $users,'posts' =>$posts
+  
+          ]);
+          return redirect()->route('backend');
+      }
+  
 
-        return view('back', [
-
-            'users' => $users,
-
-        ]);
-        return redirect()->route('backend');
-    }
-
-            // boucle profil mur page principale________________________________
+            // boucle mur page principale________________________________
 
     public function Mur()
     {
@@ -66,7 +68,34 @@ class Controller extends BaseController
         return redirect()->route('profil');
     }
 
+    public function update(Request $request, $id)
+    {
 
+
+        $users = User::where('id', '=', $id);
+        $users->update([
+            'pseudo' => $request->pseudo,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+
+        return redirect('backend')->with('modifié', ' modifié');
+    }
+
+    public function updatePost(Request $request, $id)
+    {
+
+
+        $posts = Posts::where('id', '=', $id);
+        $posts->update([
+            'content' => $request->content,
+            
+           
+        ]);
+
+        return redirect('backend')->with('modifié', ' modifié');
+    }
 
     // LISTE DAMIS_________________________________
 

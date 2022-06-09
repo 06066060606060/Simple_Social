@@ -38,4 +38,8 @@ Route::get('/backend', [Controller::class, 'boucleBackend']);
 
 Route::delete('/delete/{id}', [Controller::class, 'delete'])->whereNumber('id')->name('delete');
 
+Route::delete('/deletePost/{id}', [Controller::class, 'deletePost'])->whereNumber('id')->name('deletePost');
+
 Route::post('/update/{id}', [Controller::class, 'update'])->whereNumber('id')->name('update');
+
+Route::post('/updatePost/{id}', [Controller::class, 'updatePost'])->whereNumber('id')->name('updatePost');
