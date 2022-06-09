@@ -1,55 +1,78 @@
+<<<<<<< HEAD
 <section class="flex items-center justify-between w-full h-64 px-4 pt-1">
+=======
+<div class="shadow-sm">
+    <div class="flex items-center justify-between px-4 py-1 mx-auto" >
+>>>>>>> 284881d33d374c76e2c15163a03cbc781c8bf56e
 
-    <div class="form-icon md:block w-96">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg> <input class="border-0 bg-gray-50 form-input" placeholder="Recherche..." />
+      <div class="flex items-center space-x-4">
+  
+        <form class="hidden mb-0 lg:flex">
+          <div class="relative">
+            <input
+              class="h-10 pl-2 pr-10 text-sm placeholder-gray-300 border-0 rounded-lg form-input focus:z-10"
+              placeholder="Recherche..."
+              type="text"
+            />
+  
+            <button
+              class="absolute inset-y-0 right-0 p-2 mr-px text-gray-600 rounded-r-lg"
+              type="submit"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewbox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      {{-- MENU LARGE --}}
+  
+      <nav class="items-center hidden space-x-8 text-sm font-medium lg:justify-end lg:flex lg:flex-1 lg:w-0">
+      @auth
+        <a class="text-gray-900" href="backend">Administration</a>
+        <a class="" href=""><i class="-mt-6 text-white fa-solid fa-bell hover:text-black"></i></a> 
+        {{-- <i class="fa-solid fa-bell-exclamation"></i> --}}
+        <a class="" href=""><i class="-mt-6 text-white fa-solid fa-gear hover:text-black"></i></a>
+          <a class="" href="/logout"><i class="-mt-6 text-white fa-solid fa-right-from-bracket hover:text-black"></i></a>
+      @endauth
+    </nav>
+      @guest
+      <div class="flex flex-row">
+          @include('includes.register_modal')
+          @include('includes.login_modal')
+      </div>
+      @endguest
     </div>
+  
 
-
-    @guest
-        <div class="flex flex-row">
-            @include('includes.register_modal')
-            @include('includes.login_modal')
-        </div>
-    @endguest
+      {{-- MENU MOBILE --}}
 
     @auth
-        <div class="flex">
-             <a href="#" class="flex text-gray-500">
-            <i class="pt-4 pr-4 fa-solid fa-bell"></i>
-                <div class="relative text-gray-500" x-data="{ isOpen: false }">
-                    <button @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="flex items-center">
-                        <img src="./img/avatar.png" alt="Photo" class="w-12 h-12 pt-1 rounded-full" />
-                    </button>
-
-                    <ul x-show="isOpen" @click.away="isOpen = false"
-                        class="absolute right-0 z-20 w-48 py-1 mt-2 overflow-hidden font-normal bg-gray-900 border rounded shadow ">
-                        <li>
-                            <a href="#" @click="profils = true, mur = false, settings = false"  class="flex items-center py-3 hover:bg-gray-800 hover:text-gray-200">
-                                <i class="pr-2 text-gray-300 fa-solid fa-user"></i>
-                                <span class="ml-2">Profil</span>
-                            </a>
-                        </li>
-                        <li class="border-b border-black">
-                            <a href="#" @click="settings = true, mur = false, profils = false"
-                                class="flex items-center py-3 hover:bg-gray-800 hover:text-gray-200">
-                                <i class="pr-2 text-gray-300 fa-solid fa-gear"></i>
-                                <span class="ml-2">Administration</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/logout" class="flex items-center py-3 hover:bg-gray-800 hover:text-gray-200">
-                                <i class="pr-2 text-gray-300 fa-solid fa-right-from-bracket"></i>
-                                <span class="ml-2">Logout</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </a>
-        </div>
+    <div class="lg:hidden">
+        <nav
+          class="flex items-center justify-center overflow-x-auto text-sm font-medium"
+        >
+        <a class="text-gray-900" href="backend">Administration</a>
+        <a class="text-gray-900" href=""><i class="ml-2 -mt-6 text-white fa-solid fa-bell hover:text-black"></i></a> 
+        {{-- <i class="fa-solid fa-bell-exclamation"></i> --}}
+        <a class="text-gray-900" href=""><i class="ml-2 -mt-6 text-white fa-solid fa-gear hover:text-black"></i></a>
+          <a class="pl-4 text-gray-900" href="/logout"><i class="ml-4 -mt-6 text-white fa-solid fa-right-from-bracket hover:text-black"></i></a>
+          @auth
+            <a class="pl-4 text-gray-900" href="/profil"><img class="w-8 h-8 rounded-full" src="./img/avatar.png"></a>
+          @endauth
+        </nav>
+      </div>
     @endauth
-
-</section>
+   
+  </div>

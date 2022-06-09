@@ -18,44 +18,54 @@ class Controller extends BaseController
     {
         return view('includes.profiletest');
     }
-    public function listeAmis()
-    {
-        return view('includes.listeAmis');
-    }
 
-    public function boucleBackend(){
+
+    public function boucleBackend()
+    {
         $users = User::All();
-       
-        return view('index', [
+
+        return view('back', [
 
             'users' => $users,
 
         ]);
+        return redirect()->route('backend');
     }
-  
+
+    public function boucleProfil()
+    {
+        $users = User::with('id','=', 2);
+        
+        return view('account', [
+
+            'users' => $users,
+
+        ]);
+        return redirect()->route('profil');
+    }
 
     public function update(Request $request, $id)
     {
-  
-          
-        $users= User::where('id', '=', $id);
+
+
+        $users = User::where('id', '=', $id);
         $users->update([
             'pseudo' => $request->pseudo,
             'name' => $request->name,
             'email' => $request->email,
-            'password'=> Hash::make($request->password)
+            'password' => Hash::make($request->password)
         ]);
 
-    return redirect('/')->with('modifié','Film modifié');
-    
+        return redirect('/')->with('modifié', ' modifié');
     }
 
     public function delete($id)
     {
-        
-        $user = User::where('id','=',$id);
-        
+
+        $user = User::where('id', '=', $id);
+
         $user->delete();
+<<<<<<< HEAD
         return redirect('/');
         
         
@@ -71,4 +81,19 @@ public function boucleListeAmis(){
     ]);
 }
 }
+=======
+        return redirect('/backend');
+    }
 
+>>>>>>> 284881d33d374c76e2c15163a03cbc781c8bf56e
+
+    public function listeAmis(){
+        $users = User::All();
+       
+        return view('amis', [
+    
+            'users' => $users,
+    
+        ]);
+    }
+}

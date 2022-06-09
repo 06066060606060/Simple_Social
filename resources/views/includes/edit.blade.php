@@ -1,7 +1,9 @@
-<div x-data="{ modelOpen: false }">
 
+
+<div x-data="{ modelOpen: false }">
+<div class="pt-1">
     <button type="submit" @click="modelOpen =!modelOpen">
-        <i class="p-3 fa-solid fa-pen-to-square hover:text-blue-700"></i>
+        <i class="fa-solid fa-pen-to-square hover:text-blue-700"></i>
     </button>
 
     <div x-cloak x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
@@ -101,6 +103,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <script>
   var loadFile = function(event) {
