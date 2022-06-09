@@ -10,9 +10,11 @@
             </div>
         </div>
         <h1 class="p-2 mb-6 text-xs font-bold tracking-widest text-purple-900 uppercase">{{ Auth::user()->name }}</h1>
+
        <span>{{ Auth::user()->pseudo }}</span> 
       <p class="p-4 mb-6 text-xl font-bold text-gray-900 md:leading-tight md:text-3xl">{{ Auth::user()->bio }}</p>
    
+
     </div>
 
   </section>

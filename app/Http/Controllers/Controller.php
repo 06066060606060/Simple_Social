@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon\Carbon;
 use App\Models\Posts;
 use App\Models\Comments;
+
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -21,6 +23,7 @@ class Controller extends BaseController
 
       // boucle crud users_______________________________
 
+
       public function boucleBackend()
       {
           $users = User::All();
@@ -35,7 +38,9 @@ class Controller extends BaseController
       }
   
 
+
             // boucle mur page principale________________________________
+
 
     public function Mur()
     {
@@ -49,6 +54,7 @@ class Controller extends BaseController
             'comments' => $comments,
             'users' => $users,
             'tim' => $tim,
+
         ]);
 
     }
@@ -58,11 +64,14 @@ class Controller extends BaseController
 
     public function boucleProfil()
     {
+
         $users = User::All()->where('id', '=', 2);
+
         
         return view('account', [
 
             'users' => $users,
+            
 
         ]);
         return redirect()->route('profil');
@@ -81,6 +90,7 @@ class Controller extends BaseController
         ]);
 
         return redirect('backend')->with('modifié', ' modifié');
+
     }
 
     public function updatePost(Request $request, $id)
@@ -98,6 +108,8 @@ class Controller extends BaseController
     }
 
     // LISTE DAMIS_________________________________
+
+
 
     public function listeAmis(){
         $users = User::All();

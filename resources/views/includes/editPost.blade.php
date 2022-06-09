@@ -74,4 +74,6 @@
         var image = document.getElementById('img-output');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
+
 </script>
+

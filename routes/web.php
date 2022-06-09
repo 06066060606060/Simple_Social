@@ -42,4 +42,6 @@ Route::delete('/deletePost/{id}', [Controller::class, 'deletePost'])->whereNumbe
 
 Route::post('/update/{id}', [Controller::class, 'update'])->whereNumber('id')->name('update');
 
+
 Route::post('/updatePost/{id}', [Controller::class, 'updatePost'])->whereNumber('id')->name('updatePost');
+

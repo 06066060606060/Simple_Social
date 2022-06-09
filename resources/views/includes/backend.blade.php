@@ -1,4 +1,3 @@
-
 <div class="px-4 pt-1">
     <div class="text-gray-800 bg-gray-100" x-data="{ selected: 'option-1' }">
         <nav class="bg-gray-300">
@@ -19,8 +18,9 @@
             <div class="container w-full">
                 <!--Card-->
                 <div id='recipients' class="p-2 bg-white rounded shadow">
-        
-                    <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+
+                    <table id="example" class="stripe hover"
+                        style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                         <thead class="bg-gray-500">
                             <tr>
                                 <th data-priority="1">Avatar</th>
@@ -32,6 +32,7 @@
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
+
                             <tr class="text-center border-b">
                                 <td class="px-2 py-2"><img class="mx-auto h-14 w-14 rounded-full" src=".{{ Storage::url($user->photo) }}"
                                         alt=""></td>
@@ -46,15 +47,33 @@
                                 </td>
                             </tr>
                         @endforeach
+
                         </tbody>
-        
+
                     </table>
-        
-        
+
+
                 </div>
             </div>
+<<<<<<< HEAD
 
         
+=======
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+            <script>
+                $(document).ready(function() {
+
+                    var table = $('#example').DataTable({
+                            responsive: true
+                        })
+                        .columns.adjust()
+                        .responsive.recalc();
+                });
+            </script>
+
+>>>>>>> a60086b35ae15ec3c7d8cae7898707751fb15399
         </div>
         <div x-cloak x-show.transition.in.opacity.duration.750ms="selected === 'option-2'" class="p-4">
             <div class="container w-full">
@@ -73,7 +92,9 @@
                             @foreach ($posts as $post)
                                 <tr class="text-center border-b">
                                     <td class="px-2 text-blue-600"><a href="">{{ $post->content }}</a></td>
-                                    <td class="px-2 py-2"><img class="py-2 mx-auto w-24 h-auto" src=".{{ Storage::url($post->image) }}"
+
+                                    <td class="px-2 py-2"><img class="py-2 mx-auto w-12 h-auto" src=".{{ Storage::url($post->image) }}"
+
                                             alt=""></td>
                                     <td class="flex flex-col mt-2">
                                         @auth
@@ -92,8 +113,8 @@
         </div>
 
         <div x-show.transition.in.opacity.duration.750ms="selected === 'option-3'" class="p-4">
-          ...
-      </div>
+            ...
+        </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
