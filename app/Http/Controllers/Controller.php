@@ -48,7 +48,7 @@ class Controller extends BaseController
 
     public function boucleProfil()
     {
-        $users = User::with('id','=', 2);
+        $users = User::All()->where('id', '=', 2);
         
         return view('account', [
 
@@ -93,12 +93,15 @@ class Controller extends BaseController
 
 public function AddPost(Request $request)
 {
-    //$path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+    $validate = $request->validate([
+        'content' => 'required',
+    ]);
+    dd($request);
+    $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
     $post = new Posts();
     $post->user_id = $request->id;
-    $post->content = $request->content;
-  //  dd($request);
-  //  $post->image = $path;
+    $post->content = $validate['content'];
+    $post->image = $path;
     $post->save();
     return redirect('/')->with('ajouté', ' ');
 }
