@@ -1,3 +1,4 @@
    <div class="flex flex-col">
-            @include('includes.post')
-    </div>
+       @include('includes.post')
+
+   </div>

@@ -20,6 +20,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/interets', function () {
+    return view('interets');
+});
+
+
 
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
 

@@ -65,27 +65,9 @@ class Controller extends BaseController
         $user = User::where('id', '=', $id);
 
         $user->delete();
-<<<<<<< HEAD
-        return redirect('/');
-        
-        
-}
-
-public function boucleListeAmis(){
-    $users = User::All();
-   
-    return view('LiAmis', [
-
-        'users' => $users,
-
-    ]);
-}
-}
-=======
         return redirect('/backend');
     }
 
->>>>>>> 284881d33d374c76e2c15163a03cbc781c8bf56e
 
     public function listeAmis(){
         $users = User::All();

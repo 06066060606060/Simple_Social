@@ -86,10 +86,6 @@ img{
 }
 
 /* Left and right column */
-<<<<<<< HEAD
-.column.side {
-  width: 20%;
-=======
 .column.sideL {
   width: 20%;
 }
@@ -105,7 +101,6 @@ img{
 .right{
   position: fixed;
   top: 100;
->>>>>>> 284881d33d374c76e2c15163a03cbc781c8bf56e
 }
 
 /* Middle column */
@@ -120,13 +115,7 @@ img{
   clear: both;
 }
 
-<<<<<<< HEAD
-
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-=======
 /* Responsive layout______________________________________________________________________________*/
->>>>>>> 284881d33d374c76e2c15163a03cbc781c8bf56e
 @media screen and (max-width: 600px) {
   .banner{
     height: 95px;

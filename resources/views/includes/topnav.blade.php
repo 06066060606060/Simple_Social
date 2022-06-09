@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-<section class="flex items-center justify-between w-full h-64 px-4 pt-1">
-=======
 <div class="shadow-sm">
     <div class="flex items-center justify-between px-4 py-1 mx-auto" >
->>>>>>> 284881d33d374c76e2c15163a03cbc781c8bf56e
 
       <div class="flex items-center space-x-4">
   

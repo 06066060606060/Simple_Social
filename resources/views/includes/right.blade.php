@@ -2,7 +2,7 @@
 
 
 
-<nav class="flex flex-col pt-8 text-gray-500 ">
+<nav class= "right flex flex-col pt-8 text-gray-500 ">
     @auth
     @include('includes.logged')
 @endauth
