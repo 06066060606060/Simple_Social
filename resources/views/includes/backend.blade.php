@@ -32,20 +32,22 @@
                         </thead>
                         <tbody>
                             @foreach ($users as $user)
-                                <tr class="text-center border-b">
-                                    <td class="px-2 py-2"><img class="py-2 mx-auto" src="./img/Ellipse2.png"
-                                            alt=""></td>
-                                    <td class="px-2 text-blue-600"><a href="">{{ $user->pseudo }}</a></td>
-                                    <td class="px-2">admin</td>
-                                    <td class="px-2">1</td>
-                                    <td class="flex flex-col mt-2">
-                                        @auth
-                                            @include('includes.edit')
-                                            @include('includes.delete')
-                                        @endauth
-                                    </td>
-                                </tr>
-                            @endforeach
+
+                            <tr class="text-center border-b">
+                                <td class="px-2 py-2"><img class="py-2 mx-auto h-16 w-16 rounded-full" src=".{{ Storage::url($user->photo) }}"
+                                        alt=""></td>
+                                <td class="px-2 text-blue-600"><a href="">{{ $user->pseudo }}</a></td>
+                                <td class="px-2">admin</td>
+                                <td class="px-2">1</td>
+                                <td class="flex flex-col mt-2">
+                                    @auth
+                                        @include('includes.edit')
+                                        @include('includes.delete')
+                                    @endauth
+                                </td>
+                            </tr>
+                        @endforeach
+
                         </tbody>
 
                     </table>
@@ -87,7 +89,9 @@
                             @foreach ($posts as $post)
                                 <tr class="text-center border-b">
                                     <td class="px-2 text-blue-600"><a href="">{{ $post->content }}</a></td>
-                                    <td class="px-2 py-2"><img class="py-2 mx-auto" src=".{{ Storage::url($user->photo) }}"
+
+                                    <td class="px-2 py-2"><img class="py-2 mx-auto w-12 h-auto" src=".{{ Storage::url($post->image) }}"
+
                                             alt=""></td>
                                     <td class="px-2">1</td>
                                     <td class="flex flex-col mt-2">

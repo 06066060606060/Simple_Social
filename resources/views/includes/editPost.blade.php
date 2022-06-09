@@ -1,3 +1,4 @@
+
 <div x-data="{ modelOpen: false }">
     <div class="pt-1">
         <button type="submit" @click="modelOpen =!modelOpen">
@@ -73,4 +74,6 @@
         var image = document.getElementById('img-output');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
+
 </script>
+
