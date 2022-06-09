@@ -67,10 +67,32 @@ class AuthController extends Controller
     }
 
    
+       // delete user_________________________________
 
+       public function delete($id)
+       {
+   
+           $user = User::where('id', '=', $id);
+   
+           $user->delete();
+           return redirect('/backend');
+       }
   
 
-   
+           // update user info_________________________________
+
+           public function update(Request $request, $id)
+           {
+               $users = User::where('id', '=', $id);
+               $users->update([
+                   'pseudo' => $request->pseudo,
+                   'name' => $request->name,
+                   'email' => $request->email,
+                   'password' => Hash::make($request->password)
+               ]);
+       
+               return redirect('/')->with('modifié', ' modifié');
+           }
 
 
     

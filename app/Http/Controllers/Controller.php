@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use App\Models\Posts;
+use App\Models\Comments;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,11 +18,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function profile()
-    {
-        return view('includes.profiletest');
-    }
 
+      // boucle crud users_______________________________
 
     public function boucleBackend()
     {
@@ -34,17 +33,25 @@ class Controller extends BaseController
         return redirect()->route('backend');
     }
 
+            // boucle profil mur page principale________________________________
+
     public function Mur()
     {
-        $posts = Posts::All();
-        $users = User::All();
+        $tim = Carbon::now();
+
+        $posts = Posts::with('user')->get();
+        $comments = Comments::with('post')->where('post_id', '=', 6)->orderBy('created_at', 'DESC')->get();
+       // dd($posts);
         return view('index', [
-
             'posts' => $posts,
-
+            'comments' => $comments,
+            'tim' => $tim,
         ]);
 
     }
+
+        // boucle profil users________________________________
+
 
     public function boucleProfil()
     {
@@ -58,28 +65,9 @@ class Controller extends BaseController
         return redirect()->route('profil');
     }
 
-    public function update(Request $request, $id)
-    {
-        $users = User::where('id', '=', $id);
-        $users->update([
-            'pseudo' => $request->pseudo,
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
 
-        return redirect('/')->with('modifié', ' modifié');
-    }
 
-    public function delete($id)
-    {
-
-        $user = User::where('id', '=', $id);
-
-        $user->delete();
-        return redirect('/backend');
-    }
-
+    // LISTE DAMIS_________________________________
 
     public function listeAmis(){
         $users = User::All();
@@ -91,6 +79,8 @@ class Controller extends BaseController
         ]);
     }
 
+
+   // ajouter post________________________________
 public function AddPost(Request $request)
 {
    
