@@ -9,8 +9,8 @@
               <tr>
          
                   <td class="px-2 py-2 "><img class="w-12 h-12 m-2 rounded-full" src="./img/avatar2.png" alt=""></td>
-                  <td class="px-2 text-blue-600"><span>{{ $user->name }}</span></td>
-                  <td class="px-2"><span>{{ $user->pseudo }}</span></td>
+                  <td class="px-2"> <h2 class="text-xs font-semibold tracking-widest text-blue-600 uppercase">{{ $user->name }}</h2></td>
+                  <td class="px-2"> <span class="font-semibold text-gray-500 lg:mb-0">{{ $user->pseudo }}</span></td>
               
               </tr>
           </div>

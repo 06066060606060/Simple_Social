@@ -1,5 +1,4 @@
 /node_modules
-/public/css
 /public/css/app.css
 /public/hot
 /public/storage
@@ -17,3 +16,4 @@ yarn-error.log
 public/css/app.css
 /public/css/app.css
 public/{css,js,build}
+public/css/app.css

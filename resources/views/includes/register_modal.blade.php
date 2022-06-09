@@ -74,9 +74,9 @@
                                     type="password" name="password" placeholder="••••••••" required>
                             </div>
                             <div class="mt-4">
-                                <label for="resume"
+                                <label for="bio"
                                     class="block text-sm text-gray-700 dark:text-gray-600">Biographie</label>
-                                <textarea name="resume" rows="4" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
+                                <textarea name="bio" rows="4" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
                                     ></textarea>
                             </div>
                             <div class="flex flex-row">

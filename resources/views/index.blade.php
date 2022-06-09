@@ -1,9 +1,12 @@
 @extends('layouts.app')
+
 @section('main')
+
 @auth
 @include('includes.newpost') 
 @endauth
-@include('home')
+
+@include('includes.post') 
 
 @endsection
 

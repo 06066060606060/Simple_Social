@@ -9226,17 +9226,13 @@ a.dropdown-item, .prose a.dropdown-item {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.my-2\.5 {
-  margin-top: 0.625rem;
-  margin-bottom: 0.625rem;
-}
 .mx-1\.5 {
   margin-left: 0.375rem;
   margin-right: 0.375rem;
 }
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 .mt-2 {
   margin-top: 0.5rem;
@@ -9271,11 +9267,11 @@ a.dropdown-item, .prose a.dropdown-item {
 .mb-1 {
   margin-bottom: 0.25rem;
 }
-.mb-4 {
-  margin-bottom: 1rem;
-}
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
 }
 .mb-6 {
   margin-bottom: 1.5rem;
@@ -9340,6 +9336,17 @@ a.dropdown-item, .prose a.dropdown-item {
 .h-8 {
   height: 2rem;
 }
+
+.h-48 {
+  height: 12rem;
+}
+.h-16 {
+  height: 4rem;
+}
+.h-14 {
+  height: 3.5rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -9385,6 +9392,17 @@ a.dropdown-item, .prose a.dropdown-item {
 .w-8 {
   width: 2rem;
 }
+
+.w-48 {
+  width: 12rem;
+}
+.w-16 {
+  width: 4rem;
+}
+.w-14 {
+  width: 3.5rem;
+}
+
 .max-w-xl {
   max-width: 36rem;
 }
@@ -9585,12 +9603,6 @@ a.dropdown-item, .prose a.dropdown-item {
 .p-0 {
   padding: 0px;
 }
-.p-1\.5 {
-  padding: 0.375rem;
-}
-.p-1 {
-  padding: 0.25rem;
-}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -9675,6 +9687,9 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .pr-10 {
   padding-right: 2.5rem;
+}
+.pb-6 {
+  padding-bottom: 1.5rem;
 }
 .text-left {
   text-align: left;
@@ -9777,6 +9792,14 @@ a.dropdown-item, .prose a.dropdown-item {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
 .placeholder-gray-400::-moz-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(156 163 175 / var(--tw-placeholder-opacity));
@@ -9875,6 +9898,7 @@ a.dropdown-item, .prose a.dropdown-item {
   }
 html{
     background-color: rgb(11, 11, 11);
+
 }
 img{
   -webkit-user-select: none;
@@ -9889,6 +9913,7 @@ img{
     margin-right: auto;
     padding-left: 10px;
     padding-right: 10px;
+
   }
 
 #img-output {
@@ -9906,11 +9931,13 @@ img{
 
 .banner{
   z-index: 10;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   background-size: cover;
   top: 0;
-  left: 0;
+  max-width: 1420px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   height: 195px;
   display: block;
   justify-content: center;
@@ -9924,8 +9951,11 @@ img{
 
 .topnav {
   z-index: 10;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
+  max-width: 1420px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   top: 195px;
   overflow: hidden;
   background-color: #333;
@@ -9947,40 +9977,44 @@ img{
 
 /* Create three unequal columns that floats next to each other */
 .column {
-  float: left;
   background-color: rgb(17, 24, 39);
-  height: 100vw;
+  float: left;
+  height: 900vh;
 }
 
 /* Left and right column */
 .column.sideL {
   width: 20%;
+
+
 }
 .left{
   position: fixed;
-  top: 100;
+  top: 250px;
 }
 .column.sideR {
   width: 20%;
   display: block;
+
 }
 
 .right{
   position: fixed;
-  top: 100;
+  top: 250px;
 }
 
 /* Middle column */
 .column.middle {
+  margin-top: 250px;
   width: 60%;
+
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.row{
+  background-color: rgb(17, 24, 39);
+
 }
+
 
 /* Responsive layout______________________________________________________________________________*/
 @media screen and (max-width: 600px) {
@@ -10001,6 +10035,7 @@ img{
   }
   .column.sideL, .column.sideR, .column.middle {
     width: 100%;
+    height: 100%;
   }
   .column.sideL {
    height: auto;
@@ -10153,9 +10188,15 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
-.hover\:before\:content-\[\'oue_sur_\?\'\]:hover::before {
-  --tw-content: 'oue sur ?';
-  content: var(--tw-content);
+
+.hover\:text-gray-100:hover {
+  --tw-text-opacity: 1;
+  color: rgb(243 244 246 / var(--tw-text-opacity));
+}
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+
 }
 .focus\:z-10:focus {
   z-index: 10;
@@ -10247,17 +10288,13 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
     align-items: center;
   }
 
+  .md\:justify-center {
+    justify-content: center;
+  }
+
   .md\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  }
-
-  .md\:p-0\.5 {
-    padding: 0.125rem;
-  }
-
-  .md\:p-0 {
-    padding: 0px;
   }
 
   .md\:px-6 {
@@ -10302,6 +10339,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
     margin-bottom: 0px;
   }
 
+  .lg\:mt-4 {
+    margin-top: 1rem;
+  }
+
   .lg\:flex {
     display: flex;
   }
@@ -10338,9 +10379,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
     padding-top: 2rem;
   }
 
-  .lg\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+  .lg\:pt-4 {
+    padding-top: 1rem;
   }
 }
 @media (min-width: 1536px) {
