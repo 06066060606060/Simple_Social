@@ -8,7 +8,7 @@
           <div class="flex flex-col items-center justify-center pl-2 border border-gray-400 rounded-md friends">
               <tr>
          
-                  <td class="px-2 py-2 "><img class="w-12 h-12 m-2 rounded-full" src="./img/avatar2.png" alt=""></td>
+                  <td class="px-2 py-2 "><img class="w-12 h-12 m-2 rounded-full" src="./img/Ellipse2.png" alt=""></td>
                   <td class="px-2 text-blue-600"><span>{{ $user->name }}</span></td>
                   <td class="px-2"><span>{{ $user->pseudo }}</span></td>
               

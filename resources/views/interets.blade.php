@@ -1,4 +1,4 @@
  @extends('layouts.app')
  @section('main')
-     @include('includes.newpost')
+     @include('includes.centreInterets')
  @endsection

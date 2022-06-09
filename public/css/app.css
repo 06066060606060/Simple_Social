@@ -10105,6 +10105,34 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.before\:content-\[\'Ajouter\'\]::before {
+  --tw-content: 'Ajouter';
+  content: var(--tw-content);
+}
+.before\:content-\[\'JaimeD\E9j\E0\'\]::before {
+  --tw-content: 'JaimeDéjà';
+  content: var(--tw-content);
+}
+.before\:content-\[\'Jaime-D\E9j\E0\'\]::before {
+  --tw-content: 'Jaime-Déjà';
+  content: var(--tw-content);
+}
+.before\:content-\[\'Jaime_D\E9j\E0\'\]::before {
+  --tw-content: 'Jaime Déjà';
+  content: var(--tw-content);
+}
+.before\:content-\[\'J_aime_D\E9j\E0\'\]::before {
+  --tw-content: 'J aime Déjà';
+  content: var(--tw-content);
+}
+.before\:content-\[\'J_aime_d\E9j\E0\'\]::before {
+  --tw-content: 'J aime déjà';
+  content: var(--tw-content);
+}
+.before\:content-\[\'Ne_plus_aimer\'\]::before {
+  --tw-content: 'Ne plus aimer';
+  content: var(--tw-content);
+}
 .hover\:bg-gray-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
@@ -10124,6 +10152,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 .hover\:bg-slate-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+}
+.hover\:bg-red-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 .hover\:text-red-700:hover {
   --tw-text-opacity: 1;
@@ -10148,6 +10180,18 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.hover\:before\:content-\[\'ouesur\?\'\]:hover::before {
+  --tw-content: 'ouesur?';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'es-tu_sur\?\'\]:hover::before {
+  --tw-content: 'es-tu sur?';
+  content: var(--tw-content);
+}
+.hover\:before\:content-\[\'es-tu_s\FBr\?\'\]:hover::before {
+  --tw-content: 'es-tu sûr?';
+  content: var(--tw-content);
 }
 .focus\:z-10:focus {
   z-index: 10;
