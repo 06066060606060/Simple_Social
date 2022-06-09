@@ -38,13 +38,14 @@ class Controller extends BaseController
     public function Mur()
     {
         $tim = Carbon::now();
-
+        $users = User::where('id', '!=', Auth::user()->id)->get();   //USER sans celui qui est authentifié
         $posts = Posts::with('user')->get();
         $comments = Comments::with('post')->where('post_id', '!=', 0)->orderBy('created_at', 'DESC')->get();
        // dd($posts);
         return view('index', [
             'posts' => $posts,
             'comments' => $comments,
+            'users' => $users,
             'tim' => $tim,
         ]);
 
