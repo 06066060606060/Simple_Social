@@ -87,7 +87,7 @@
                             @foreach ($posts as $post)
                                 <tr class="text-center border-b">
                                     <td class="px-2 text-blue-600"><a href="">{{ $post->content }}</a></td>
-                                    <td class="px-2 py-2"><img class="py-2 mx-auto" src="./img/Ellipse2.png"
+                                    <td class="px-2 py-2"><img class="py-2 mx-auto" src=".{{ Storage::url($user->photo) }}"
                                             alt=""></td>
                                     <td class="px-2">1</td>
                                     <td class="flex flex-col mt-2">
