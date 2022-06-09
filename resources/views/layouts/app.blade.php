@@ -8,19 +8,30 @@
 
 <body>
 
-    <main>
+    <header class="header banner">
         @include('includes.header')
-        @yield('main')
-        <div class="fixed inset-0 z-10 w-screen h-screen bg-black bg-opacity-25 md:hidden" x-show.transition="sideBar"
-            x-cloak></div>
-        </section>
-    </main>
+    </header>
 
 
-    <footer>
-        @include('includes.footer')
-    </footer>
+    <div class="topnav">
+        @include('includes.topnav')
+    </div>
 
+    <div class="row">
+        <div class="column sideL">
+            @include('includes.left')
+
+        </div>
+
+        <div class="column middle">
+            @yield('main')
+            @include('includes.footer')
+        </div>
+
+        <div class="column sideR">
+            @include('includes.right')
+
+        </div>
 
 </body>
 
