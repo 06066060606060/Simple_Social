@@ -1,5 +1,7 @@
 <div class="mx-4 my-1 rounded">
-    <article class="px-4 py-2 mx-auto bg-gray-100 max-w-7xl">
+    @foreach ($posts as $post)
+        
+    <article class="px-4 py-2 mx-auto bg-gray-100 max-w-7xl mb-2">
         <div class="w-full mx-auto mb-4 text-left md:w-3/4">
             <div class="pb-2 mb-2 ">
                 <a href="">
@@ -9,11 +11,11 @@
                         </div>
                         <div class="ml-4">
 
-                            <p class="text-base font-bold text-black"> jok pololo </p>
+                            <p class="text-base font-bold text-black">auteur</p>
 
                         </div>
                         <div class="">
-                            <p class="ml-4 text-base text-gray-500"> Junary 18, 2021</p>
+                            <p class="ml-4 text-base text-gray-500"> {{$post->created_at}}</p>
                         </div>
                     </div>
                 </a>
@@ -23,10 +25,7 @@
 
         <div class="w-full mx-auto prose md:w-3/4">
             <p>
-                I been seein’ you in designer lately (Yuh)
-                No surprise the Devil Wears Prada, baby (Okay)
-                Feelin’ like I’m drownin’ in some lava lately (Yuh)
-                I taught you some game and you still tryna play me (Ha-ha, okay)
+              {{$post->contenu}}
             </p>
 
             {{-- like --}}
@@ -68,4 +67,5 @@
             </div>
         </div>
     </article>
+    @endforeach
 </div>

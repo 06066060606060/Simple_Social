@@ -16,10 +16,7 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
+Route::get('/', [Controller::class, 'Mur']);
 
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
 
@@ -34,6 +31,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/profil', [Controller::class, 'boucleProfil']);
 
 Route::get('/amis', [Controller::class, 'listeAmis']);
+
+Route::post('/addpost', [Controller::class, 'AddPost']);
 
 Route::get('/backend', [Controller::class, 'boucleBackend']);
 
