@@ -7,14 +7,14 @@
                 <a href="">
                     <div class="flex flex-row items-center my-4">
                         <div>
-                            <img src="./img/Ellipse2.png" class="rounded-full h-50 w-50" alt="avatar" />
+                            <img src=".{{ Storage::url($post->user->photo) }}" class="rounded-full h-14 w-14" alt="avatar" />
                         </div>
                         <div class="ml-4">
                             <h2 class="font-bold tracking-widest text-blue-600">{{ $post->user->name }}</h2>
-                            <span class="text-xs font-semibold text-gray-500 lg:mb-0">{{ $post->user->pseudo }}</span>
+                            <span class="text-s font-semibold text-gray-500 lg:mb-0">{{ $post->user->pseudo }}</span>
                         </div>
                         <div class="">
-                            <p class="ml-4 text-base text-gray-500"> {{ $post->created_at->diffForHumans() }}</p>
+                            <p class="pb-6 ml-4 text-base text-gray-500"> {{ $post->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
                 </a>
@@ -23,12 +23,11 @@
         </div>
 
         <div class="w-full mx-auto prose md:w-3/4">
-            <p>
+            <p class="text-center">
               {{ $post->content }}
             </p>
 
             {{-- like --}}
-
             <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 mb-2 space-x-2 border-b border-gray-300">
                 <a href=""> <i class="px-1 py-2 fa-solid fa-heart"></i></a>
                 <span class="pt-1">13</span>
@@ -36,19 +35,21 @@
         </div>
 
         {{-- ajouter commentaires --}}
+        @auth
         <div class="flex flex-row w-full mx-auto my-2 space-x-2 md:w-3/4">
             <img src="{{ Storage::url(Auth::user()->photo) }}" class="w-12 h-12 pt-1 rounded-full" />
             <input class="w-full ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-300 form-input" type="text"
                 placeholder="Laisser un commentaire">
         </div>
+        @endauth
         {{-- commentaires --}}
         @foreach ($comments as $comment)
         <div class="flex w-full mx-auto space-x-2 text-left border-gray-300 border-y md:w-3/4">
 
             <a href="#" class="m-2 avatar avatar-sm">
-                <img src="./img/Ellipse2.png" class="w-6 h-6" />
+                <img src="{{ Storage::url($comment->user->photo) }}" class="w-6 h-6" />
             </a>
-            <div class="flex flex-col">
+            <div class="flex flex-col w-full">
                 <a href="">
                     <p class="p-2 text-base font-bold text-black">{{ $comment->user->name }}</p>
                 </a>

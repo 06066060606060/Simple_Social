@@ -40,7 +40,7 @@ class Controller extends BaseController
         $tim = Carbon::now();
 
         $posts = Posts::with('user')->get();
-        $comments = Comments::with('post')->where('post_id', '=', 6)->orderBy('created_at', 'DESC')->get();
+        $comments = Comments::with('post')->where('post_id', '!=', 0)->orderBy('created_at', 'DESC')->get();
        // dd($posts);
         return view('index', [
             'posts' => $posts,
