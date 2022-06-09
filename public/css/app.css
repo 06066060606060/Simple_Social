@@ -9220,12 +9220,6 @@ a.dropdown-item, .prose a.dropdown-item {
 .mb-16 {
   margin-bottom: 4rem;
 }
-.mb-4 {
-  margin-bottom: 1rem;
-}
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -9258,6 +9252,9 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .ml-4 {
   margin-left: 1rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 .ml-2 {
   margin-left: 0.5rem;
@@ -9331,11 +9328,11 @@ a.dropdown-item, .prose a.dropdown-item {
 .w-48 {
   width: 12rem;
 }
-.max-w-7xl {
-  max-width: 80rem;
-}
 .max-w-xl {
   max-width: 36rem;
+}
+.max-w-7xl {
+  max-width: 80rem;
 }
 .translate-y-4 {
   --tw-translate-y: 1rem;
@@ -9380,20 +9377,6 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .gap-4 {
   gap: 1rem;
-}
-.gap-x-16 {
-  -moz-column-gap: 4rem;
-       column-gap: 4rem;
-}
-.gap-y-20 {
-  row-gap: 5rem;
-}
-.gap-x-12 {
-  -moz-column-gap: 3rem;
-       column-gap: 3rem;
-}
-.gap-y-5 {
-  row-gap: 1.25rem;
 }
 .gap-x-8 {
   -moz-column-gap: 2rem;
@@ -9464,14 +9447,6 @@ a.dropdown-item, .prose a.dropdown-item {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
-.bg-blue-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
-}
-.bg-red-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
-}
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -9534,13 +9509,13 @@ a.dropdown-item, .prose a.dropdown-item {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -9623,14 +9598,6 @@ a.dropdown-item, .prose a.dropdown-item {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -9639,15 +9606,20 @@ a.dropdown-item, .prose a.dropdown-item {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
 .font-extrabold {
   font-weight: 800;
-}
-.font-semibold {
-  font-weight: 600;
 }
 .font-bold {
   font-weight: 700;
@@ -9687,17 +9659,13 @@ a.dropdown-item, .prose a.dropdown-item {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
-.text-red-600 {
+.text-blue-600 {
   --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 .text-gray-800 {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 .text-gray-600 {
   --tw-text-opacity: 1;
@@ -10071,11 +10039,6 @@ img{
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .lg\:gap-x-24 {
-    -moz-column-gap: 6rem;
-         column-gap: 6rem;
   }
 
   .lg\:gap-x-10 {
