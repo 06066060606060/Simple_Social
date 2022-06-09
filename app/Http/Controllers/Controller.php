@@ -61,7 +61,7 @@ class Controller extends BaseController
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect('/')->with('modifié', ' modifié');
+        return redirect('backend')->with('modifié', ' modifié');
     }
 
 
@@ -77,7 +77,7 @@ class Controller extends BaseController
            
         ]);
 
-        return redirect('/')->with('modifié', ' modifié');
+        return redirect('backend')->with('modifié', ' modifié');
     }
 
     public function delete($id)
