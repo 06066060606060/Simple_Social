@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html>
+<html lang="fr">
 
 <head>
     @include('includes.head')

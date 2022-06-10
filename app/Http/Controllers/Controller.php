@@ -21,25 +21,25 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
-      // boucle crud users_______________________________
+    // boucle crud users_______________________________
 
 
-      public function boucleBackend()
-      {
-          $users = User::All();
-          $posts = Posts::All();
-  
-          return view('back', [
-  
-              'users' => $users,'posts' =>$posts
-  
-          ]);
-          return redirect()->route('backend');
-      }
-  
+    public function boucleBackend()
+    {
+        $users = User::All();
+        $posts = Posts::All();
+
+        return view('back', [
+
+            'users' => $users, 'posts' => $posts
+
+        ]);
+        return redirect()->route('backend');
+    }
 
 
-            // boucle mur page principale________________________________
+
+    // boucle mur page principale________________________________
 
 
     public function Mur()
@@ -48,7 +48,7 @@ class Controller extends BaseController
         $users = User::where('id', '!=', Auth::user()->id)->get();   //USER sans celui qui est authentifié  A FIXER
         $posts = Posts::with('user')->get();
         $comments = Comments::with('post')->where('post_id', '!=', 0)->orderBy('created_at', 'DESC')->get();
-       // dd($posts);
+        // dd($posts);
         return view('index', [
             'posts' => $posts,
             'comments' => $comments,
@@ -56,10 +56,9 @@ class Controller extends BaseController
             'tim' => $tim,
 
         ]);
-
     }
 
-        // boucle profil users________________________________
+    // boucle profil users________________________________
 
 
     public function boucleProfil()
@@ -67,11 +66,11 @@ class Controller extends BaseController
 
         $users = User::All()->where('id', '=', 2);
 
-        
+
         return view('account', [
 
             'users' => $users,
-            
+
 
         ]);
         return redirect()->route('profil');
@@ -90,7 +89,6 @@ class Controller extends BaseController
         ]);
 
         return redirect('backend')->with('modifié', ' modifié');
-
     }
 
     public function updatePost(Request $request, $id)
@@ -100,8 +98,8 @@ class Controller extends BaseController
         $posts = Posts::where('id', '=', $id);
         $posts->update([
             'content' => $request->content,
-            
-           
+
+
         ]);
 
         return redirect('backend')->with('modifié', ' modifié');
@@ -111,37 +109,53 @@ class Controller extends BaseController
 
 
 
-    public function listeAmis(){
+    public function listeAmis()
+    {
         $users = User::All();
-       
+
         return view('amis', [
-    
+
             'users' => $users,
-    
+
         ]);
     }
 
 
-   // ajouter post________________________________
-public function AddPost(Request $request)
-{
-   
-    $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-    $post = new Posts();
-    $post->user_id = $request->id;
-    $post->content = $request->content;
-    $post->image = $path;
-    $post->save();
-    return redirect('/')->with('ajouté', ' ');
+    // ajouter post________________________________
+    public function AddPost(Request $request)
+    {
+
+        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+        $post = new Posts();
+        $post->user_id = $request->id;
+        $post->content = $request->content;
+        $post->image = $path;
+        $post->save();
+        return redirect('/')->with('ajouté', ' ');
+    }
+
+    // delete post
+
+    public function deletePost($id)
+    {
+
+        $post = Posts::where('id', '=', $id);
+
+        $$post->delete();
+        return redirect('/backend');
+    }
+
+
+    public function interest()
+    {
+
+        $users = User::All();
+        $posts = Posts::with('user')->get();
+
+
+        return view('interest', [
+            'posts' => $posts,
+            'users' => $users,
+        ]);
+    }
 }
-
-public function deletePost($id)
-       {
-
-           $post = Posts::where('id', '=', $id);
-
-           $$post->delete();
-           return redirect('/backend');
-       }
-}
-
