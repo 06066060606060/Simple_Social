@@ -12,7 +12,6 @@
         @include('includes.header')
     </header>
 
-
     <div class="topnav">
         @include('includes.topnav')
     </div>
@@ -32,7 +31,7 @@
             @include('includes.right')
 
         </div>
-
+    </div>
 </body>
 
 </html>

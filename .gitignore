@@ -1,5 +1,4 @@
 /node_modules
-/public/css
 /public/css/app.css
 /public/hot
 /public/storage
@@ -19,7 +18,12 @@ public/css/app.css
 =======
 /public/css/app.css
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> edac13baad9baf897e037251ab7e15044591b1b1
 =======
 public/{css,js,build}
 >>>>>>> 7f4987fc1a856e823e98ae3f4b11564985f8841f
+=======
+public/{css,js,build}
+public/css/app.css
+>>>>>>> 6d619a9976b35ad32935f4b81f6bf4c80ffa4e06
