@@ -31,10 +31,11 @@ class Controller extends BaseController
 
         return view('back', [
 
-            'users' => $users, 'posts' => $posts
+            'users' => $users,
+             'posts' => $posts
 
         ]);
-        return redirect()->route('backend');
+        //return redirect()->route('backend');
     }
 
 
@@ -45,7 +46,7 @@ class Controller extends BaseController
     public function Mur()
     {
         $tim = Carbon::now();
-        $users = User::where('id', '!=', Auth::user()->id)->get();   //USER sans celui qui est authentifié  A FIXER
+        $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
         $posts = Posts::with('user')->get();
         $comments = Comments::with('post')->where('post_id', '!=', 0)->orderBy('created_at', 'DESC')->get();
         // dd($posts);
@@ -133,6 +134,8 @@ class Controller extends BaseController
         $post->save();
         return redirect('/')->with('ajouté', ' ');
     }
+
+
 
     // delete post
 

@@ -36,7 +36,7 @@ Route::get('/amis', [Controller::class, 'listeAmis']);
 
 Route::post('/addpost', [Controller::class, 'AddPost']);
 
-//Route::get('/backend', [Controller::class, 'boucleBackend']);
+Route::get('/backend', [Controller::class, 'boucleBackend'])->name('backend');
 
 Route::delete('/delete/{id}', [Controller::class, 'delete'])->whereNumber('id')->name('delete');
 
