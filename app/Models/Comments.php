@@ -10,14 +10,7 @@ class Comments extends Model
 {
     use HasFactory;
 
-    public function makeComment($data, Posts $posts)
-    {
-        $data['user_id'] = Auth::user()->id;
-        $data['post_id'] = $posts->id;
-
-        
-        return true;
-    }
+ 
 
     public function user()
     {

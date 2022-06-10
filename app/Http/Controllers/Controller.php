@@ -45,7 +45,7 @@ class Controller extends BaseController
     public function Mur()
     {
         $tim = Carbon::now();
-        $users = User::where('id', '!=', Auth::user()->id)->get();   //USER sans celui qui est authentifié
+        $users = User::All();   //USER sans celui qui est authentifié
         $posts = Posts::with('user')->get();
         $comments = Comments::with('post')->where('post_id', '!=', 0)->orderBy('created_at', 'DESC')->get();
        // dd($posts);
@@ -59,13 +59,16 @@ class Controller extends BaseController
 
     }
 
+
+    
+
         // boucle profil users________________________________
 
 
     public function boucleProfil()
     {
 
-        $users = User::All()->where('id', '=', 2);
+        $users = User::All();
 
         
         return view('account', [
@@ -113,13 +116,29 @@ class Controller extends BaseController
 
     public function listeAmis(){
         $users = User::All();
+        $check = Auth::check();
+       
+       
+        if($check){
+
+            $users = User::where('id', '!=', Auth::user()->id)->get();
+            return view('amis', [
+    
+                'users' => $users,]);
+
+
+        }
+        else{
+
+            $users = User::All();
        
         return view('amis', [
     
             'users' => $users,
     
         ]);
-    }
+    }}
+
 
 
    // ajouter post________________________________
@@ -134,6 +153,24 @@ public function AddPost(Request $request)
     $post->save();
     return redirect('/')->with('ajouté', ' ');
 }
+
+public function deletePost($id)
+       {
+
+           $post = Posts::where('id', '=', $id);
+
+           $post->delete();
+           return redirect('/backend');
+       } 
+
+    public function makeComment($data, Posts $posts)
+    {
+        $data['user_id'] = Auth::user()->id;
+        $data['post_id'] = $posts->id;
+
+        
+        return true;
+    }
 
 }
 

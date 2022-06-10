@@ -9226,13 +9226,13 @@ a.dropdown-item, .prose a.dropdown-item {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.mx-1\.5 {
-  margin-left: 0.375rem;
-  margin-right: 0.375rem;
-}
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+.mx-1\.5 {
+  margin-left: 0.375rem;
+  margin-right: 0.375rem;
 }
 .mt-2 {
   margin-top: 0.5rem;
@@ -9276,9 +9276,6 @@ a.dropdown-item, .prose a.dropdown-item {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
-.mb-0\.5 {
-  margin-bottom: 0.125rem;
-}
 .mr-px {
   margin-right: 1px;
 }
@@ -9303,6 +9300,12 @@ a.dropdown-item, .prose a.dropdown-item {
 .hidden {
   display: none;
 }
+.h-16 {
+  height: 4rem;
+}
+.h-auto {
+  height: auto;
+}
 .h-12 {
   height: 3rem;
 }
@@ -9312,17 +9315,14 @@ a.dropdown-item, .prose a.dropdown-item {
 .h-20 {
   height: 5rem;
 }
-.h-auto {
-  height: auto;
+.h-14 {
+  height: 3.5rem;
 }
 .h-6 {
   height: 1.5rem;
 }
 .h-24 {
   height: 6rem;
-}
-.h-1\/6 {
-  height: 16.666667%;
 }
 .h-3\.5 {
   height: 0.875rem;
@@ -9336,22 +9336,17 @@ a.dropdown-item, .prose a.dropdown-item {
 .h-8 {
   height: 2rem;
 }
-
-.h-48 {
-  height: 12rem;
-}
-.h-16 {
-  height: 4rem;
-}
-.h-14 {
-  height: 3.5rem;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
 .w-full {
   width: 100%;
+}
+.w-16 {
+  width: 4rem;
+}
+.w-12 {
+  width: 3rem;
 }
 .w-1\/3 {
   width: 33.333333%;
@@ -9362,11 +9357,11 @@ a.dropdown-item, .prose a.dropdown-item {
 .w-auto {
   width: auto;
 }
-.w-12 {
-  width: 3rem;
-}
 .w-10 {
   width: 2.5rem;
+}
+.w-14 {
+  width: 3.5rem;
 }
 .w-3\/4 {
   width: 75%;
@@ -9376,9 +9371,6 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .w-24 {
   width: 6rem;
-}
-.w-1\/6 {
-  width: 16.666667%;
 }
 .w-3\.5 {
   width: 0.875rem;
@@ -9392,17 +9384,6 @@ a.dropdown-item, .prose a.dropdown-item {
 .w-8 {
   width: 2rem;
 }
-
-.w-48 {
-  width: 12rem;
-}
-.w-16 {
-  width: 4rem;
-}
-.w-14 {
-  width: 3.5rem;
-}
-
 .max-w-xl {
   max-width: 36rem;
 }
@@ -9491,14 +9472,14 @@ a.dropdown-item, .prose a.dropdown-item {
 .rounded {
   border-radius: 0.25rem;
 }
+.rounded-full {
+  border-radius: 9999px;
+}
 .rounded-lg {
   border-radius: 0.5rem;
 }
 .rounded-md {
   border-radius: 0.375rem;
-}
-.rounded-full {
-  border-radius: 9999px;
 }
 .rounded-r-lg {
   border-top-right-radius: 0.5rem;
@@ -9682,14 +9663,14 @@ a.dropdown-item, .prose a.dropdown-item {
 .pt-2 {
   padding-top: 0.5rem;
 }
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
 .pt-8 {
   padding-top: 2rem;
 }
 .pr-10 {
   padding-right: 2.5rem;
-}
-.pb-6 {
-  padding-bottom: 1.5rem;
 }
 .text-left {
   text-align: left;
@@ -9791,10 +9772,6 @@ a.dropdown-item, .prose a.dropdown-item {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
-}
-.text-gray-200 {
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 .text-gray-400 {
   --tw-text-opacity: 1;
@@ -10140,10 +10117,6 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.before\:content-\[\'Ajouter\'\]::before {
-  --tw-content: 'Ajouter';
-  content: var(--tw-content);
-}
 .hover\:bg-gray-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
@@ -10180,23 +10153,13 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
-.hover\:text-blue-200:hover {
+.hover\:text-white:hover {
   --tw-text-opacity: 1;
-  color: rgb(191 219 254 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.hover\:text-gray-100:hover {
-  --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity));
-}
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-
 }
 .focus\:z-10:focus {
   z-index: 10;
@@ -10288,10 +10251,6 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
     align-items: center;
   }
 
-  .md\:justify-center {
-    justify-content: center;
-  }
-
   .md\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -10377,10 +10336,6 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 
   .lg\:pt-8 {
     padding-top: 2rem;
-  }
-
-  .lg\:pt-4 {
-    padding-top: 1rem;
   }
 }
 @media (min-width: 1536px) {
