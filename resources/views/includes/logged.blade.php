@@ -1,4 +1,4 @@
-<div class="flex flex-col w-full max-w-lg pb-2 pr-4 mt-2 text-left lg:mx-auto ">
+<div class="flex flex-col w-full max-w-lg pb-2 pr-4 mt-2 text-left lg:mx-auto items-center">
  
     <a href="/profil" class="flex flex-col items-center pb-2 ml-2 border-b border-gray-400 lg:flex-row md:flex-col">
         <img alt="blog" src=".{{ Storage::url(Auth::user()->photo) }}" class="flex-shrink-0 object-cover object-center w-10 h-10 m-1 rounded-full">
