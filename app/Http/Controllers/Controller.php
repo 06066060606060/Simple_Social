@@ -34,8 +34,8 @@ class Controller extends BaseController
 
     public function boucleProfil()
     {
-        $users = User::with('id','=', 2);
-        
+        $users = User::with('id', '=', 2);
+
         return view('account', [
 
             'users' => $users,
@@ -69,13 +69,14 @@ class Controller extends BaseController
     }
 
 
-    public function listeAmis(){
+    public function listeAmis()
+    {
         $users = User::All();
-       
+
         return view('amis', [
-    
+
             'users' => $users,
-    
+
         ]);
     }
 }

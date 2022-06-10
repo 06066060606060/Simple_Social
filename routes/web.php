@@ -35,6 +35,8 @@ Route::get('/profil', [Controller::class, 'boucleProfil']);
 
 Route::get('/amis', [Controller::class, 'listeAmis']);
 
+Route::view('/decouvrir', 'decouvrir');
+
 Route::get('/backend', [Controller::class, 'boucleBackend']);
 
 Route::delete('/delete/{id}', [Controller::class, 'delete'])->whereNumber('id')->name('delete');
