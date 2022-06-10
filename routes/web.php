@@ -18,6 +18,8 @@ use App\Http\Controllers\Controller;
 
 Route::get('/', [Controller::class, 'Mur']);
 
+Route::get('/interest', [Controller::class, 'interest']);
+
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
 
 Route::post('/registration', [AuthController::class, 'registration'])->name('registration');
@@ -34,7 +36,7 @@ Route::get('/amis', [Controller::class, 'listeAmis']);
 
 Route::post('/addpost', [Controller::class, 'AddPost']);
 
-Route::get('/backend', [Controller::class, 'boucleBackend']);
+//Route::get('/backend', [Controller::class, 'boucleBackend']);
 
 Route::delete('/delete/{id}', [Controller::class, 'delete'])->whereNumber('id')->name('delete');
 

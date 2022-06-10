@@ -36,7 +36,7 @@
   
       <nav class="items-center hidden space-x-8 text-sm font-medium lg:justify-end lg:flex lg:flex-1 lg:w-0">
       @auth
-        <a class="text-gray-900" href="backend">Administration</a>
+        <a class="text-gray-900" href="#">@include('includes.backend_modal')</a>
         <a class="" href=""><i class="-mt-6 text-white fa-solid fa-bell hover:text-black"></i></a> 
         {{-- <i class="fa-solid fa-bell-exclamation"></i> --}}
         <a class="" href=""><i class="-mt-6 text-white fa-solid fa-gear hover:text-black"></i></a>
@@ -59,7 +59,7 @@
         <nav
           class="flex items-center justify-center overflow-x-auto text-sm font-medium"
         >
-        <a class="text-gray-900" href="backend">Administration</a>
+        <a class="text-gray-900" href="#">@include('includes.backend_modal')</a>
         <a class="text-gray-900" href=""><i class="ml-2 -mt-6 text-white fa-solid fa-bell hover:text-black"></i></a> 
         {{-- <i class="fa-solid fa-bell-exclamation"></i> --}}
         <a class="text-gray-900" href=""><i class="ml-2 -mt-6 text-white fa-solid fa-gear hover:text-black"></i></a>
