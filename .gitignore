@@ -26,4 +26,8 @@ public/{css,js,build}
 =======
 public/{css,js,build}
 public/css/app.css
+<<<<<<< HEAD
 >>>>>>> 6d619a9976b35ad32935f4b81f6bf4c80ffa4e06
+=======
+public/css/app.css
+>>>>>>> 0230ba93f57b1f64848dd01a4d8a405e7120eb12

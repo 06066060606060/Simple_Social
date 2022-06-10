@@ -45,7 +45,7 @@ class Controller extends BaseController
     public function Mur()
     {
         $tim = Carbon::now();
-        $users = User::where('id', '!=', 0)->get();   //USER sans celui qui est authentifié
+        $users = User::where('id', '!=', Auth::user()->id)->get();   //USER sans celui qui est authentifié  A FIXER
         $posts = Posts::with('user')->get();
         $comments = Comments::with('post')->where('post_id', '!=', 0)->orderBy('created_at', 'DESC')->get();
        // dd($posts);
@@ -135,5 +135,13 @@ public function AddPost(Request $request)
     return redirect('/')->with('ajouté', ' ');
 }
 
+public function deletePost($id)
+       {
+
+           $post = Posts::where('id', '=', $id);
+
+           $$post->delete();
+           return redirect('/backend');
+       }
 }
 
