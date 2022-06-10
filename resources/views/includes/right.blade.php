@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 
 
@@ -121,6 +122,12 @@
 
 </div>
 </div>
+=======
+<nav class="flex flex-col py-2 text-gray-500 right">
+    @auth
+        @include('includes.logged')
+    @endauth
+   @include('includes.suggestion')
+>>>>>>> 6d619a9976b35ad32935f4b81f6bf4c80ffa4e06
 
-{{-- -----------------------------   ------------------- ------------------- --}}
 </nav>
