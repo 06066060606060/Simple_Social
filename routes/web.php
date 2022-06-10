@@ -32,11 +32,7 @@ Route::get('/profil', [Controller::class, 'boucleProfil']);
 
 Route::get('/amis', [Controller::class, 'listeAmis']);
 
-<<<<<<< HEAD
-Route::view('/decouvrir', 'decouvrir');
-=======
 Route::post('/addpost', [Controller::class, 'AddPost']);
->>>>>>> 6d619a9976b35ad32935f4b81f6bf4c80ffa4e06
 
 Route::get('/backend', [Controller::class, 'boucleBackend']);
 
@@ -48,4 +44,3 @@ Route::post('/update/{id}', [Controller::class, 'update'])->whereNumber('id')->n
 
 
 Route::post('/updatePost/{id}', [Controller::class, 'updatePost'])->whereNumber('id')->name('updatePost');
-

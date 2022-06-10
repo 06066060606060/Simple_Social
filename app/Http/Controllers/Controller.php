@@ -21,34 +21,34 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
-      // boucle crud users_______________________________
+    // boucle crud users_______________________________
 
 
-      public function boucleBackend()
-      {
-          $users = User::All();
-          $posts = Posts::All();
-  
-          return view('back', [
-  
-              'users' => $users,'posts' =>$posts
-  
-          ]);
-          return redirect()->route('backend');
-      }
-  
+    public function boucleBackend()
+    {
+        $users = User::All();
+        $posts = Posts::All();
+
+        return view('back', [
+
+            'users' => $users, 'posts' => $posts
+
+        ]);
+        return redirect()->route('backend');
+    }
 
 
-            // boucle mur page principale________________________________
+
+    // boucle mur page principale________________________________
 
 
     public function Mur()
     {
         $tim = Carbon::now();
-        $users = User::where('id', '!=', Auth::user()->id)->get();   //USER sans celui qui est authentifié
+        $users = User::where('id', '!=', 0)->get();   //USER sans celui qui est authentifié
         $posts = Posts::with('user')->get();
         $comments = Comments::with('post')->where('post_id', '!=', 0)->orderBy('created_at', 'DESC')->get();
-       // dd($posts);
+        // dd($posts);
         return view('index', [
             'posts' => $posts,
             'comments' => $comments,
@@ -56,27 +56,21 @@ class Controller extends BaseController
             'tim' => $tim,
 
         ]);
-
     }
 
-        // boucle profil users________________________________
+    // boucle profil users________________________________
 
 
     public function boucleProfil()
     {
-<<<<<<< HEAD
-        $users = User::with('id', '=', 2);
-
-=======
 
         $users = User::All()->where('id', '=', 2);
 
-        
->>>>>>> 6d619a9976b35ad32935f4b81f6bf4c80ffa4e06
+
         return view('account', [
 
             'users' => $users,
-            
+
 
         ]);
         return redirect()->route('profil');
@@ -95,7 +89,6 @@ class Controller extends BaseController
         ]);
 
         return redirect('backend')->with('modifié', ' modifié');
-
     }
 
     public function updatePost(Request $request, $id)
@@ -105,8 +98,8 @@ class Controller extends BaseController
         $posts = Posts::where('id', '=', $id);
         $posts->update([
             'content' => $request->content,
-            
-           
+
+
         ]);
 
         return redirect('backend')->with('modifié', ' modifié');
@@ -128,18 +121,16 @@ class Controller extends BaseController
     }
 
 
-   // ajouter post________________________________
-public function AddPost(Request $request)
-{
-   
-    $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-    $post = new Posts();
-    $post->user_id = $request->id;
-    $post->content = $request->content;
-    $post->image = $path;
-    $post->save();
-    return redirect('/')->with('ajouté', ' ');
-}
+    // ajouter post________________________________
+    public function AddPost(Request $request)
+    {
 
+        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+        $post = new Posts();
+        $post->user_id = $request->id;
+        $post->content = $request->content;
+        $post->image = $path;
+        $post->save();
+        return redirect('/')->with('ajouté', ' ');
+    }
 }
-

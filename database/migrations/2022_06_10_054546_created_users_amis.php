@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('amis', function (Blueprint $table) {
+        Schema::create('users_amis', function (Blueprint $table) {
             $table->id();
-            $table->interger('nb_amis')->unsigned();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('amis_id');
+            $table->foreign('amis_id')->references('id')->on('amis')->onDelete('cascade');;
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_amis');
+        //
     }
 };

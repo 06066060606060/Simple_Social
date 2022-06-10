@@ -2,11 +2,7 @@
 
     <a class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200" href="/">
         <i class="pl-4 pr-4 fa-solid fa-house"></i>Accueil</a>
-<<<<<<< HEAD
-    <a class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200" href="/decouvrir">
-=======
     <a class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200" href="decouvrir">
->>>>>>> 6d619a9976b35ad32935f4b81f6bf4c80ffa4e06
         <i class="pl-4 pr-4 fa-solid fa-magnifying-glass-plus"></i>Decouvrir</a>
     <a class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200" href="/amis">
         <i class="pl-4 pr-4 fa-solid fa-user-group"></i>Liste d'amis</a>
