@@ -20,90 +20,52 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-
-    // boucle crud users_______________________________
-
-
-    public function boucleBackend()
-    {
-        $users = User::All();
-        $posts = Posts::All();
-
-        return view('back', [
-
-            'users' => $users,
-             'posts' => $posts
-
-        ]);
-        //return redirect()->route('backend');
-    }
-
-
-
     // boucle mur page principale________________________________
 
 
     public function Mur()
     {
-        $tim = Carbon::now();
+        $timer = Carbon::now();
         $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
-        $posts = Posts::with('user')->get();
-        $comments = Comments::with('post')->where('post_id', '!=', 0)->orderBy('created_at', 'DESC')->get();
-        // dd($posts);
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();   //A FAIRE ID DU POST
+        //dd($posts);
         return view('index', [
             'posts' => $posts,
             'comments' => $comments,
+            'usersRandom' => $usersRandom,
             'users' => $users,
-            'tim' => $tim,
+            'tim' => $timer,
 
         ]);
     }
 
     // boucle profil users________________________________
 
-
-    public function boucleProfil()
+    public function boucleProfil($id)
     {
-
-        $users = User::All()->where('id', '=', 2);
-
-
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $profils = User::All();
+        $users = User::where('id', '!=', 0)->get(); 
+        $user = User::find($id);
         return view('account', [
-
+            'usersRandom' => $usersRandom,
+            'profils' => $profils,
+            'posts' => $posts,
             'users' => $users,
-
-
+            'user' => $user,
         ]);
-        return redirect()->route('profil');
-    }
-
-    public function update(Request $request, $id)
-    {
-
-
-        $users = User::where('id', '=', $id);
-        $users->update([
-            'pseudo' => $request->pseudo,
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
-
-        return redirect('backend')->with('modifié', ' modifié');
+ 
     }
 
     public function updatePost(Request $request, $id)
     {
-
-
         $posts = Posts::where('id', '=', $id);
         $posts->update([
             'content' => $request->content,
-
-
-        ]);
-
-        return redirect('backend')->with('modifié', ' modifié');
+        ]);    
     }
 
     // LISTE DAMIS_________________________________
@@ -112,12 +74,14 @@ class Controller extends BaseController
 
     public function listeAmis()
     {
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
         $users = User::All();
-
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         return view('amis', [
 
             'users' => $users,
-
+            'posts' => $posts,
+            'usersRandom' => $usersRandom,
         ]);
     }
 
@@ -144,8 +108,8 @@ class Controller extends BaseController
 
         $post = Posts::where('id', '=', $id);
 
-        $$post->delete();
-        return redirect('/backend');
+        $post->delete();
+        return redirect('/');
     }
 
 
@@ -154,11 +118,12 @@ class Controller extends BaseController
 
         $users = User::All();
         $posts = Posts::with('user')->get();
-
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
 
         return view('interest', [
             'posts' => $posts,
             'users' => $users,
+            'usersRandom' => $usersRandom,
         ]);
     }
 }

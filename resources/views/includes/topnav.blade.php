@@ -32,15 +32,22 @@
         </form>
       </div>
 
-      {{-- MENU LARGE --}}
-  
+     
       <nav class="items-center hidden space-x-8 text-sm font-medium lg:justify-end lg:flex lg:flex-1 lg:w-0">
+        @if (session('success'))
+        <div class="alert alert-success">
+            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
+                <span class='text-bold text-white'>Bienvenue {{ Auth::user()->pseudo }}</span>
+            </div>
+        </div>
+        @endif
       @auth
         <a class="text-gray-900" href="#">@include('includes.backend_modal')</a>
         <a class="" href=""><i class="-mt-6 text-white fa-solid fa-bell hover:text-black"></i></a> 
         {{-- <i class="fa-solid fa-bell-exclamation"></i> --}}
         <a class="" href=""><i class="-mt-6 text-white fa-solid fa-gear hover:text-black"></i></a>
           <a class="" href="/logout"><i class="-mt-6 text-white fa-solid fa-right-from-bracket hover:text-black"></i></a>
+     
       @endauth
     </nav>
       @guest
@@ -65,7 +72,7 @@
         <a class="text-gray-900" href=""><i class="ml-2 -mt-6 text-white fa-solid fa-gear hover:text-black"></i></a>
           <a class="pl-4 text-gray-900" href="/logout"><i class="ml-4 -mt-6 text-white fa-solid fa-right-from-bracket hover:text-black"></i></a>
           @auth
-            <a class="pl-4 text-gray-900" href="/profil"><img class="w-8 h-8 rounded-full" src="./img/avatar.png"></a>
+            <a class="pl-4 text-gray-900" href="/profil"><img class="w-8 h-8 rounded-full" src="{{ Storage::url(Auth::user()->photo) }}"></a>
           @endauth
         </nav>
       </div>

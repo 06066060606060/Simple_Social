@@ -73,19 +73,7 @@ img{
   background-color: #333;
 }
 
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
 
-/* Change color on hover */
-.topnav a:hover {
-  color: black;
-}
 
 /* Create three unequal columns that floats next to each other */
 .column {
@@ -117,7 +105,7 @@ img{
 
 /* Middle column */
 .column.middle {
-  margin-top: 250px;
+  margin-top: 242px;
   width: 60%;
 
 }

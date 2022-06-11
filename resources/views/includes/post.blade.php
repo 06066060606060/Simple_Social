@@ -1,10 +1,10 @@
-<div class="mx-4 my-1 rounded">
+<div class="mx-4 my-1 rounded"> 
     @foreach ($posts as $post)
-        
     <article class="px-4 py-2 mx-auto bg-gray-100 max-w-7xl mb-2">
+       
         <div class="w-full mx-auto mb-4 text-left md:w-3/4">
             <div class="pb-2 mb-2 ">
-                <a href="">
+                <a href="/profil/{{ $post->user->id }}">
                     <div class="flex flex-row items-center my-4">
                         <div>
                             <img src=".{{ Storage::url($post->user->photo) }}" class="rounded-full h-14 w-14" alt="avatar" />
@@ -43,18 +43,20 @@
         </div>
         @endauth
         {{-- commentaires --}}
-        @foreach ($comments as $comment)
+       
+      
+      @foreach ($comments->where('post_id', '=', $post->id)  as $comment)
         <div class="flex w-full mx-auto space-x-2 text-left border-gray-300 border-y md:w-3/4">
 
-            <a href="#" class="m-2 avatar avatar-sm">
-                <img src="{{ Storage::url($comment->user->photo) }}" class="w-6 h-6" />
+            <a href="/profil/{{ $comment->user->id }}" class="m-2 avatar avatar-sm">
+                <img src=".{{ Storage::url($comment->user->photo) }}" class="w-6 h-6" />
             </a>
             <div class="flex flex-col w-full">
-                <a href="">
-                    <p class="p-2 text-base font-bold text-black">{{ $comment->user->name }}</p>
+                <a href="/profil/{{ $comment->user->id }}">
+                    <p class="p-2 text-base font-bold text-black">  {{ $comment->user->name }}</p>
                 </a>
-                <p class="w-full p-2 border-0 rounded-lg placeholder:text-white bg-slate-300">
-                    {{ $comment->content }}
+                <p class="w-full p-2 border-0 rounded-lg placeholder:text-white bg-slate-400">
+                   {{ $comment->content }}
                 </p>
                 <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 space-x-2">
                     <a href=""> <i class="px-1 fa-solid fa-heart"></i></a>
@@ -64,7 +66,10 @@
             </div>
 
         </div>
+        
         @endforeach
+
+
     </article>
     @endforeach
 </div>
