@@ -30,7 +30,9 @@ class Controller extends BaseController
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();   //A FAIRE ID DU POST
         //dd($posts);
+        $user = Auth::user();
         return view('index', [
+            'user' => $user,
             'posts' => $posts,
             'comments' => $comments,
             'usersRandom' => $usersRandom,
@@ -47,7 +49,7 @@ class Controller extends BaseController
         $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         $profils = User::All();
-        $users = User::where('id', '!=', 0)->get(); 
+        $users = User::where('id', '!=', 0)->get();
         $user = User::find($id);
         return view('account', [
             'usersRandom' => $usersRandom,
@@ -56,7 +58,6 @@ class Controller extends BaseController
             'users' => $users,
             'user' => $user,
         ]);
- 
     }
 
     // LISTE DAMIS_________________________________
@@ -66,8 +67,9 @@ class Controller extends BaseController
         $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
         $users = User::All();
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $user = Auth::user();
         return view('amis', [
-
+            'user' => $user,
             'users' => $users,
             'posts' => $posts,
             'usersRandom' => $usersRandom,
@@ -89,30 +91,32 @@ class Controller extends BaseController
     }
 
 
-// get one post____________________________________________
+    // get one post____________________________________________
 
-public function getOnePost($id)
-{
-    $post = Posts::find($id);
-    $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
-    $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
-    $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
-    $profils = User::All();
-    return view('editPosts', [
-        'users' => $users,
-        'usersRandom' => $usersRandom,
-        'id' => $id,
-        'profils' => $profils,
-        'posts' => $posts,
-        'post' => $post,
-    ]);
-}
+    public function getOnePost($id)
+    {
+        $user = Auth::user();
+        $post = Posts::find($id);
+        $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $profils = User::All();
+        return view('editPosts', [
+            'users' => $users,
+            'usersRandom' => $usersRandom,
+            'id' => $id,
+            'profils' => $profils,
+            'posts' => $posts,
+            'post' => $post,
+            'user' => $user,
+        ]);
+    }
 
-// editer post____________________________________
+    // editer post____________________________________
 
     public function editerPost(Request $request, $id)
     {
-
+       
         $validate = $request->validate([
             'content' => 'required',
         ]);
@@ -144,12 +148,13 @@ public function getOnePost($id)
 
     public function interest()
     {
-
+        $user = Auth::user();
         $users = User::All();
         $posts = Posts::with('user')->get();
         $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
 
         return view('interest', [
+            'user' => $user,
             'posts' => $posts,
             'users' => $users,
             'usersRandom' => $usersRandom,

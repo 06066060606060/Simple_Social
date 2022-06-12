@@ -29,7 +29,7 @@
 
             {{-- like --}}
             <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 mb-2 space-x-2 border-b border-gray-300">
-                <a href=""> <i class="px-1 py-2 fa-solid fa-heart"></i></a>
+                <i class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i>
                 <span class="pt-1">13</span>
             </div>
         </div>
@@ -62,9 +62,9 @@
                    {{ $comment->content }}
                 </p>
                 <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 space-x-2">
-                    <a href=""> <i class="px-1 fa-solid fa-heart"></i></a>
+                    <i class="px-1 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i>
                     <span>2</span>
-                    <a href=""> <i class="px-1 pr-4 fa-solid fa-ellipsis"></i></a>
+                     <i class="px-1 pr-4 text-gray-700 fa-solid fa-ellipsis"></i>
                 </div>
             </div>
 

@@ -1,8 +1,8 @@
 
-                <section class="p-4 mx-4 mt-1 bg-gray-100">
+                <section class="p-4 mt-1 bg-gray-100">
                     <div class="flex items-center justify-center space-x-4">
                      
-                        <h1 class="text-4xl font-medium text-gray-800">Editer Compte</h1>
+                        <h1 class="text-4xl font-medium text-gray-800">Editer le profil</h1>
 
                         <button @click="modelOpen = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
                         </button>

@@ -281,7 +281,7 @@
                                             <a  x-bind:href="'/editPosts/' + `${item.id}`"
                                             class="h-6 px-2 pt-1 mx-1 my-2 text-xs text-gray-100 bg-gray-700 rounded hover:bg-blue-800 focus:outline-none hover:text-gray-200">
 
-                                            <button type="submit"> <i class="fa-solid fa-pencil"></i></button>
+                                             <i class="fa-solid fa-pencil"></i>
                                             </a>
 
                                             <form method="post" x-bind:action="'/deletePost/' + `${item.id}`"

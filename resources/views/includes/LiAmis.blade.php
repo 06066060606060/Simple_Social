@@ -1,18 +1,18 @@
 <section class="p-4 mx-4 mt-1 bg-gray-100 max-w-7xl">
-  <div class="bg-grey-100 px-3 font-sans leading-normal tracking-normal">
+  <div class="px-3 font-sans leading-normal tracking-normal bg-grey-100">
     <div class="container pt-2 mx-auto" x-data="loadUsers()">
         <input x-ref="searchField" x-model="search" x-on:click="viewPage(0)"
             x-on:keydown.window.prevent.slash=" viewPage(0), $refs.searchField.focus()"
             placeholder="Rechercher un utilisateurs..." type="search"
-            class="block w-full bg-gray-200 focus:outline-none focus:bg-white focus:shadow text-gray-700 font-bold rounded-lg px-4 py-3" />
-        <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            class="block w-full px-4 py-3 font-bold text-gray-700 bg-gray-200 rounded-lg focus:outline-none focus:bg-white focus:shadow" />
+        <div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-3 lg:grid-cols-4">
             <template x-for="item in filteredUsers" :key="item">
                 <div
-                    class="flex items-center shadow hover:bg-indigo-100 hover:shadow-lg hover:rounded transition duration-150 ease-in-out transform hover:scale-105 p-3">
-                    <img class="w-10 h-10 rounded-full mr-4"
+                    class="flex items-center p-3 transition duration-150 ease-in-out transform shadow hover:bg-indigo-100 hover:shadow-lg hover:rounded hover:scale-105">
+                    <img class="w-10 h-10 mr-4 rounded-full"
                         :src="'./storage/' + `${item.photo}`" />
                     <div class="text-sm">
-                        <p class="text-gray-900 leading-none"
+                        <p class="leading-none text-gray-900"
                             x-text="item.name + ' (' + item.pseudo + ')'"></p>
                             <div class="flex flex-row">            
                     </div>
@@ -21,12 +21,12 @@
             </template>
         </div>
 
-        <div class="w-full md:w-1/2 mx-auto py-6 flex justify-between items-center"
+        <div class="flex items-center justify-between w-full py-6 mx-auto md:w-1/2"
             x-show="pageCount() > 1">
             <!--First Button-->
             <button x-on:click="viewPage(0)" :disabled="pageNumber == 0"
                 :class="{ 'disabled cursor-not-allowed text-gray-600': pageNumber == 0 }">
-                <svg class="h-8 w-8 text-indigo-600" width="24" height="24" viewBox="0 0 24 24"
+                <svg class="w-8 h-8 text-indigo-600" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <polygon points="19 20 9 12 19 4 19 20"></polygon>
@@ -37,7 +37,7 @@
             <!--Previous Button-->
             <button x-on:click="prevPage" :disabled="pageNumber == 0"
                 :class="{ 'disabled cursor-not-allowed text-gray-600': pageNumber == 0 }">
-                <svg class="h-8 w-8 text-indigo-600" width="24" height="24" viewBox="0 0 24 24"
+                <svg class="w-8 h-8 text-indigo-600" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <polyline points="15 18 9 12 15 6"></polyline>
@@ -56,7 +56,7 @@
             <!--Next Button-->
             <button x-on:click="nextPage" :disabled="pageNumber >= pageCount() - 1"
                 :class="{ 'disabled cursor-not-allowed text-gray-600': pageNumber >= pageCount() - 1 }">
-                <svg class="h-8 w-8 text-indigo-600" width="24" height="24" viewBox="0 0 24 24"
+                <svg class="w-8 h-8 text-indigo-600" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6"></polyline>
@@ -67,7 +67,7 @@
             <button x-on:click="viewPage(Math.ceil(total/size)-1)"
                 :disabled="pageNumber >= pageCount() - 1"
                 :class="{ 'disabled cursor-not-allowed text-gray-600': pageNumber >= pageCount() - 1 }">
-                <svg class="h-8 w-8 text-indigo-600" width="24" height="24" viewBox="0 0 24 24"
+                <svg class="w-8 h-8 text-indigo-600" width="24" height="24" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <polygon points="5 4 15 12 5 20 5 4"></polygon>
@@ -78,21 +78,21 @@
 
         <div>
             <div
-                class="mt-6 flex flex-wrap justify-between items-center text-sm leading-5 text-gray-700">
-                <div class="w-full sm:w-auto text-center sm:text-left" x-show="pageCount() > 1">
+                class="flex flex-wrap items-center justify-between mt-6 text-sm leading-5 text-gray-700">
+                <div class="w-full text-center sm:w-auto sm:text-left" x-show="pageCount() > 1">
                     Page <span x-text="pageNumber+1"> </span> of
                     <span x-text="pageCount()"></span> | Showing
                     <span x-text="startResults()"></span> to
                     <span x-text="endResults()"></span>
                 </div>
 
-                <div class="w-full sm:w-auto text-center sm:text-right" x-show="total > 0">
+                <div class="w-full text-center sm:w-auto sm:text-right" x-show="total > 0">
                     Total <span class="font-bold" x-text="total"></span> results
                 </div>
 
                 <!--Message to display when no results-->
-                <div class="mx-auto flex items-center font-bold text-red-500" x-show="total===0">
-                    <svg class="h-8 w-8 text-red-500" viewBox="0 0 24 24" stroke-width="2"
+                <div class="flex items-center mx-auto font-bold text-red-500" x-show="total===0">
+                    <svg class="w-8 h-8 text-red-500" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" fill="none" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -108,7 +108,7 @@
         </div>
     </div>
     <script>
-        var sourceData = {!! json_encode($users) !!};
+        var sourceDatax = {!! json_encode($users) !!};
 
         function loadUsers() {
             return {
@@ -116,7 +116,7 @@
                 pageNumber: 0,
                 size: 10,
                 total: "",
-                myForData: sourceData,
+                myForData: sourceDatax,
 
                 get filteredUsers() {
                     const start = this.pageNumber * this.size,
