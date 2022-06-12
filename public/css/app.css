@@ -9945,13 +9945,6 @@ a.dropdown-item, .prose a.dropdown-item {
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.outline {
-  outline-style: solid;
-}
-.blur {
-  --tw-blur: blur(8px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -10011,6 +10004,7 @@ a.dropdown-item, .prose a.dropdown-item {
   }
 html{
     background-color: rgb(11, 11, 11);
+    /* overflow-y:scroll; */
 
 }
 img{
@@ -10024,8 +10018,10 @@ img{
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 10px;
-    padding-right: 10px;
+
+    min-height: 100vh;
+    background-color: #111827;
+ 
 
   }
 
@@ -10047,7 +10043,7 @@ img{
   position: fixed;
   background-size: cover;
   top: 0;
-  max-width: 1420px;
+  max-width: 1440px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -10065,7 +10061,7 @@ img{
 .topnav {
   z-index: 10;
   position: fixed;
-  max-width: 1420px;
+  max-width: 1440px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -10078,16 +10074,14 @@ img{
 
 /* Create three unequal columns that floats next to each other */
 .column {
-  background-color: rgb(17, 24, 39);
   float: left;
-  height: 900vh;
+  height:100vh;
+  min-height: 100vh;
 }
 
 /* Left and right column */
 .column.sideL {
   width: 20%;
-
-
 }
 .left{
   position: fixed;
@@ -10110,12 +10104,6 @@ img{
   width: 60%;
 
 }
-
-.row{
-  background-color: rgb(17, 24, 39);
-
-}
-
 
 /* Responsive layout______________________________________________________________________________*/
 @media screen and (max-width: 600px) {
