@@ -9383,6 +9383,9 @@ a.dropdown-item, .prose a.dropdown-item {
 .h-5 {
   height: 1.25rem;
 }
+.h-0 {
+  height: 0px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -9433,6 +9436,9 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .w-5 {
   width: 1.25rem;
+}
+.w-0 {
+  width: 0px;
 }
 .max-w-3xl {
   max-width: 48rem;
@@ -9900,6 +9906,14 @@ a.dropdown-item, .prose a.dropdown-item {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+}
 .placeholder-gray-400::-moz-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(156 163 175 / var(--tw-placeholder-opacity));
@@ -10069,8 +10083,6 @@ img{
   overflow: hidden;
   background-color: #333;
 }
-
-
 
 /* Create three unequal columns that floats next to each other */
 .column {

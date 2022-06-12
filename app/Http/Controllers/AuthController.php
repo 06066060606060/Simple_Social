@@ -118,7 +118,7 @@ class AuthController extends Controller
         $user->bio = $validate['bio'];
         $user->photo = $path;
         $user->banniere = $pathB;
-        // $film->interets()->sync($request->interets);
+        // $user->interets()->sync($request->interets);
         $user->save();
         // $user->interets()->attach($request->interets);
 

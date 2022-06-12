@@ -31,6 +31,38 @@
                 </div>
             @endif
 
+            @if (session('modifié'))
+            <div class="">
+                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                    <span class='text-green-600 text-bold'>Post modifié!</span>
+                </div>
+            </div>
+        @endif
+
+        @if (session('ajouté'))
+        <div class="">
+            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                <span class='text-green-600 text-bold'>Post ajouté!</span>
+            </div>
+        </div>
+    @endif
+
+    @if (session('commajouté'))
+    <div class="">
+        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+            <span class='text-green-600 text-bold'>Commentaire ajouté!</span>
+        </div>
+    </div>
+@endif
+
+        @if (session('supprimé'))
+        <div class="">
+            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
+                <span class='text-red-800 text-bold'>Post supprimé!</span>
+            </div>
+        </div>
+    @endif
+
             {{-- SI AUTH j'affiche les settings --}}
             @auth
 

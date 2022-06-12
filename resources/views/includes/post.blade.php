@@ -43,11 +43,16 @@
 
         {{-- ajouter commentaires --}}
         @auth
-        <div class="flex flex-row w-full mx-auto my-2 space-x-2 md:w-3/4">
+        <form method="post" action="/addcomm" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+            <div class="flex flex-row w-full mx-auto my-2 space-x-2 md:w-3/4">
             <img src="{{ Storage::url(Auth::user()->photo) }}" class="w-12 h-12 pt-1 rounded-full" />
-            <input class="w-full ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-300 form-input" type="text"
+                <input name="comm" class="w-full ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-300 form-input" type="text"
                 placeholder="Laisser un commentaire">
         </div>
+         </form>
         @endauth
         {{-- commentaires --}}
        

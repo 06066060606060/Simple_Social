@@ -40,6 +40,7 @@ Route::get('/amis', [Controller::class, 'listeAmis']);
 
 Route::post('/addpost', [Controller::class, 'AddPost'])->name('addpost');
 
+Route::post('/addcomm', [Controller::class, 'AddComm'])->name('addcomm');
 
 Route::delete('/deleteUser/{id}', [AuthController::class, 'delete'])->whereNumber('id')->name('delete');
 

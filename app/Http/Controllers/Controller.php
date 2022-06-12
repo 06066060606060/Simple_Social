@@ -97,6 +97,20 @@ class Controller extends BaseController
     }
 
 
+    
+    // ajouter comm________________________________
+    public function AddComm(Request $request)
+    {
+        $comm = new Comments();
+        $comm->user_id = $request->user_id;
+        $comm->post_id = $request->post_id;
+        $comm->content = $request->comm;
+        $comm->save();
+        return redirect('/')->with('commajouté', 'ok');
+    }
+
+
+
     // get one post____________________________________________
 
     public function getOnePost($id)
@@ -133,7 +147,6 @@ class Controller extends BaseController
                 $path2 = $post->image;
             }
         
-     
         $post = Posts::find($id);
         $post->image = $path2;
         $post->content =  $validate['content'];
@@ -141,7 +154,7 @@ class Controller extends BaseController
         $post->save();
         // $user->interets()->attach($request->interets);
 
-        return redirect('/')->with('modifié', ' modifié');
+        return redirect('/')->with('modifié','ok');
     }
 
     // delete post___________________________________________________________________
@@ -152,7 +165,7 @@ class Controller extends BaseController
         $post = Posts::where('id', '=', $id);
 
         $post->delete();
-        return redirect('/');
+        return redirect('/')->with('supprimé', 'ok');;
     }
 
 
