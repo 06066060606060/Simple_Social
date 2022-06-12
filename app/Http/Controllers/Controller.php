@@ -22,7 +22,6 @@ class Controller extends BaseController
 
     // boucle mur page principale________________________________
 
-
     public function Mur()
     {
         $timer = Carbon::now();
@@ -60,17 +59,7 @@ class Controller extends BaseController
  
     }
 
-    public function updatePost(Request $request, $id)
-    {
-        $posts = Posts::where('id', '=', $id);
-        $posts->update([
-            'content' => $request->content,
-        ]);    
-    }
-
     // LISTE DAMIS_________________________________
-
-
 
     public function listeAmis()
     {
@@ -100,8 +89,48 @@ class Controller extends BaseController
     }
 
 
+// get one post____________________________________________
 
-    // delete post
+public function getOnePost($id)
+{
+    $post = Posts::find($id);
+    $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
+    $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+    $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+    $profils = User::All();
+    return view('editPosts', [
+        'users' => $users,
+        'usersRandom' => $usersRandom,
+        'id' => $id,
+        'profils' => $profils,
+        'posts' => $posts,
+        'post' => $post,
+    ]);
+}
+
+// editer post____________________________________
+
+    public function editerPost(Request $request, $id)
+    {
+
+        $validate = $request->validate([
+            'content' => 'required',
+        ]);
+        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+        $post = Posts::find($id);
+        $post->content =  $validate['content'];
+        $post->image = $path;
+        // $film->interets()->sync($request->interets);
+        $post->save();
+        // $user->interets()->attach($request->interets);
+
+        return redirect('/')->with('modifié', ' modifié');
+    }
+
+
+
+
+    // delete post___________________________________________________________________
 
     public function deletePost($id)
     {

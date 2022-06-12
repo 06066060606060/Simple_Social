@@ -1,5 +1,5 @@
 
-                <section class="mx-4 mt-1 bg-gray-100 p-4">
+                <section class="p-4 mx-4 mt-1 bg-gray-100">
                     <div class="flex items-center justify-center space-x-4">
                      
                         <h1 class="text-4xl font-medium text-gray-800">Editer Compte</h1>
@@ -8,7 +8,7 @@
                         </button>
                     </div>
 
-                    <form class="mt-5" method="post" action="/editerUser/{{ $id }}" enctype="multipart/form-data">
+                    <form class="mt-5" method="post" action="/editerUser/{{ $user->id }}" enctype="multipart/form-data">
                         @csrf
                         <div>
                             <div class="flex flex-row pb-2">
@@ -30,7 +30,7 @@
                                         <input type="file" style="display:none" id="file2" name="banniere" value="">
                                 </div>
                                 <div class="w-1/3"> 
-                                    <img class="ml-8 w-32 h-32 object-cover rounded-full" src="{{ Storage::url($user->photo) }}">
+                                    <img class="object-cover w-20 h-20 ml-8 rounded-full lg:w-32 lg:h-32" src="{{ Storage::url($user->photo) }}">
                                 </div>
                             </div>
                             <div>
