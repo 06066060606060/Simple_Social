@@ -109,8 +109,6 @@ class AuthController extends Controller
             'pseudo' => 'required',
             'name' => 'required',
             'bio' => 'required',
-            'email' => 'required',
-            'password' => 'required',
         ]);
         $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
         $pathB = Storage::disk('public')->put('img', $request->file('banniere'));
@@ -120,7 +118,6 @@ class AuthController extends Controller
         $user->bio = $validate['bio'];
         $user->photo = $path;
         $user->banniere = $pathB;
-        $user->email = $validate['email'];
         // $film->interets()->sync($request->interets);
         $user->save();
         // $user->interets()->attach($request->interets);

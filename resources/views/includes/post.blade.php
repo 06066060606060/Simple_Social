@@ -1,6 +1,6 @@
 <div class="mx-4 my-1 rounded"> 
     @foreach ($posts as $post)
-    <article class="px-4 py-2 mx-auto bg-gray-100 max-w-7xl mb-2">
+    <article class="px-4 py-2 mx-auto mb-2 bg-gray-100 max-w-7xl">
        
         <div class="w-full mx-auto mb-4 text-left md:w-3/4">
             <div class="pb-2 mb-2 ">
@@ -11,7 +11,7 @@
                         </div>
                         <div class="ml-4">
                             <h2 class="font-bold tracking-widest text-blue-600">{{ $post->user->name }}</h2>
-                            <span class="text-s font-semibold text-gray-500 lg:mb-0">{{ $post->user->pseudo }}</span>
+                            <span class="font-semibold text-gray-500 text-s lg:mb-0">{{ $post->user->pseudo }}</span>
                         </div>
                         <div class="">
                             <p class="pb-6 ml-4 text-base text-gray-500"> {{ $post->created_at->diffForHumans() }}</p>
@@ -52,9 +52,12 @@
                 <img src=".{{ Storage::url($comment->user->photo) }}" class="w-6 h-6" />
             </a>
             <div class="flex flex-col w-full">
+                <div class="flex flex-row">
                 <a href="/profil/{{ $comment->user->id }}">
                     <p class="p-2 text-base font-bold text-black">  {{ $comment->user->name }}</p>
                 </a>
+                    <span class="pt-3 text-xs text-gray-600"> {{ $comment->created_at->diffForHumans() }}</span>
+                </div>
                 <p class="w-full p-2 border-0 rounded-lg placeholder:text-white bg-slate-400">
                    {{ $comment->content }}
                 </p>

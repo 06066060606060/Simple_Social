@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('content')->nullable();
             $table->string('image', 255)->nullable();
             $table->enum('visibility', ['private', 'public'])->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
