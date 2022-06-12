@@ -44,7 +44,7 @@
                                     <img class="w-24 h-auto mr-4" src="{{ Storage::url($post->image) }}" />
                                     <div class="flex flex-col text-sm flex-start">
                                         <span class="text-xs text-gray-400" >{{ $post->user->name }}</span>
-                                        <p class="leading-none text-gray-900 break-words" >{{ $post->content}}</p>
+                                        <p class="leading-none text-gray-900 break-words" >{{ html_entity_decode($post->content); }}</p>
                                        
                                     </div>
                                     <div class="">

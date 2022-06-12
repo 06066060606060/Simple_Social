@@ -58,18 +58,19 @@
 
                                             <div class="flex flex-col pl-2">
 
-                                                 <a  x-bind:href="'/editUsers/' + `${item.id}`"
+                                                <a x-bind:href="'/editUsers/' + `${item.id}`"
                                                     class="h-6 px-2 pt-1 mx-1 my-2 text-xs text-gray-100 bg-gray-700 rounded hover:bg-blue-800 focus:outline-none hover:text-gray-200">
                                                     <i class="fa-solid fa-pencil"></i>
                                                 </a>
 
                                                 <form method="post" x-bind:action="'/deleteUser/' + `${item.id}`"
-                                                class="h-6 px-2 pt-1 mx-1 my-2 text-xs text-gray-100 bg-gray-700 rounded hover:bg-blue-800 focus:outline-none hover:text-gray-200">
-                                                @csrf
-                                                @method('delete')
-                                               
-                                                <button type="submit"> <i class="fa-solid fa-trash-can"></i></button>
-                                            </form>
+                                                    class="h-6 px-2 pt-1 mx-1 my-2 text-xs text-gray-100 bg-gray-700 rounded hover:bg-blue-800 focus:outline-none hover:text-gray-200">
+                                                    @csrf
+                                                    @method('delete')
+
+                                                    <button type="submit"> <i
+                                                            class="fa-solid fa-trash-can"></i></button>
+                                                </form>
 
                                             </div>
                                         </div>
@@ -278,17 +279,17 @@
                                         </div>
                                         <div class="flex flex-row">
 
-                                            <a  x-bind:href="'/editPosts/' + `${item.id}`"
-                                            class="h-6 px-2 pt-1 mx-1 my-2 text-xs text-gray-100 bg-gray-700 rounded hover:bg-blue-800 focus:outline-none hover:text-gray-200">
+                                            <a x-bind:href="'/editPosts/' + `${item.id}`"
+                                                class="h-6 px-2 pt-1 mx-1 my-2 text-xs text-gray-100 bg-gray-700 rounded hover:bg-blue-800 focus:outline-none hover:text-gray-200">
 
-                                             <i class="fa-solid fa-pencil"></i>
+                                                <i class="fa-solid fa-pencil"></i>
                                             </a>
 
                                             <form method="post" x-bind:action="'/deletePost/' + `${item.id}`"
                                                 class="h-6 px-2 pt-1 mx-1 my-2 text-xs text-gray-100 bg-gray-700 rounded hover:bg-blue-800 focus:outline-none hover:text-gray-200">
                                                 @csrf
                                                 @method('delete')
-                                               
+
                                                 <button type="submit"> <i class="fa-solid fa-trash-can"></i></button>
                                             </form>
                                         </div>
@@ -393,6 +394,7 @@
                             </div>
                         </div>
                         <script>
+
                             var sourceData2 = {!! json_encode($posts) !!};
 
                             function loadPosts() {

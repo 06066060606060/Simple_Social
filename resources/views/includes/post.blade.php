@@ -28,7 +28,7 @@
 
         <div class="w-full mx-auto prose md:w-3/4">
             <p class="text-center">
-              {{ $post->content }}
+              {{ html_entity_decode($post->content); }}
             </p>
 
             {{-- like --}}
