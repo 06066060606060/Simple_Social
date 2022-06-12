@@ -1,5 +1,5 @@
 
-                <section class="p-4 mt-1 bg-gray-100">
+                <section class="p-4 mt-1 bg-gray-200">
                     <div class="flex items-center justify-center space-x-4">
                      
                         <h1 class="text-4xl font-medium text-gray-800">Editer le profil</h1>

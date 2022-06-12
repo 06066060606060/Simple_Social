@@ -35,6 +35,9 @@
             <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 mb-2 space-x-2 border-b border-gray-300">
                 <i class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i>
                 <span class="pt-1">{{rand(0,17);}}</span>
+                {{-- @foreach ($likes->where('post_id', '=', $post->id)  as $like)
+                <span class="pt-1">{{ $like->number }}</span>
+                @endforeach LIKE TABLE A MODIFIER--}}
             </div>
         </div>
 

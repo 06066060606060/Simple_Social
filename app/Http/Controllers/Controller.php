@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Likes;
+
 use App\Models\Posts;
 use App\Models\Comments;
-
-use App\Models\User;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
@@ -28,10 +29,12 @@ class Controller extends BaseController
         $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
         $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
-        $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();   //A FAIRE ID DU POST
+        $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();
+        $likes = Likes::All();
         //dd($posts);
         $user = Auth::user();
         return view('index', [
+            'likes' => $likes,
             'user' => $user,
             'posts' => $posts,
             'comments' => $comments,
