@@ -38,7 +38,7 @@ Route::get('/profil/{id}', [Controller::class, 'boucleProfil']);
 
 Route::get('/amis', [Controller::class, 'listeAmis']);
 
-Route::post('/addpost', [Controller::class, 'AddPost']);
+Route::post('/addpost', [Controller::class, 'AddPost'])->name('addpost');
 
 
 Route::delete('/deleteUser/{id}', [AuthController::class, 'delete'])->whereNumber('id')->name('delete');

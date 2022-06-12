@@ -7,7 +7,7 @@
                 <a href="/profil/{{ $post->user->id }}">
                     <div class="flex flex-row items-center my-4">
                         <div>
-                            <img src=".{{ Storage::url($post->user->photo) }}" class="rounded-full h-14 w-14" alt="avatar" />
+                            <img src="{{ Storage::url($post->user->photo) }}" class="rounded-full h-14 w-14" alt="avatar" />
                         </div>
                         <div class="ml-4">
                             <h2 class="font-bold tracking-widest text-blue-600">{{ $post->user->name }}</h2>
@@ -19,7 +19,11 @@
                     </div>
                 </a>
             </div>
-            <img src=".{{ Storage::url($post->image) }}" class="w-3/4 h-auto mx-auto rounded" alt="post image" />
+        @if(($post->image) != null)
+            <img src="{{ Storage::url($post->image) }}" class="w-full h-auto mx-auto rounded" alt="post image" />
+        @else
+           {{-- <img src="https://source.unsplash.com/random" class="w-full h-auto mx-auto rounded" alt="post image" /> --}}
+        @endif
         </div>
 
         <div class="w-full mx-auto prose md:w-3/4">
@@ -30,7 +34,7 @@
             {{-- like --}}
             <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 mb-2 space-x-2 border-b border-gray-300">
                 <i class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i>
-                <span class="pt-1">13</span>
+                <span class="pt-1">{{rand(0,17);}}</span>
             </div>
         </div>
 
@@ -49,7 +53,7 @@
         <div class="flex w-full mx-auto space-x-2 text-left border-gray-300 border-y md:w-3/4">
 
             <a href="/profil/{{ $comment->user->id }}" class="m-2 avatar avatar-sm">
-                <img src=".{{ Storage::url($comment->user->photo) }}" class="w-6 h-6" />
+                <img src="{{ Storage::url($comment->user->photo) }}" class="w-6 h-6" />
             </a>
             <div class="flex flex-col w-full">
                 <div class="flex flex-row">
@@ -63,7 +67,7 @@
                 </p>
                 <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 space-x-2">
                     <i class="px-1 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i>
-                    <span>2</span>
+                    <span>{{rand(0,10);}}</span>
                      <i class="px-1 pr-4 text-gray-700 fa-solid fa-ellipsis"></i>
                 </div>
             </div>

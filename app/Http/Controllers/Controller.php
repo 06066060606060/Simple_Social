@@ -80,14 +80,17 @@ class Controller extends BaseController
     // ajouter post________________________________
     public function AddPost(Request $request)
     {
-
-        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+        if($request->file('imagea')!=null){
+        $path1 = Storage::disk('public')->put('img', $request->file('imagea'));    //chemin + nom image
+        } else {
+            $path1 = null;
+        }
         $post = new Posts();
         $post->user_id = $request->id;
         $post->content = $request->content;
-        $post->image = $path;
+        $post->image = $path1;
         $post->save();
-        return redirect('/')->with('ajouté', ' ');
+        return redirect('/')->with('ajouté', 'ok');
     }
 
 
@@ -116,23 +119,27 @@ class Controller extends BaseController
 
     public function editerPost(Request $request, $id)
     {
-       
+        $post = Posts::find($id);
         $validate = $request->validate([
             'content' => 'required',
         ]);
-        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+
+        if($request->file('imageb')!=null){
+            $path2 = Storage::disk('public')->put('img', $request->file('imageb'));    //chemin + nom image
+            } else {
+                $path2 = $post->image;
+            }
+        
+     
         $post = Posts::find($id);
+        $post->image = $path2;
         $post->content =  $validate['content'];
-        $post->image = $path;
         // $film->interets()->sync($request->interets);
         $post->save();
         // $user->interets()->attach($request->interets);
 
         return redirect('/')->with('modifié', ' modifié');
     }
-
-
-
 
     // delete post___________________________________________________________________
 
