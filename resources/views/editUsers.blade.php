@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
 @section('main')
-@include('includes.backend')
+@include('includes.editUser') 
+
 @endsection
+

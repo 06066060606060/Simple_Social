@@ -18,10 +18,11 @@ use App\Http\Controllers\Controller;
 
 Route::get('/', [Controller::class, 'Mur']);
 
-
-Route::get('/error', function () {
-    return view('error');
+Route::get('/print', function () {
+    return view('print');
 });
+
+Route::get('/interest', [Controller::class, 'interest']);
 
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
 
@@ -33,19 +34,23 @@ Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('aut
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/profil', [Controller::class, 'boucleProfil']);
+Route::get('/profil/{id}', [Controller::class, 'boucleProfil']);
 
 Route::get('/amis', [Controller::class, 'listeAmis']);
 
-Route::post('/addpost', [Controller::class, 'AddPost']);
+Route::post('/addpost', [Controller::class, 'AddPost'])->name('addpost');
 
-Route::get('/backend', [Controller::class, 'boucleBackend']);
+Route::post('/addcomm', [Controller::class, 'AddComm'])->name('addcomm');
 
-Route::delete('/delete/{id}', [Controller::class, 'delete'])->whereNumber('id')->name('delete');
+Route::delete('/deleteUser/{id}', [AuthController::class, 'delete'])->whereNumber('id')->name('delete');
+
+Route::get('/editUsers/{id}', [AuthController::class, 'getOneUser'])->whereNumber('id');
+
+Route::post('/editerUser/{id}', [AuthController::class, 'editerUser'])->whereNumber('id')->name('editerUser');
+
+
+Route::get('/editPosts/{id}', [Controller::class, 'getOnePost'])->whereNumber('id');
+
+Route::post('/editerPost/{id}', [Controller::class, 'editerPost'])->whereNumber('id')->name('editerPost');
 
 Route::delete('/deletePost/{id}', [Controller::class, 'deletePost'])->whereNumber('id')->name('deletePost');
-
-Route::post('/update/{id}', [Controller::class, 'update'])->whereNumber('id')->name('update');
-
-
-Route::post('/updatePost/{id}', [Controller::class, 'updatePost'])->whereNumber('id')->name('updatePost');
