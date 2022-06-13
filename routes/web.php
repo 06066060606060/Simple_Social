@@ -18,6 +18,11 @@ use App\Http\Controllers\Controller;
 
 Route::get('/', [Controller::class, 'Mur']);
 
+
+Route::get('/error', function () {
+    return view('error');
+});
+
 Route::get('/register', [AuthController::class, 'registerForm'])->name('register');
 
 Route::post('/registration', [AuthController::class, 'registration'])->name('registration');

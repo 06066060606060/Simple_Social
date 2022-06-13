@@ -37,10 +37,6 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function logged()
-    {
-        return view('login');
-    }
 
     public function authenticate(Request $request)
     {
@@ -57,6 +53,11 @@ class AuthController extends Controller
         return view('error');
     }
 
+    public function logged()
+    {
+        return view('error');
+    }
+
     public function logout(Request $request)
     {
 
@@ -66,34 +67,31 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-   
-       // delete user_________________________________
 
-       public function delete($id)
-       {
-   
-           $user = User::where('id', '=', $id);
-   
-           $user->delete();
-           return redirect('/backend');
-       }
-  
+    // delete user_________________________________
 
-           // update user info_________________________________
+    public function delete($id)
+    {
 
-           public function update(Request $request, $id)
-           {
-               $users = User::where('id', '=', $id);
-               $users->update([
-                   'pseudo' => $request->pseudo,
-                   'name' => $request->name,
-                   'email' => $request->email,
-                   'password' => Hash::make($request->password)
-               ]);
-       
-               return redirect('/')->with('modifié', ' modifié');
-           }
+        $user = User::where('id', '=', $id);
+
+        $user->delete();
+        return redirect('/backend');
+    }
 
 
-    
+    // update user info_________________________________
+
+    public function update(Request $request, $id)
+    {
+        $users = User::where('id', '=', $id);
+        $users->update([
+            'pseudo' => $request->pseudo,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+
+        return redirect('/')->with('modifié', ' modifié');
+    }
 }

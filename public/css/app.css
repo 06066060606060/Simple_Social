@@ -9457,6 +9457,9 @@ a.dropdown-item, .prose a.dropdown-item {
 .justify-between {
   justify-content: space-between;
 }
+.justify-around {
+  justify-content: space-around;
+}
 .justify-evenly {
   justify-content: space-evenly;
 }
@@ -9586,6 +9589,10 @@ a.dropdown-item, .prose a.dropdown-item {
 .bg-slate-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 .bg-opacity-40 {
   --tw-bg-opacity: 0.4;
@@ -10283,6 +10290,11 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 
   .sm\:p-0 {
     padding: 0px;
+  }
+
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 @media (min-width: 768px) {
