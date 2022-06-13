@@ -49,6 +49,7 @@ class Controller extends BaseController
 
     public function boucleProfil($id)
     {
+        $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();
         $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         $profils = User::All();
@@ -57,6 +58,7 @@ class Controller extends BaseController
         return view('account', [
             'usersRandom' => $usersRandom,
             'profils' => $profils,
+            'comments' => $comments,
             'posts' => $posts,
             'users' => $users,
             'user' => $user,
