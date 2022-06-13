@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users_amis', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('amis_id');
-            $table->foreign('amis_id')->references('id')->on('amis')->onDelete('cascade');;
-            $table->timestamps();
+
+            $table->unsignedBigInteger('user_id1');
+            $table->foreign('user_id1')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id2');
+            $table->foreign('user_id2')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
