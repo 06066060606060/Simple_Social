@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Posts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -26,11 +27,13 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
         $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+        $pathB = Storage::disk('public')->put('img', $request->file('banniere'));
         $user = new User();
         $user->name = $validate['name'];
         $user->pseudo = $validate['pseudo'];
         $user->bio = $validate['bio'];
         $user->photo = $path;
+        $user->banniere = $pathB;
         $user->email = $validate['email'];
         $user->password = Hash::make($validate['password']);
         $user->save();
@@ -52,7 +55,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials, $remember = true)) {
             $request->session()->regenerate();
-            return redirect('/')->with('logged', 'user logged');
+            return redirect('/')->with('success', 'log ok');
         }
         return view('error');
     }
@@ -66,34 +69,59 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-   
-       // delete user_________________________________
 
-       public function delete($id)
-       {
-   
-           $user = User::where('id', '=', $id);
-   
-           $user->delete();
-           return redirect('/backend');
-       }
-  
+    // delete user_________________________________
 
-           // update user info_________________________________
+    public function delete($id)
+    {
 
-           public function update(Request $request, $id)
-           {
-               $users = User::where('id', '=', $id);
-               $users->update([
-                   'pseudo' => $request->pseudo,
-                   'name' => $request->name,
-                   'email' => $request->email,
-                   'password' => Hash::make($request->password)
-               ]);
-       
-               return redirect('/')->with('modifié', ' modifié');
-           }
+        $user = User::where('id', '=', $id);
+        $user->delete();
+        return redirect('/backend');
+    }
+
+    // GET one user
+
+    public function getOneUser($id)
+    {
+        $user = User::find($id);
+        $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $profils = User::All();
+        return view('editUsers', [
+            'user' => $user,
+            'users' => $users,
+            'usersRandom' => $usersRandom,
+            'id' => $id,
+            'profils' => $profils,
+            'posts' => $posts,
+        ]);
+    }
+
+    // update user info_________________________________
 
 
-    
+    public function editerUser(Request $request, $id)
+    {
+
+        $validate = $request->validate([
+            'pseudo' => 'required',
+            'name' => 'required',
+            'bio' => 'required',
+        ]);
+        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+        $pathB = Storage::disk('public')->put('img', $request->file('banniere'));
+        $user = user::find($id);
+        $user->name = $validate['name'];
+        $user->pseudo = $validate['pseudo'];
+        $user->bio = $validate['bio'];
+        $user->photo = $path;
+        $user->banniere = $pathB;
+        // $user->interets()->sync($request->interets);
+        $user->save();
+        // $user->interets()->attach($request->interets);
+
+        return redirect('/')->with('modifié', ' modifié');
+    }
 }

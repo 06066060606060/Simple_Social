@@ -3,174 +3,187 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Likes;
+
 use App\Models\Posts;
 use App\Models\Comments;
-
-use App\Models\User;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-
-      // boucle crud users_______________________________
-
-
-      public function boucleBackend()
-      {
-          $users = User::All();
-          $posts = Posts::All();
-  
-          return view('back', [
-  
-              'users' => $users,'posts' =>$posts
-  
-          ]);
-          return redirect()->route('backend');
-      }
-  
-
-
-            // boucle mur page principale________________________________
-
+    // boucle mur page principale________________________________
 
     public function Mur()
     {
-        $tim = Carbon::now();
-        $users = User::All();   //USER sans celui qui est authentifié
-        $posts = Posts::with('user')->get();
-        $comments = Comments::with('post')->where('post_id', '!=', 0)->orderBy('created_at', 'DESC')->get();
-       // dd($posts);
+        $timer = Carbon::now();
+        $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();
+        $likes = Likes::All();
+        //dd($posts);
+        $user = Auth::user();
         return view('index', [
+            'likes' => $likes,
+            'user' => $user,
             'posts' => $posts,
             'comments' => $comments,
+            'usersRandom' => $usersRandom,
             'users' => $users,
-            'tim' => $tim,
+            'tim' => $timer,
 
         ]);
-
     }
 
+    // boucle profil users________________________________
 
-    
-
-        // boucle profil users________________________________
-
-
-    public function boucleProfil()
+    public function boucleProfil($id)
     {
-
-        $users = User::All();
-
-        
+        $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $profils = User::All();
+        $users = User::where('id', '!=', 0)->get();
+        $user = User::find($id);
         return view('account', [
-
+            'usersRandom' => $usersRandom,
+            'profils' => $profils,
+            'comments' => $comments,
+            'posts' => $posts,
             'users' => $users,
-            
-
+            'user' => $user,
         ]);
-        return redirect()->route('profil');
-    }
-
-    public function update(Request $request, $id)
-    {
-
-
-        $users = User::where('id', '=', $id);
-        $users->update([
-            'pseudo' => $request->pseudo,
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
-
-        return redirect('backend')->with('modifié', ' modifié');
-
-    }
-
-    public function updatePost(Request $request, $id)
-    {
-
-
-        $posts = Posts::where('id', '=', $id);
-        $posts->update([
-            'content' => $request->content,
-            
-           
-        ]);
-
-        return redirect('backend')->with('modifié', ' modifié');
     }
 
     // LISTE DAMIS_________________________________
 
-
-
-    public function listeAmis(){
+    public function listeAmis()
+    {
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
         $users = User::All();
-        $check = Auth::check();
-       
-       
-        if($check){
-
-            $users = User::where('id', '!=', Auth::user()->id)->get();
-            return view('amis', [
-    
-                'users' => $users,]);
-
-
-        }
-        else{
-
-            $users = User::All();
-       
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $user = Auth::user();
         return view('amis', [
-    
+            'user' => $user,
             'users' => $users,
-    
+            'posts' => $posts,
+            'usersRandom' => $usersRandom,
         ]);
     }}
 
 
 
-   // ajouter post________________________________
-public function AddPost(Request $request)
-{
-   
-    $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-    $post = new Posts();
-    $post->user_id = $request->id;
-    $post->content = $request->content;
-    $post->image = $path;
-    $post->save();
-    return redirect('/')->with('ajouté', ' ');
-}
-
-public function deletePost($id)
-       {
-
-           $post = Posts::where('id', '=', $id);
-
-           $post->delete();
-           return redirect('/backend');
-       } 
-
-    public function makeComment($data, Posts $posts)
+    // ajouter post________________________________
+    public function AddPost(Request $request)
     {
-        $data['user_id'] = Auth::user()->id;
-        $data['post_id'] = $posts->id;
-
-        
-        return true;
+        if($request->file('imagea')!=null){
+        $path1 = Storage::disk('public')->put('img', $request->file('imagea'));    //chemin + nom image
+        } else {
+            $path1 = null;
+        }
+        $post = new Posts();
+        $post->user_id = $request->id;
+        $post->content = $request->content;
+        $post->image = $path1;
+        $post->save();
+        return redirect('/')->with('ajouté', 'ok');
     }
 
-}
+
+    
+    // ajouter comm________________________________
+    public function AddComm(Request $request)
+    {
+        $comm = new Comments();
+        $comm->user_id = $request->user_id;
+        $comm->post_id = $request->post_id;
+        $comm->content = $request->comm;
+        $comm->save();
+        return redirect('/')->with('commajouté', 'ok');
+    }
+
+
+
+    // get one post____________________________________________
+
+    public function getOnePost($id)
+    {
+        $user = Auth::user();
+        $post = Posts::find($id);
+        $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $profils = User::All();
+        return view('editPosts', [
+            'users' => $users,
+            'usersRandom' => $usersRandom,
+            'id' => $id,
+            'profils' => $profils,
+            'posts' => $posts,
+            'post' => $post,
+            'user' => $user,
+        ]);
+    }
+
+    // editer post____________________________________
+
+    public function editerPost(Request $request, $id)
+    {
+        $post = Posts::find($id);
+        $validate = $request->validate([
+            'content' => 'required',
+        ]);
+
+        if($request->file('imageb')!=null){
+            $path2 = Storage::disk('public')->put('img', $request->file('imageb'));    //chemin + nom image
+            } else {
+                $path2 = $post->image;
+            }
+        
+        $post = Posts::find($id);
+        $post->image = $path2;
+        $post->content =  $validate['content'];
+        // $film->interets()->sync($request->interets);
+        $post->save();
+        // $user->interets()->attach($request->interets);
+
+        return redirect('/')->with('modifié','ok');
+    }
+
+    // delete post___________________________________________________________________
+
+    public function deletePost($id)
+    {
+
+        $post = Posts::where('id', '=', $id);
+
+        $post->delete();
+        return redirect('/')->with('supprimé', 'ok');;
+    }
+
+
+    public function interest()
+    {
+        $user = Auth::user();
+        $users = User::All();
+        $posts = Posts::with('user')->get();
+        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
+
+        return view('interest', [
+            'user' => $user,
+            'posts' => $posts,
+            'users' => $users,
+            'usersRandom' => $usersRandom,
+        ]);
+    }
 
