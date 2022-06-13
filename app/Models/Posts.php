@@ -25,11 +25,16 @@ class Posts extends Model
 
     public function comment()
     {
-        return $this->hasMany(Comments::class)->orderBy('created_at', 'DESC');
+        return $this->hasMany(Comments::class, 'id', 'user_id', 'post_id', 'content' )->orderBy('created_at', 'DESC');
     }
 
     public function like()
     {
         return $this->hasMany(Likes::class);
+    }
+
+    public function post()
+    {
+        return $this;
     }
 }

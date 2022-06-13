@@ -46,10 +46,13 @@
                                         class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-gray-300 focus:ring-opacity-50">Ajouter
                                         un avatar</label>
                                     <input type="file" style="display:none" id="files" onchange="loadFile(event)"
-                                        name="images" value="">
+                                        name="images" value="" required>
+                                        <label for="file2"
+                                        class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-gray-300 focus:ring-opacity-50">Ajouter banniére</label>
+                                        <input type="file" style="display:none" id="file2" name="banniere" value="">
                                 </div>
                                 <div class="w-1/3">
-                                    <img id="img-output">
+                                    <img class="w-32 h-32 object-cover" id="img-output">
                                 </div>
                             </div>
                             <div>
