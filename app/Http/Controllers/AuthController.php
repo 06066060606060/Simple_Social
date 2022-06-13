@@ -57,12 +57,13 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect('/')->with('success', 'log ok');
         }
-        return view('error');
+        return redirect('/')->with('error', 'log');
     }
+
+
 
     public function logout(Request $request)
     {
-
         Session::flush();
         Auth::logout();
         $request->session()->invalidate();

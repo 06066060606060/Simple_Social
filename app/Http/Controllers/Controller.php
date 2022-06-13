@@ -9,6 +9,7 @@ use App\Models\Likes;
 use App\Models\Posts;
 use App\Models\Comments;
 use Illuminate\Http\Request;
+use App\Models\comments_likes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -16,6 +17,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 
 class Controller extends BaseController
 {
@@ -26,14 +28,21 @@ class Controller extends BaseController
     public function Mur()
     {
         $timer = Carbon::now();
-        $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
-        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        $users = User::where('id', '!=', 0)->get(); 
+        if (Auth::check()) {
+            $usersRandom = User::where('id', '!=', Auth::user()->id)->inRandomOrder()->take(5)->get();
+        } else {
+            $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        }
+       
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $comments_likes = comments_likes::All();
         $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();
         $likes = Likes::All();
-        //dd($posts);
+ 
         $user = Auth::user();
         return view('index', [
+            'comments_likes' => $comments_likes,
             'likes' => $likes,
             'user' => $user,
             'posts' => $posts,
@@ -49,14 +58,23 @@ class Controller extends BaseController
 
     public function boucleProfil($id)
     {
+        $likes = Likes::All();
         $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();
-        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
+        $comments_likes = comments_likes::All();
+        if (Auth::check()) {
+            $usersRandom = User::where('id', '!=', Auth::user()->id)->inRandomOrder()->take(5)->get();
+        } else {
+            $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        }
+
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         $profils = User::All();
         $users = User::where('id', '!=', 0)->get();
         $user = User::find($id);
         return view('account', [
+            'likes' => $likes,
             'usersRandom' => $usersRandom,
+            'comments_likes' => $comments_likes,
             'profils' => $profils,
             'comments' => $comments,
             'posts' => $posts,
@@ -69,11 +87,17 @@ class Controller extends BaseController
 
     public function listeAmis()
     {
-        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
+        if (Auth::check()) {
+            $usersRandom = User::where('id', '!=', Auth::user()->id)->inRandomOrder()->take(5)->get();
+        } else {
+            $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        }
+        $comments_likes = comments_likes::All();
         $users = User::All();
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         $user = Auth::user();
         return view('amis', [
+            'comments_likes' => $comments_likes,
             'user' => $user,
             'users' => $users,
             'posts' => $posts,
@@ -81,6 +105,26 @@ class Controller extends BaseController
         ]);
     }
 
+ // Post like
+ public function PostLike(Request $request)
+ {
+ 
+     $like = new Likes();
+     $like->post_id = $request->post_id;
+     $like->user_id = $request->user_id;
+     $like->save();
+     return redirect()->back(); 
+ }
+
+  // Comm like
+  public function CommLike(Request $request)
+  {
+      $comm = new comments_likes();
+      $comm->comment_id = $request->comment_id;
+      $comm->user_id = $request->user_id;
+      $comm->save();
+      return redirect()->back(); 
+  }
 
     // ajouter post________________________________
     public function AddPost(Request $request)
@@ -120,7 +164,13 @@ class Controller extends BaseController
         $user = Auth::user();
         $post = Posts::find($id);
         $users = User::where('id', '!=', 0)->get();   //Auth::user()->id    USER sans celui qui est authentifié  A FIXER
-        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+
+        if (Auth::check()) {
+            $usersRandom = User::where('id', '!=', Auth::user()->id)->inRandomOrder()->take(5)->get();
+        } else {
+            $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        }
+
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         $profils = User::All();
         return view('editPosts', [
@@ -176,7 +226,11 @@ class Controller extends BaseController
         $user = Auth::user();
         $users = User::All();
         $posts = Posts::with('user')->get();
-        $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
+        if (Auth::check()) {
+            $usersRandom = User::where('id', '!=', Auth::user()->id)->inRandomOrder()->take(5)->get();
+        } else {
+            $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        }
 
         return view('interest', [
             'user' => $user,

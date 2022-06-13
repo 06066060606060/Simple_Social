@@ -36,11 +36,20 @@
 
             {{-- like --}}
             <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 mb-2 space-x-2 border-b border-gray-300">
-                <i class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i>
-                <span class="pt-1">{{rand(0,17);}}</span>
-                {{-- @foreach ($likes->where('post_id', '=', $post->id)  as $like)
-                <span class="pt-1">{{ $like->number }}</span>
-                @endforeach LIKE TABLE A MODIFIER--}}
+                @auth
+                <form method="post" action="/PostLike" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                    @auth
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                    @endauth
+                    <button type="submit"><i class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i></button>
+                </form>
+                @endauth
+                @guest
+                <button type="submit"><i class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i></button>
+                @endguest
+                <span class="pt-1">{{ $likes->where('post_id', '=', $post->id)->count() }}</span>
             </div>
         </div>
 
@@ -77,8 +86,20 @@
                    {{ $comment->content }}
                 </p>
                 <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 space-x-2">
-                    <i class="px-1 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i>
-                    <span>{{rand(0,10);}}</span>
+                    @auth
+                    <form method="post" action="/CommLike" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+                        @auth
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                        @endauth
+                        <button type="submit"><i class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i></button>
+                    </form>
+                    @endauth
+                    @guest
+                    <button type="submit"><i class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i></button>
+                    @endguest
+                    <span class="pt-1">{{ $comments_likes->where('comment_id', '=', $comment->id)->count() }}</span>
                      <i class="px-1 pr-4 text-gray-700 fa-solid fa-ellipsis"></i>
                 </div>
             </div>
