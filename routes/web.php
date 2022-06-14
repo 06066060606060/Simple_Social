@@ -42,6 +42,10 @@ Route::post('/addpost', [Controller::class, 'AddPost'])->name('addpost');
 
 Route::post('/addcomm', [Controller::class, 'AddComm'])->name('addcomm');
 
+Route::post('/PostLike', [Controller::class, 'PostLike'])->name('PostLike');
+
+Route::post('/CommLike', [Controller::class, 'CommLike'])->name('CommLike');
+
 Route::delete('/deleteUser/{id}', [AuthController::class, 'delete'])->whereNumber('id')->name('delete');
 
 Route::get('/editUsers/{id}', [AuthController::class, 'getOneUser'])->whereNumber('id');

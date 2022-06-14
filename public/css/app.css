@@ -8219,42 +8219,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 [x-cloak] {
   display: none !important;
 }
-.alert {
-  border-color: currentColor;
-  border-radius: 0.375rem;
-  display: flex;
-  align-items: flex-start;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  overflow: hidden;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  position: relative;
-  vertical-align: middle;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-  padding-top: 0.7rem;
-  padding-bottom: 0.7rem;
-}
-.alert svg {
-  flex: none;
-  height: 1.25rem;
-  margin-right: 0.75rem;
-  width: 1.25rem;
-}
-.alert.alert-sm svg {
-  height: 1rem;
-  width: 1rem;
-}
-.alert.alert-lg svg {
-  height: 1.5rem;
-  width: 1.5rem;
-}
-.alert a {
-  text-decoration: underline;
-}
 .prose .alert p {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -9383,9 +9347,6 @@ a.dropdown-item, .prose a.dropdown-item {
 .h-5 {
   height: 1.25rem;
 }
-.h-0 {
-  height: 0px;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -9416,11 +9377,11 @@ a.dropdown-item, .prose a.dropdown-item {
 .w-auto {
   width: auto;
 }
-.w-12 {
-  width: 3rem;
-}
 .w-14 {
   width: 3.5rem;
+}
+.w-12 {
+  width: 3rem;
 }
 .w-6 {
   width: 1.5rem;
@@ -9436,9 +9397,6 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .w-5 {
   width: 1.25rem;
-}
-.w-0 {
-  width: 0px;
 }
 .max-w-3xl {
   max-width: 48rem;
@@ -9781,6 +9739,9 @@ a.dropdown-item, .prose a.dropdown-item {
 .pr-10 {
   padding-right: 2.5rem;
 }
+.pl-8 {
+  padding-left: 2rem;
+}
 .text-left {
   text-align: left;
 }
@@ -9906,13 +9867,13 @@ a.dropdown-item, .prose a.dropdown-item {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
-.text-green-600 {
-  --tw-text-opacity: 1;
-  color: rgb(22 163 74 / var(--tw-text-opacity));
-}
 .text-red-800 {
   --tw-text-opacity: 1;
   color: rgb(153 27 27 / var(--tw-text-opacity));
+}
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
 }
 .placeholder-gray-400::-moz-placeholder {
   --tw-placeholder-opacity: 1;
@@ -10157,21 +10118,6 @@ th {
   cursor: pointer;
 }
 
-.placeholder\:text-gray-600::-moz-placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-gray-600:-ms-input-placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-gray-600::placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-
 .placeholder\:text-gray-800::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
@@ -10200,6 +10146,21 @@ th {
 .placeholder\:text-white::placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-gray-600::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-gray-600:-ms-input-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-gray-600::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .before\:content-\[\'Ne_plus_aimer\'\]::before {

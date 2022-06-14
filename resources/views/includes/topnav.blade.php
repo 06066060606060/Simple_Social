@@ -23,45 +23,52 @@
 
         {{-- MENU normal --}}
         <nav class="items-center hidden space-x-8 text-sm font-medium lg:justify-end lg:flex lg:flex-1 lg:w-0">
+            @if (session('error'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
+                        <span class='text-red-800 text-bold pl-8'>Login ou Mots de passe incorrect</span>
+                    </div>
+                </div>
+            @endif
             @if (session('success'))
-                <div class="alert alert-success">
+                <div class="">
                     {{-- <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)"> --}}
-                        <span class='text-white text-bold'>Bienvenue {{ Auth::user()->pseudo }}</span>
+                    <span class='text-white text-bold'>Bienvenue {{ Auth::user()->pseudo }}</span>
                     {{-- </div> --}}
                 </div>
             @endif
 
             @if (session('modifié'))
-            <div class="">
-                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
-                    <span class='text-green-600 text-bold'>Post modifié!</span>
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                        <span class='text-green-600 text-bold'>Post modifié!</span>
+                    </div>
                 </div>
-            </div>
-        @endif
+            @endif
 
-        @if (session('ajouté'))
-        <div class="">
-            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
-                <span class='text-green-600 text-bold'>Post ajouté!</span>
-            </div>
-        </div>
-    @endif
+            @if (session('ajouté'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                        <span class='text-green-600 text-bold'>Post ajouté!</span>
+                    </div>
+                </div>
+            @endif
 
-    @if (session('commajouté'))
-    <div class="">
-        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
-            <span class='text-green-600 text-bold'>Commentaire ajouté!</span>
-        </div>
-    </div>
-@endif
+            @if (session('commajouté'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                        <span class='text-green-600 text-bold'>Commentaire ajouté!</span>
+                    </div>
+                </div>
+            @endif
 
-        @if (session('supprimé'))
-        <div class="">
-            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
-                <span class='text-red-800 text-bold'>Post supprimé!</span>
-            </div>
-        </div>
-    @endif
+            @if (session('supprimé'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
+                        <span class='text-red-800 text-bold'>Post supprimé!</span>
+                    </div>
+                </div>
+            @endif
 
             {{-- SI AUTH j'affiche les settings --}}
             @auth
