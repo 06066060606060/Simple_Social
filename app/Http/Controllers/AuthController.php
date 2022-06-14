@@ -32,11 +32,11 @@ class AuthController extends Controller
         $user = new User();
         if ($request->hasFile('photo') ){
             $path = Storage::disk('public')->put('img', $request->file('images'));
-            $user->photo = $path;
+            $user->photo = '/storage/'.$path;
         }
         if ($request->hasfile('banniere')) {
             $pathB = Storage::disk('public')->put('img', $request->file('banniere'));
-            $user->banniere = $pathB;
+            $user->banniere = '/storage/'.$pathB;
         }
 
         $user->name = $validate['name'];
@@ -125,8 +125,8 @@ class AuthController extends Controller
         $user->name = $validate['name'];
         $user->pseudo = $validate['pseudo'];
         $user->bio = $validate['bio'];
-        $user->photo = $path;
-        $user->banniere = $pathB;
+        $user->photo = '/storage/' . $path;
+        $user->banniere = '/storage/' . $pathB;
         // $user->interets()->sync($request->interets);
         $user->save();
         // $user->interets()->attach($request->interets);

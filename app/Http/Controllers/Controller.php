@@ -134,11 +134,11 @@ class Controller extends BaseController
         } else {
             $path1 = null;
         }
-        $string1 = '/storage/';
+    
         $post = new Posts();
         $post->user_id = $request->id;
         $post->content = $request->content;
-        $post->image = $string1 . $path1;
+        $post->image = '/storage/' . $path1;
         $post->save();
         return redirect('/')->with('ajouté', 'ok');
     }
@@ -201,7 +201,7 @@ class Controller extends BaseController
             }
         
         $post = Posts::find($id);
-        $post->image = $path2;
+        $post->image = '/storage/' . $path2;
         $post->content =  $validate['content'];
         // $film->interets()->sync($request->interets);
         $post->save();

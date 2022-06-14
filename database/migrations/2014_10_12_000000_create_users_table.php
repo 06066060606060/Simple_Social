@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('name', 255)->nullable(false);
             $table->string('pseudo', 255)->nullable(false);
             $table->string('photo', 255)->nullable();
-            $table->string('banniere', 255)->nullable()->change();
+            $table->string('banniere', 255)->nullable();
             $table->string('bio', 1024)->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('role')->nulllable();
+            $table->string('role')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

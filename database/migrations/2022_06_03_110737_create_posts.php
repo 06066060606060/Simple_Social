@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image', 255)->nullable();
             $table->enum('visibility', ['private', 'public'])->nullable();
             $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
         });
     }
