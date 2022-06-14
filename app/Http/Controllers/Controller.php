@@ -62,9 +62,9 @@ class Controller extends BaseController
         $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();
         $comments_likes = comments_likes::All();
         if (Auth::check()) {
-            $usersRandom = User::where('id', '!=', Auth::user()->id)->inRandomOrder()->take(5)->get();
+            $usersRandom = User::where('id', '!=', Auth::user()->id)->inRandomOrder()->take(4)->get();
         } else {
-            $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+            $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(4)->get();
         }
 
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();

@@ -148,3 +148,11 @@ td, th {
 th {
   cursor: pointer;
 }
+
+#comx.active {
+visibility: visible;
+}
+
+#comx {
+visibility: collapse;
+}

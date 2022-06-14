@@ -6,7 +6,7 @@
 @foreach ($usersRandom as $user)
     <div class="flex flex-col hover:bg-gray-800 hover:text-gray-200">
         <div class="flex flex-col md:flex-col lg:flex-row text-left pt-2 md:items-center gap-2 pl-2">
-            <img src="{{ Storage::url($user->photo) }}" class="w-12 rounded-full h-12" alt="avatar" />
+            <img src="{{ Storage::url($user->photo) }}" class="w-12 rounded-full h-12 bg-cover" alt="avatar" />
             <a class="p-0 m-1" href="/profil/{{ $user->id }}">
                 <p class="font-bold text-gray-400 hover:text-white">{{ $user->name }}</p>
             </a>

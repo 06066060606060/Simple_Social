@@ -46,6 +46,15 @@
                 </div>
             @endif
 
+            
+            @if (session('usermodifié'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                        <span class='text-green-600 text-bold'>Post modifié!</span>
+                    </div>
+                </div>
+            @endif
+
             @if (session('ajouté'))
                 <div class="">
                     <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">

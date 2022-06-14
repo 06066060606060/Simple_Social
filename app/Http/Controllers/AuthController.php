@@ -131,6 +131,6 @@ class AuthController extends Controller
         $user->save();
         // $user->interets()->attach($request->interets);
 
-        return redirect('/')->with('modifié', ' modifié');
+        return redirect('/')->with('usermodifié', ' modifié');
     }
 }
