@@ -9201,6 +9201,9 @@ a.dropdown-item, .prose a.dropdown-item {
 .z-50 {
   z-index: 50;
 }
+.float-right {
+  float: right;
+}
 .m-1 {
   margin: 0.25rem;
 }
@@ -9444,6 +9447,9 @@ a.dropdown-item, .prose a.dropdown-item {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.resize {
+  resize: both;
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -10100,6 +10106,9 @@ img{
 
   .left{
     position: relative;
+   top: 200px;
+   height: 200px;
+    
   }
 
   .right{
@@ -10109,6 +10118,7 @@ img{
     width: 100%;
     height: 100%;
   }
+
   .column.sideL {
    height: auto;
   }
@@ -10413,6 +10423,10 @@ visibility: collapse;
     align-items: center;
   }
 
+  .md\:justify-center {
+    justify-content: center;
+  }
+
   .md\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -10460,12 +10474,21 @@ visibility: collapse;
     margin-right: auto;
   }
 
+  .lg\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
 
   .lg\:mt-4 {
     margin-top: 1rem;
+  }
+
+  .lg\:ml-4 {
+    margin-left: 1rem;
   }
 
   .lg\:flex {
@@ -10482,6 +10505,10 @@ visibility: collapse;
 
   .lg\:w-32 {
     width: 8rem;
+  }
+
+  .lg\:w-72 {
+    width: 18rem;
   }
 
   .lg\:w-full {
@@ -10514,6 +10541,10 @@ visibility: collapse;
 
   .lg\:pt-8 {
     padding-top: 2rem;
+  }
+
+  .lg\:pl-4 {
+    padding-left: 1rem;
   }
 
   .lg\:text-sm {

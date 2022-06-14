@@ -214,9 +214,7 @@ class Controller extends BaseController
 
     public function deletePost($id)
     {
-
         $post = Posts::where('id', '=', $id);
-
         $post->delete();
         return redirect('/')->with('supprimé', 'ok');;
     }

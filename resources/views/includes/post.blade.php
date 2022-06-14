@@ -7,8 +7,7 @@
                     <a href="/profil/{{ $post->user->id }}">
                         <div class="flex flex-row items-center my-4">
                             <div>
-                                <img src="{{ $post->user->photo }}" class="rounded-full h-14 w-14"
-                                    alt="avatar" />
+                                <img src="{{ $post->user->photo }}" class="rounded-full h-14 w-14" alt="avatar" />
                             </div>
                             <div class="ml-4">
                                 <h2 class="font-bold tracking-widest text-blue-600">{{ $post->user->name }}</h2>
@@ -23,10 +22,8 @@
                     </a>
                 </div>
                 @if ($post->image != null)
-                    <img src="{{ $post->image }}" class="w-full h-auto mx-auto rounded"
-                        alt="post image" />
+                    <img src="{{ $post->image }}" class="w-full h-auto mx-auto rounded" alt="post image" />
                 @else
-                    {{-- <img src="https://source.unsplash.com/random" class="w-full h-auto mx-auto rounded" alt="post image" /> --}}
                 @endif
             </div>
 
@@ -71,83 +68,59 @@
                             type="text" placeholder="Laisser un commentaire">
                     </div>
                 </form>
-            @endauth
-            {{-- commentaires --}}
+
+                {{-- commentaires --}}
 
 
-            @foreach ($comments->where('post_id', '=', $post->id) as $comment)
-                <div class="flex w-full mx-auto space-x-2 text-left border-gray-300 border-y md:w-3/4">
+                @foreach ($comments->where('post_id', '=', $post->id) as $comment)
+                    <div class="flex w-full mx-auto space-x-2 text-left border-gray-300 border-y md:w-3/4">
 
-                    <a href="/profil/{{ $comment->user->id }}" class="m-2 avatar avatar-sm">
-                        <img src="{{ $comment->user->photo }}" class="w-6 h-6" />
-                    </a>
-                    <div class="flex flex-col w-full">
-                        <div class="flex flex-row">
-                            <a href="/profil/{{ $comment->user->id }}">
-                                <p class="p-2 text-base font-bold text-black"> {{ $comment->user->name }}</p>
-                            </a>
-                            <span class="pt-3 text-xs text-gray-600">
-                                {{ $comment->created_at->diffForHumans() }}</span>
-                        </div>
-                        <p class="w-full p-2 border-0 rounded-lg placeholder:text-white bg-slate-400">
-                            {{ $comment->content }}
-                        </p>
-                        <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 space-x-2">
-                            @auth
+                        <a href="/profil/{{ $comment->user->id }}" class="m-2 avatar avatar-sm">
+                            <img src="{{ $comment->user->photo }}" class="w-6 h-6" />
+                        </a>
+                        <div class="flex flex-col w-full">
+                            <div class="flex flex-row">
+                                <a href="/profil/{{ $comment->user->id }}">
+                                    <p class="p-2 text-base font-bold text-black"> {{ $comment->user->name }}</p>
+                                </a>
+                                <span class="pt-3 text-xs text-gray-600">
+                                    {{ $comment->created_at->diffForHumans() }}</span>
+                            </div>
+                            <p class="w-full p-2 border-0 rounded-lg placeholder:text-white bg-slate-400">
+                                {{ html_entity_decode($comment->content) }}
+                            </p>
+                            <div class="flex flex-row justify-end w-full px-1 mx-auto my-4 space-x-2">
+
                                 <form method="post" action="/CommLike" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="comment_id" value="{{ $comment->id }}">
-                                    @auth
-                                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                    @endauth
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                     <button type="submit"><i
                                             class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i></button>
+
+                                    <span
+                                        class="pt-1">{{ $comments_likes->where('comment_id', '=', $comment->id)->count() }}</span>
                                 </form>
-                            @endauth
-                            @guest
-                                <button type="submit"><i
-                                        class="px-1 py-2 text-gray-700 fa-solid fa-heart hover:text-red-600 active:text-red-800"></i></button>
-                            @endguest
-                            <span
-                                class="pt-1">{{ $comments_likes->where('comment_id', '=', $comment->id)->count() }}</span>
-                            <i class="px-1 py-2 text-gray-700 fa-solid fa-comment-dots" onclick="CacherComm()"></i>
+                                @include('includes.com_modal')
+                            </div>
+
+                            <div>
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <div class="flex flex-row justify-end w-2/3 mx-auto mb-2 space-x-2 md:w-3/4">
+                                    <p class="w-2/3 p-2 ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-400"
+                                        type="text" placeholder="">gfsthdthfgjhtfjdt</p>
+                                    <img src="{{ Auth::user()->photo }}" class="w-12 h-12 rounded-full" />
+                                </div>
+                            </div>
+
+
                         </div>
-                        {{-- ajouter commentaires de commentaire --}}
 
                     </div>
-
-
-
-                </div>
-
-           
-            @endforeach
-            @auth
-            <div id="comx">
-                <form method="post" action="/addcomm" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" name="post_id" value="{{ $post->id }}">
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="flex flex-row justify-end w-2/3 mx-auto my-2 space-x-2 md:w-3/4">
-
-                        <input name="comm"
-                            class="w-2/3 ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-300 form-input"
-                            type="text" placeholder="Repondre...">
-                        <img src="{{ Auth::user()->photo }}" class="w-12 h-12 rounded-full" />
-                    </div>
-                </form>
-            </div>
-        @endauth
-
+                @endforeach
+            @endauth
         </article>
     @endforeach
-    <script>
-        function CacherComm() {
-            console.log("ok");
-            var updateElement = document.getElementById("comx");
-            updateElement.classList.toggle("active");
-        }
-    </script>
-
 
 </div>

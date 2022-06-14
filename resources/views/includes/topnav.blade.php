@@ -26,7 +26,7 @@
             @if (session('error'))
                 <div class="">
                     <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
-                        <span class='text-red-800 text-bold pl-8'>Login ou Mots de passe incorrect</span>
+                        <span class='pl-8 text-red-800 text-bold'>Login ou Mots de passe incorrect</span>
                     </div>
                 </div>
             @endif
@@ -110,14 +110,16 @@
         <div class="lg:hidden">
             <nav class="flex items-center justify-center overflow-x-auto text-sm font-medium">
                 <a class="text-gray-900" href="#">@include('includes.backend_modal')</a>
-                <a class="text-gray-900" href=""><i
-                        class="ml-2 -mt-6 text-white fa-solid fa-bell hover:text-black"></i></a>
+                <a class="text-gray-900" href="">
+                    <i class="mx-2 ml-2 -mt-6 text-white lg:mx-0 fa-solid fa-bell hover:text-black"></i></a>
                 @include('includes.settings_modal')
-                <a class="pl-4 text-gray-900" href="/logout"><i
-                        class="ml-4 -mt-6 text-white fa-solid fa-right-from-bracket hover:text-black"></i></a>
+                <a class="text-gray-900 lg:pl-4" href="/logout">
+                    <i class="mx-2 -mt-6 text-white lg:mx-0 lg:ml-4 fa-solid fa-right-from-bracket hover:text-black"></i>
+                </a>
                 @auth
-                    <a class="pl-4 text-gray-900" href="/profil"><img class="w-8 h-8 rounded-full"
-                            src="{{ Auth::user()->photo }}"></a>
+                    <a class="pl-4 text-gray-900" href="/profil">
+                        <img class="w-8 h-8 mb-2 rounded-full" src="{{ Auth::user()->photo }}">
+                        </a>
                 @endauth
             </nav>
         </div>

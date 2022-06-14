@@ -121,6 +121,9 @@ img{
 
   .left{
     position: relative;
+   top: 200px;
+   height: 200px;
+    
   }
 
   .right{
@@ -130,6 +133,7 @@ img{
     width: 100%;
     height: 100%;
   }
+
   .column.sideL {
    height: auto;
   }

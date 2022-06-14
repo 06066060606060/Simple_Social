@@ -4,7 +4,7 @@
     </h1>
     
         <div class="w-full mx-auto text-left bg-gray-100 lg:w-full md:text-center">
-            <div class="" style="background-size: cover; height: 200px; width: 100%; background-repeat: no-repeat; background-image:url({{ $user->banniere }})">
+            <div class="lazy" style="background-size: cover; height: 200px; width: 100%; background-repeat: no-repeat; background-image:url({{ $user->banniere }})">
                 <div class="flex flex-row justify-center pt-8">
                     <img src="{{ $user->photo }}" class="w-24 h-24 mb-4 rounded-full" alt="Logo" />
                 </div>
