@@ -27,7 +27,7 @@
             <div class="mt-4">
                 <label for="content" class="block text-sm text-gray-700 dark:text-gray-600">Contenu</label>
                 <textarea name="content" rows="4" cols="40"
-                    class="block w-full px-8 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">{{ $post->content }}"</textarea>
+                    class="block w-full px-8 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">{{ $post->content }}</textarea>
             </div>
 
             <button type="submit"
