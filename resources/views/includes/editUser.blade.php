@@ -30,7 +30,7 @@
                                         <input type="file" style="display:none" id="file2" name="banniere" value="">
                                 </div>
                                 <div class="w-1/3"> 
-                                    <img class="object-cover w-20 h-20 ml-8 rounded-full lg:w-32 lg:h-32" src="{{ Storage::url($user->photo) }}">
+                                    <img class="object-cover w-20 h-20 ml-8 rounded-full lg:w-32 lg:h-32" src="{{ $user->photo }}">
                                 </div>
                             </div>
                             <div>

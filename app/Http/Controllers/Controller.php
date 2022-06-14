@@ -134,10 +134,11 @@ class Controller extends BaseController
         } else {
             $path1 = null;
         }
+        $string1 = '/storage/';
         $post = new Posts();
         $post->user_id = $request->id;
         $post->content = $request->content;
-        $post->image = $path1;
+        $post->image = $string1 . $path1;
         $post->save();
         return redirect('/')->with('ajouté', 'ok');
     }

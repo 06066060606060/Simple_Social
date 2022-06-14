@@ -8,7 +8,7 @@
                     <a href="/profil/{{ $user->id }}">
                         <div
                             class="flex items-center p-3 transition duration-150 ease-in-out transform shadow hover:bg-indigo-100 hover:shadow-lg hover:rounded hover:scale-105">
-                            <img class="w-10 h-10 mr-4 rounded-full" src="{{ Storage::url($user->photo) }}" />
+                            <img class="w-10 h-10 mr-4 rounded-full" src="{{ $user->photo }}" />
                             <div class="text-sm">
                                 <p class="leading-none text-gray-900" text="">{{ $user->pseudo }} </p>
                                 <p class="leading-none pt-1 text-xs text-gray-600" text="">{{ $user->name }} </p>

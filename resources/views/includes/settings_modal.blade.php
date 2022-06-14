@@ -41,7 +41,7 @@
                         <div class="flex flex-col">
                             @foreach ($posts->where('user_id', '=', $user->id) as $post)
                                 <div class="flex flex-row justify-between p-3 mx-4 my-1 transition duration-150 ease-in-out transform bg-gray-100 shadow hover:bg-blue-200 hover:shadow-lg hover:rounded hover:scale-105">
-                                    <img class="w-24 h-auto mr-4" src="{{ Storage::url($post->image) }}" />
+                                    <img class="w-24 h-auto mr-4" src="{{ $post->image }}" />
                                     <div class="flex flex-col text-sm flex-start">
                                         <span class="text-xs text-gray-400" >{{ $post->user->name }}</span>
                                         <p class="leading-none text-gray-900 break-words" >{{ html_entity_decode($post->content); }}</p>

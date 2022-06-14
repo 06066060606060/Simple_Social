@@ -46,7 +46,7 @@
                 </div>
             @endif
 
-            
+
             @if (session('usermodifié'))
                 <div class="">
                     <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
@@ -81,10 +81,8 @@
 
             {{-- SI AUTH j'affiche les settings --}}
             @auth
-
-
-                {{-- SI mika j'affiche le menu backend / a modifier avec les roles --}}
-                @if (Auth::user()->pseudo == 'mika')
+                         {{-- SI admin j'affiche le menu admin --}}
+                @if (Auth::user()->role == 'admin')
                     <a class="text-gray-900" href="#">@include('includes.backend_modal')</a>
                 @endif
 
@@ -119,7 +117,7 @@
                         class="ml-4 -mt-6 text-white fa-solid fa-right-from-bracket hover:text-black"></i></a>
                 @auth
                     <a class="pl-4 text-gray-900" href="/profil"><img class="w-8 h-8 rounded-full"
-                            src="{{ Storage::url(Auth::user()->photo) }}"></a>
+                            src="{{ Auth::user()->photo }}"></a>
                 @endauth
             </nav>
         </div>

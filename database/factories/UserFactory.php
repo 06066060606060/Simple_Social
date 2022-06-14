@@ -22,10 +22,11 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'pseudo' => $this->faker->lastname(),
             'photo' => $this->faker->imageUrl(64, 64, 'animals', true),
-            'banniere' => $this->faker->imageUrl(640, 480, 'flowers', true),
+            'banniere' => $this->faker->imageUrl(1280, 720, 'flowers', true),
             'bio' => $this->faker->paragraph(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'role' => 'guest',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
