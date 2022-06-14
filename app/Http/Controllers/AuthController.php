@@ -25,15 +25,23 @@ class AuthController extends Controller
             'bio' => 'required',
             'email' => 'required|unique:users,email|max:255',
             'password' => 'required',
+            'banniere' => 'mimes:jpg,bmp,png',
+            'photo' => 'mimes:jpg,bmp,png',
         ]);
-        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-        $pathB = Storage::disk('public')->put('img', $request->file('banniere'));
+
         $user = new User();
+        if ($request->hasFile('photo') ){
+            $path = Storage::disk('public')->put('img', $request->file('images'));
+            $user->photo = $path;
+        }
+        if ($request->hasfile('banniere')) {
+            $pathB = Storage::disk('public')->put('img', $request->file('banniere'));
+            $user->banniere = $pathB;
+        }
+
         $user->name = $validate['name'];
         $user->pseudo = $validate['pseudo'];
         $user->bio = $validate['bio'];
-        $user->photo = $path;
-        $user->banniere = $pathB;
         $user->email = $validate['email'];
         $user->password = Hash::make($validate['password']);
         $user->save();
