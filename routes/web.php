@@ -55,6 +55,9 @@ Route::post('/editerUser/{id}', [AuthController::class, 'editerUser'])->whereNum
 
 Route::get('/editPosts/{id}', [Controller::class, 'getOnePost'])->whereNumber('id');
 
+Route::get('/softdelete', [Controller::class, 'vuerestore'])->name('softdelete');
+
+
 Route::post('/editerPost/{id}', [Controller::class, 'editerPost'])->whereNumber('id')->name('editerPost');
 
-Route::delete('/deletePost/{id}', [Controller::class, 'deletePost'])->whereNumber('id')->name('deletePost');
+Route::delete('/deletePost/{id}', [Controller::class, 'deletePost'])->whereNumber('id')->withTrashed()->name('deletePost');

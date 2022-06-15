@@ -34,6 +34,8 @@ class Controller extends BaseController
         } else {
             $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
         }
+
+        
        
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         $comments_likes = comments_likes::All();
@@ -217,7 +219,7 @@ class Controller extends BaseController
     {
         $post = Posts::where('id', '=', $id);
         $post->delete();
-        return redirect('/')->with('supprimé', 'ok');;
+        return redirect('/')->with('supprimé', 'ok');
     }
 
 
@@ -238,6 +240,40 @@ class Controller extends BaseController
             'users' => $users,
             'usersRandom' => $usersRandom,
         ]);
+    }
+
+    public function vuerestore()
+    {
+        $users = User::all().
+        
+
+        
+       
+        $delete = Posts::onlyTrashed()->get();
+
+       
+        
+       
+        $user = Auth::user();
+        return view('includes.postsDelete', [
+            
+            'user' => $user,
+            'del' => $delete,
+            
+            'users' => $users,
+            
+
+        ]);
+    }
+
+    public function restore()
+    {
+        $post= Posts::All();
+
+        if($post->trashed()){
+            $post->restore();
+            return redirect('/')->with('softdeleter', 'ok');
+        }
     }
 
 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class Comments extends Model
 {
     use HasFactory;
+    
 
  
 
