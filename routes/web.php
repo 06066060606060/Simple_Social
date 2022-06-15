@@ -34,6 +34,8 @@ Route::get('/profil', [Controller::class, 'boucleProfil']);
 
 Route::get('/amis', [Controller::class, 'listeAmis']);
 
+Route::get('/interest', [Controller::class, 'CentreInterets']);
+
 Route::post('/addpost', [Controller::class, 'AddPost']);
 
 //Route::get('/backend', [Controller::class, 'boucleBackend']);

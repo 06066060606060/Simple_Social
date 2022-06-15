@@ -56,12 +56,12 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($users as $user)
+                                                    @foreach ($users as $users)
                         
                                                     <tr class="text-center border-b">
                                                         <td class="px-2 py-2"><img class="mx-auto h-14 w-14 rounded-full" src=".{{ Storage::url($user->photo) }}"
                                                                 alt=""></td>
-                                                        <td class="px-2 text-black"><a href="">{{ $user->pseudo }}</a></td>
+                                                        <td class="px-2 text-black"><a href="">{{ $users->pseudo }}</a></td>
                                                         <td class="px-2">admin</td>
                                                         <td class="px-2">1</td>
                                                         <td class="flex flex-col mt-2">

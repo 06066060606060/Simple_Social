@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Posts;
 use App\Models\Comments;
-
+use App\Models\Interets;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -116,6 +116,20 @@ class Controller extends BaseController
         return view('amis', [
 
             'users' => $users,
+
+        ]);
+    }
+
+    // Centre d'intérêts______________________________
+
+
+    public function CentreInterets()
+    {
+        $interets = Interets::All();
+
+        return view('interest', [
+
+            'interets' => $interets,
 
         ]);
     }
