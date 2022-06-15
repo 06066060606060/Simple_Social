@@ -90,10 +90,14 @@
                                     <select name="categorie[]" multiple
                                         class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
                                         >
-                                        <option> option 1</option>
-                                        <option> option 2</option>
-                                        <option> option 3</option>
-                                        <option> option 4</option>        
+                                        <option>Jeux vidéo</option>
+                                        <option>Carte pokémon</option>
+                                        <option>Nba</option>
+                                        <option>Football américain</option>
+                                        <option>Base-ball</option>
+                                        <option>Animaux sauvages</option>
+                                        <option>La pêche</option>
+                                        <option>La chasse</option>            
                                     </select>
                                 </div>
 

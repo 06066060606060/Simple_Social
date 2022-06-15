@@ -10,7 +10,7 @@
                 <a href="/profil/{{ $post->user->id }}">
                     <div class="flex flex-row items-center my-4">
                         <div>
-                            <img src="{{ Storage::url($post->user->photo) }}" class="rounded-full h-14 w-14" alt="avatar" />
+                            <img src="{{ $post->user->photo }}" class="rounded-full h-14 w-14" alt="avatar" />
                         </div>
                         <div class="ml-4">
                             <h2 class="font-bold tracking-widest text-blue-600">{{ $post->user->name }}</h2>
@@ -23,7 +23,7 @@
                 </a>
             </div>
         @if(($post->image) != null)
-            <img src="{{ Storage::url($post->image) }}" class="w-full h-auto mx-auto rounded" alt="post image" />
+            <img src="{{ $post->image }}" class="w-full h-auto mx-auto rounded" alt="post image" />
         @else
            {{-- <img src="https://source.unsplash.com/random" class="w-full h-auto mx-auto rounded" alt="post image" /> --}}
         @endif
@@ -60,7 +60,7 @@
             <input type="hidden" name="post_id" value="{{ $post->id }}">
             <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
             <div class="flex flex-row w-full mx-auto my-2 space-x-2 md:w-3/4">
-            <img src="{{ Storage::url(Auth::user()->photo) }}" class="w-12 h-12 rounded-full" />
+            <img src="{{ Auth::user()->photo }}" class="w-12 h-12 rounded-full" />
                 <input name="comm" class="w-full ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-300 form-input" type="text"
                 placeholder="Laisser un commentaire">
         </div>
@@ -73,7 +73,7 @@
         <div class="flex w-full mx-auto space-x-2 text-left border-gray-300 border-y md:w-3/4">
 
             <a href="/profil/{{ $comment->user->id }}" class="m-2 avatar avatar-sm">
-                <img src="{{ Storage::url($comment->user->photo) }}" class="w-6 h-6" />
+                <img src="{{ $comment->user->photo }}" class="w-6 h-6" />
             </a>
             <div class="flex flex-col w-full">
                 <div class="flex flex-row">
