@@ -96,12 +96,15 @@ class Controller extends BaseController
         $users = User::All();
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         $user = Auth::user();
+        $listAmis = User::with('amis')->where('id', '=', Auth::user()->id)->first();
+
         return view('amis', [
             'comments_likes' => $comments_likes,
             'user' => $user,
             'users' => $users,
             'posts' => $posts,
             'usersRandom' => $usersRandom,
+            'listAmis' => $listAmis->amis()->get()
         ]);
     }
 

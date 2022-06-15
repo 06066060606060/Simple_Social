@@ -21,9 +21,10 @@
                         </div>
                     </a>
                 </div>
-                @if ($post->image != null)
-                    <img src="{{ $post->image }}" class="w-full h-auto mx-auto rounded" alt="post image" />
+                @if ($post->image === '/storage/img/hidden.png')
+                <img src="/storage/img/hidden.png" class="h-1 w-1" alt="" />
                 @else
+                <img src="{{ $post->image }}" class="w-full h-auto mx-auto rounded" alt="post image" />
                 @endif
             </div>
 
@@ -103,8 +104,9 @@
                                 </form>
                                 @include('includes.com_modal')
                             </div>
+                                      {{-- {{ comms de comms}} --}}
 
-                            <div>
+                            <div class="border-t pt-2 border-gray-300">
                                 <input type="hidden" name="post_id" value="{{ $post->id }}">
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <div class="flex flex-row justify-end w-2/3 mx-auto mb-2 space-x-2 md:w-3/4">

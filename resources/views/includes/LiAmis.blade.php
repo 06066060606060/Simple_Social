@@ -4,7 +4,7 @@
             <input placeholder="Rechercher un utilisateurs..." type="search"
                 class="block w-full px-4 py-3 font-bold text-gray-700 bg-gray-200 rounded-lg focus:outline-none focus:bg-white focus:shadow" />
             <div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-3 lg:grid-cols-4">
-                @foreach ($users as $user)
+                @foreach ($listAmis as $user)
                     <a href="/profil/{{ $user->id }}">
                         <div
                             class="flex items-center p-3 transition duration-150 ease-in-out transform shadow hover:bg-indigo-100 hover:shadow-lg hover:rounded hover:scale-105">

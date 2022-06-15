@@ -26,12 +26,12 @@ class AuthController extends Controller
             'email' => 'required|unique:users,email|max:255',
             'password' => 'required',
             'banniere' => 'mimes:jpg,bmp,png',
-            'photo' => 'mimes:jpg,bmp,png',
+            'images' => 'mimes:jpg,bmp,png',
         ]);
 
         $user = new User();
-        if ($request->hasFile('photo') ){
-            $path = Storage::disk('public')->put('img', $request->file('images'));
+        if ($request->hasFile('images') ){
+            $path = Storage::disk('public')->put('img', $request->file('images'));   
             $user->photo = '/storage/'.$path;
         }
         if ($request->hasfile('banniere')) {
@@ -119,9 +119,16 @@ class AuthController extends Controller
             'name' => 'required',
             'bio' => 'required',
         ]);
-        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-        $pathB = Storage::disk('public')->put('img', $request->file('banniere'));
         $user = user::find($id);
+        if ($request->hasFile('images') ){
+            $path = Storage::disk('public')->put('img', $request->file('images'));   
+            $user->photo = '/storage/'.$path;
+        }
+        if ($request->hasfile('banniere')) {
+            $pathB = Storage::disk('public')->put('img', $request->file('banniere'));
+            $user->banniere = '/storage/'.$pathB;
+        }
+        
         $user->name = $validate['name'];
         $user->pseudo = $validate['pseudo'];
         $user->bio = $validate['bio'];

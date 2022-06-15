@@ -59,5 +59,10 @@ class User extends Authenticatable
         return $this->hasMany(Like::class, 'user_id');
     }
 
+    public function amis()
+    {
+        return $this->belongsToMany(User::class, 'users_amis', 'user_id1', 'user_id2');
+    }
+
 
 }

@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->longText('content')->nullable();
-            $table->string('image', 255)->nullable();
+        Schema::create('users_amis', function (Blueprint $table) {
+
+            $table->unsignedBigInteger('user_id1');
+            $table->foreign('user_id1')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id2');
+            $table->foreign('user_id2')->references('id')->on('users')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        //
     }
 };
