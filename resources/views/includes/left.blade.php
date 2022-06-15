@@ -1,4 +1,4 @@
-<nav class="flex flex-col pt-1 text-gray-500 left">
+<nav class="flex flex-col pt-1 text-gray-500 lg:w-72 md:w-38 left">
    
          @auth
         <a class="flex items-center px-4 py-3 transition cursor-pointer group hover:bg-gray-800 hover:text-gray-200" href="/">

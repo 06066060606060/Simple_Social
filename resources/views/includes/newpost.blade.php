@@ -3,7 +3,7 @@
         <form method="post" action="/addpost" enctype="multipart/form-data">
             {{-- ajouter commentaires --}}
             <div class="flex flex-row w-full pb-4 mt-2 space-x-2">
-                <img src="{{ Storage::url(Auth::user()->photo) }}" class="w-12 h-12 rounded-full" />
+                <img src="{{ Auth::user()->photo }}" class="w-12 h-12 rounded-full" />
 
                 @csrf
                 <input name="content"

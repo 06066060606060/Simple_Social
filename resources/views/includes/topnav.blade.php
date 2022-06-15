@@ -23,51 +23,65 @@
 
         {{-- MENU normal --}}
         <nav class="items-center hidden space-x-8 text-sm font-medium lg:justify-end lg:flex lg:flex-1 lg:w-0">
+            @if (session('error'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
+                        <span class='pl-8 text-red-800 text-bold'>Login ou Mots de passe incorrect</span>
+                    </div>
+                </div>
+            @endif
             @if (session('success'))
-                <div class="alert alert-success">
+                <div class="">
                     {{-- <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)"> --}}
-                        <span class='text-white text-bold'>Bienvenue {{ Auth::user()->pseudo }}</span>
+                    <span class='text-white text-bold'>Bienvenue {{ Auth::user()->pseudo }}</span>
                     {{-- </div> --}}
                 </div>
             @endif
 
             @if (session('modifié'))
-            <div class="">
-                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
-                    <span class='text-green-600 text-bold'>Post modifié!</span>
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                        <span class='text-green-600 text-bold'>Post modifié!</span>
+                    </div>
                 </div>
-            </div>
-        @endif
+            @endif
 
-        @if (session('ajouté'))
-        <div class="">
-            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
-                <span class='text-green-600 text-bold'>Post ajouté!</span>
-            </div>
-        </div>
-    @endif
 
-    @if (session('commajouté'))
-    <div class="">
-        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
-            <span class='text-green-600 text-bold'>Commentaire ajouté!</span>
-        </div>
-    </div>
-@endif
+            @if (session('usermodifié'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                        <span class='text-green-600 text-bold'>Post modifié!</span>
+                    </div>
+                </div>
+            @endif
 
-        @if (session('supprimé'))
-        <div class="">
-            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
-                <span class='text-red-800 text-bold'>Post supprimé!</span>
-            </div>
-        </div>
-    @endif
+            @if (session('ajouté'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                        <span class='text-green-600 text-bold'>Post ajouté!</span>
+                    </div>
+                </div>
+            @endif
+
+            @if (session('commajouté'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 6000)">
+                        <span class='text-green-600 text-bold'>Commentaire ajouté!</span>
+                    </div>
+                </div>
+            @endif
+
+            @if (session('supprimé'))
+                <div class="">
+                    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
+                        <span class='text-red-800 text-bold'>Post supprimé!</span>
+                    </div>
+                </div>
+            @endif
 
             {{-- SI AUTH j'affiche les settings --}}
             @auth
-
-
-                {{-- SI mika j'affiche le menu backend / a modifier avec les roles --}}
+                         {{-- SI admin j'affiche le menu admin --}}
                 @if (Auth::user()->role == 'admin')
                     <a class="text-gray-900" href="#">@include('includes.backend_modal')</a>
                 @endif
@@ -96,14 +110,16 @@
         <div class="lg:hidden">
             <nav class="flex items-center justify-center overflow-x-auto text-sm font-medium">
                 <a class="text-gray-900" href="#">@include('includes.backend_modal')</a>
-                <a class="text-gray-900" href=""><i
-                        class="ml-2 -mt-6 text-white fa-solid fa-bell hover:text-black"></i></a>
+                <a class="text-gray-900" href="">
+                    <i class="mx-2 ml-2 -mt-6 text-white lg:mx-0 fa-solid fa-bell hover:text-black"></i></a>
                 @include('includes.settings_modal')
-                <a class="pl-4 text-gray-900" href="/logout"><i
-                        class="ml-4 -mt-6 text-white fa-solid fa-right-from-bracket hover:text-black"></i></a>
+                <a class="text-gray-900 lg:pl-4" href="/logout">
+                    <i class="mx-2 -mt-6 text-white lg:mx-0 lg:ml-4 fa-solid fa-right-from-bracket hover:text-black"></i>
+                </a>
                 @auth
-                    <a class="pl-4 text-gray-900" href="/profil"><img class="w-8 h-8 rounded-full"
-                            src="{{ Storage::url(Auth::user()->photo) }}"></a>
+                    <a class="pl-4 text-gray-900" href="/profil">
+                        <img class="w-8 h-8 mb-2 rounded-full" src="{{ Auth::user()->photo }}">
+                        </a>
                 @endauth
             </nav>
         </div>

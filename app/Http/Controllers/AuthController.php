@@ -27,23 +27,21 @@ class AuthController extends Controller
             'password' => 'required',
             'banniere' => 'mimes:jpg,bmp,png',
             'photo' => 'mimes:jpg,bmp,png',
-            'role' =>'required',
         ]);
 
         $user = new User();
         if ($request->hasFile('photo') ){
             $path = Storage::disk('public')->put('img', $request->file('images'));
-            $user->photo = $path;
+            $user->photo = '/storage/'.$path;
         }
         if ($request->hasfile('banniere')) {
             $pathB = Storage::disk('public')->put('img', $request->file('banniere'));
-            $user->banniere = $pathB;
+            $user->banniere = '/storage/'.$pathB;
         }
 
         $user->name = $validate['name'];
         $user->pseudo = $validate['pseudo'];
         $user->bio = $validate['bio'];
-        $user->role = $validate['role'];
         $user->email = $validate['email'];
         $user->password = Hash::make($validate['password']);
         $user->save();
@@ -68,12 +66,13 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect('/')->with('success', 'log ok');
         }
-        return view('error');
+        return redirect('/')->with('error', 'log');
     }
+
+
 
     public function logout(Request $request)
     {
-
         Session::flush();
         Auth::logout();
         $request->session()->invalidate();
@@ -127,12 +126,12 @@ class AuthController extends Controller
         $user->name = $validate['name'];
         $user->pseudo = $validate['pseudo'];
         $user->bio = $validate['bio'];
-        $user->photo = $path;
-        $user->banniere = $pathB;
+        $user->photo = '/storage/' . $path;
+        $user->banniere = '/storage/' . $pathB;
         // $user->interets()->sync($request->interets);
         $user->save();
         // $user->interets()->attach($request->interets);
 
-        return redirect('/')->with('modifié', ' modifié');
+        return redirect('/')->with('usermodifié', ' modifié');
     }
 }

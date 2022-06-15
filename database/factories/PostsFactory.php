@@ -21,7 +21,8 @@ class PostsFactory extends Factory
         return [
             'user_id' => DB::table('users')->inRandomOrder()->first()->id,
             'content' => $this->faker->paragraph(),
-            'image' => $this->faker->imageUrl(640, 480, 'cars', true)
+            'image' => $this->faker->imageUrl($width = 1280, $height = 720),
+            'updated_at' => now(),
         ];
     }
 }

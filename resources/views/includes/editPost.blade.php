@@ -14,7 +14,7 @@
             <div class="mt-6">
 
                 <div class="w-full">
-                    <img class="object-cover w-64 h-auto" src="{{ Storage::url($post->image) }}">
+                    <img class="object-cover w-64 h-auto" src="{{ $post->image }}">
                 </div>
 
                 <label for="files3"
@@ -22,12 +22,12 @@
                     l'image</label>
                 <input type="file" style="display:none" id="files3" name="imageb" value="">
                 <label for="imglink"></label>
-                <input type="text" style="display:none" name="imglink" value="{{ Storage::url($post->image) }}">
+                <input type="text" style="display:none" name="imglink" value="{{ $post->image }}">
             </div>
             <div class="mt-4">
                 <label for="content" class="block text-sm text-gray-700 dark:text-gray-600">Contenu</label>
                 <textarea name="content" rows="4" cols="40"
-                    class="block w-full px-8 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">{{ $post->content }}"</textarea>
+                    class="block w-full px-8 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">{{ $post->content }}</textarea>
             </div>
 
             <button type="submit"
