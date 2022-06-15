@@ -94,7 +94,7 @@
                                         <option> option 2</option>
                                         <option> option 3</option>
                                         <option> option 4</option>
-                                        < </select>
+                                        </select>
                                 </div>
 
                             </div>
