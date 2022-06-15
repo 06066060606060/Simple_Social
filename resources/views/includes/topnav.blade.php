@@ -68,7 +68,7 @@
 
 
                 {{-- SI mika j'affiche le menu backend / a modifier avec les roles --}}
-                @if (Auth::user()->pseudo == 'mika')
+                @if (Auth::user()->role == 'admin')
                     <a class="text-gray-900" href="#">@include('includes.backend_modal')</a>
                 @endif
 

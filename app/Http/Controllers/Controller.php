@@ -79,7 +79,7 @@ class Controller extends BaseController
             'posts' => $posts,
             'usersRandom' => $usersRandom,
         ]);
-    }}
+    }
 
 
 
@@ -187,3 +187,4 @@ class Controller extends BaseController
         ]);
     }
 
+}

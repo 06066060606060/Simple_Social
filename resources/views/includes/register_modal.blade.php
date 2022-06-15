@@ -96,7 +96,19 @@
                                         <option> option 4</option>        
                                     </select>
                                 </div>
-
+                                <div class="w-1/3 mx-4">
+                                    <label for="role"
+                                        class="block pt-3 pb-1 text-sm text-gray-700 dark:text-gray-600">
+                                        Rôle </label>
+                                    <select name="role" multiple
+                                        class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
+                                        >
+                                        <option>admin</option>
+                                        <option>noobbees</option>
+                                        <option>viewers</option>
+                                        <option>nasus>all</option>        
+                                    </select>
+                                </div>
                             </div>
                           </div>
                           <div class="flex w-1/3">
