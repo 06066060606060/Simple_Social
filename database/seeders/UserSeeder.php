@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'email' => Str::random(10).'@gmail.com',
             'password' => Hash::make('password'),
         ]);
-      
 
+      
     }
 }

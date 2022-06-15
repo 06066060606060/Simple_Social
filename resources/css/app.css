@@ -13,6 +13,7 @@
   }
 html{
     background-color: rgb(11, 11, 11);
+    /* overflow-y:scroll; */
 
 }
 img{
@@ -23,8 +24,10 @@ img{
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 10px;
-    padding-right: 10px;
+
+    min-height: 100vh;
+    background-color: #111827;
+ 
 
   }
 
@@ -46,7 +49,7 @@ img{
   position: fixed;
   background-size: cover;
   top: 0;
-  max-width: 1420px;
+  max-width: 1440px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -64,7 +67,7 @@ img{
 .topnav {
   z-index: 10;
   position: fixed;
-  max-width: 1420px;
+  max-width: 1440px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -73,32 +76,16 @@ img{
   background-color: #333;
 }
 
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change color on hover */
-.topnav a:hover {
-  color: black;
-}
-
 /* Create three unequal columns that floats next to each other */
 .column {
-  background-color: rgb(17, 24, 39);
   float: left;
-  height: 900vh;
+  height:100vh;
+  min-height: 100vh;
 }
 
 /* Left and right column */
 .column.sideL {
   width: 20%;
-
-
 }
 .left{
   position: fixed;
@@ -117,16 +104,10 @@ img{
 
 /* Middle column */
 .column.middle {
-  margin-top: 250px;
+  margin-top: 242px;
   width: 60%;
 
 }
-
-.row{
-  background-color: rgb(17, 24, 39);
-
-}
-
 
 /* Responsive layout______________________________________________________________________________*/
 @media screen and (max-width: 600px) {
@@ -140,6 +121,9 @@ img{
 
   .left{
     position: relative;
+   top: 200px;
+   height: 200px;
+    
   }
 
   .right{
@@ -149,6 +133,7 @@ img{
     width: 100%;
     height: 100%;
   }
+
   .column.sideL {
    height: auto;
   }
@@ -160,59 +145,18 @@ img{
 }
 
 /* CRUD_________________________________________________________________________________________________________ */
-.dataTables_wrapper select,
-.dataTables_wrapper .dataTables_filter input {
-  color: black;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  line-height: 1.25;
-  border-width: 2px;
-  border-radius: .25rem;
-  border-color: #4f4f4f;
-  background-color: #CBD5E1;
+td, th {
+  padding: 5px;
 }
 
-/*Row Hover*/
-table.dataTable.hover tbody tr:hover,
-table.dataTable.display tbody tr:hover {
-  background-color: #838383b0;
+th {
+  cursor: pointer;
 }
 
-/*Pagination Buttons*/
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-  font-weight: 700;
-  border: 1px solid transparent;
+#comx.active {
+visibility: visible;
 }
 
-/*Pagination Buttons - Current selected */
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-  color: #fff !important;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
-  font-weight: 700;
-  background: #5e5e5e !important;
-  border: 1px solid transparent;
-}
-
-/*Pagination Buttons - Hover */
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-  color: #fff !important;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
-  font-weight: 700;
-  background: #5e5e5e !important;
-  border: 1px solid transparent;
-}
-
-/*Add padding to bottom border */
-table.dataTable.no-footer {
-  border-bottom: 1px solid #e2e8f0;
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
-}
-
-/*Change colour of responsive icon*/
-table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
-table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
-  background-color: #5e5e5e !important;
+#comx {
+visibility: collapse;
 }

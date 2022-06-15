@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
-            $table->id();
+        Schema::create('comments_likes', function (Blueprint $table) {
+            $table->bigInteger('comment_id')->unsigned();
+            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('pseudo', 255)->nullable(false);
-            $table->string('name', 255)->nullable(false);
-            $table->string('photo', 255)->nullable();
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        //
     }
 };

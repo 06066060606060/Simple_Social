@@ -1,20 +1,23 @@
 <section class="p-4 mx-4 mt-1 bg-gray-100 max-w-7xl">
-  <h1 class="pb-2 mb-3 text-3xl font-bold text-center text-black md:leading-tight md:text-4xl">
-    Liste d'amis
-       </h1>
-  <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      @foreach ($users as $user)
-      <a href="">
-          <div class="flex flex-col items-center justify-center pl-2 border border-gray-400 rounded-md friends">
-              <tr>
-         
-                  <td class="px-2 py-2 "><img class="w-12 h-12 m-2 rounded-full" src="./img/avatar2.png" alt=""></td>
-                  <td class="px-2"> <h2 class="text-xs font-semibold tracking-widest text-blue-600 uppercase">{{ $user->name }}</h2></td>
-                  <td class="px-2"> <span class="font-semibold text-gray-500 lg:mb-0">{{ $user->pseudo }}</span></td>
-              
-              </tr>
-          </div>
-        </a>
-      @endforeach
-  </div>
+    <div class="px-3 font-sans leading-normal tracking-normal bg-grey-100">
+        <div class="container pt-2 mx-auto" x-data="loadUsers()">
+            <input placeholder="Rechercher un utilisateurs..." type="search"
+                class="block w-full px-4 py-3 font-bold text-gray-700 bg-gray-200 rounded-lg focus:outline-none focus:bg-white focus:shadow" />
+            <div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-3 lg:grid-cols-4">
+                @foreach ($users as $user)
+                    <a href="/profil/{{ $user->id }}">
+                        <div
+                            class="flex items-center p-3 transition duration-150 ease-in-out transform shadow hover:bg-indigo-100 hover:shadow-lg hover:rounded hover:scale-105">
+                            <img class="w-10 h-10 mr-4 rounded-full" src="{{ $user->photo }}" />
+                            <div class="text-sm">
+                                <p class="leading-none text-gray-900" text="">{{ $user->pseudo }} </p>
+                                <p class="leading-none pt-1 text-xs text-gray-600" text="">{{ $user->name }} </p>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+
+        </div>
+    </div>
 </section>

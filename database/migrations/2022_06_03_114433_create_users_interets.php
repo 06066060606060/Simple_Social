@@ -18,16 +18,12 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('interets_id');
-            $table->foreign('interets_id')->references('id')->on('interets')->onDelete('cascade');;
+            $table->foreign('interets_id')->references('id')->on('interets')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+  
     public function down()
     {
         Schema::dropIfExists('users_interets');
