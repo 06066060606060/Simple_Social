@@ -47,17 +47,18 @@
                                         un avatar</label>
                                     <input type="file" style="display:none" id="files" onchange="loadFile(event)"
                                         name="images" value="" required>
-                                        <label for="file2"
-                                        class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-gray-300 focus:ring-opacity-50">Ajouter banniére</label>
-                                        <input type="file" style="display:none" id="file2" name="banniere" value="">
+                                    <label for="file2"
+                                        class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-gray-300 focus:ring-opacity-50">Ajouter
+                                        banniére</label>
+                                    <input type="file" style="display:none" id="file2" name="banniere" value="">
                                 </div>
                                 <div class="w-1/3">
                                     <img class="w-32 h-32 object-cover" id="img-output">
                                 </div>
                             </div>
                             <div>
-                                <label for="name"
-                                    class="block text-sm text-gray-700 capitalize dark:text-gray-600">Nom Prénom</label>
+                                <label for="name" class="block text-sm text-gray-700 capitalize dark:text-gray-600">Nom
+                                    Prénom</label>
                                 <input type="text" name="name" placeholder=""
                                     class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
                                     required>
@@ -79,8 +80,8 @@
                             <div class="mt-4">
                                 <label for="bio"
                                     class="block text-sm text-gray-700 dark:text-gray-600">Biographie</label>
-                                <textarea name="bio" rows="4" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
-                                    ></textarea>
+                                <textarea name="bio" rows="4"
+                                    class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"></textarea>
                             </div>
                             <div class="flex flex-row">
                                 <div class="w-1/3">
@@ -88,25 +89,24 @@
                                         class="block pt-3 pb-1 text-sm text-gray-700 dark:text-gray-600">Centre
                                         d'intérets</label>
                                     <select name="categorie[]" multiple
-                                        class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
-                                        >
+                                        class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
                                         <option> option 1</option>
                                         <option> option 2</option>
                                         <option> option 3</option>
-                                        <option> option 4</option>        
-                                    </select>
+                                        <option> option 4</option>
+                                        < </select>
                                 </div>
 
                             </div>
-                          </div>
-                          <div class="flex w-1/3">
+                        </div>
+                        <div class="flex w-1/3">
 
                             <button type="submit"
                                 class="flex justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white transition-colors duration-200 transform bg-gray-900 rounded-md flex-end hover:bg-gray-600 focus:outline-none focus:bg-gray-500 focus:ring focus:ring-gray-300 focus:ring-opacity-50">
                                 Valider
                             </button>
-                     
-                    </div>
+
+                        </div>
                     </form>
                 </section>
             </div>
@@ -114,8 +114,8 @@
     </div>
 </div>
 <script>
-  var loadFile = function(event) {
-      var image = document.getElementById('img-output');
-      image.src = URL.createObjectURL(event.target.files[0]);
-  };
+    var loadFile = function(event) {
+        var image = document.getElementById('img-output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
 </script>

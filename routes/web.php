@@ -38,6 +38,8 @@ Route::get('/profil/{id}', [Controller::class, 'boucleProfil']);
 
 Route::get('/amis', [Controller::class, 'listeAmis']);
 
+Route::get('/interest', [Controller::class, 'CentreInterets']);
+
 Route::post('/addpost', [Controller::class, 'AddPost'])->name('addpost');
 
 Route::post('/addcomm', [Controller::class, 'AddComm'])->name('addcomm');

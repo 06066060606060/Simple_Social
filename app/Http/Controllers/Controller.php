@@ -10,6 +10,7 @@ use App\Models\Posts;
 use App\Models\Comments;
 use Illuminate\Http\Request;
 use App\Models\comments_likes;
+use App\Models\Interets;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -104,6 +105,34 @@ class Controller extends BaseController
             'usersRandom' => $usersRandom,
         ]);
     }
+
+    // Centres d'intérêts_________________________________
+
+    public function CentreInterets()
+
+    {
+        if (Auth::check()) {
+            $usersRandom = User::where('id', '!=', Auth::user()->id)->inRandomOrder()->take(5)->get();
+        } else {
+            $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        }
+        $comments_likes = comments_likes::All();
+        $users = User::All();
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $user = Auth::user();
+        $interets = Interets::All() ;
+        return view('interest', [
+            'comments_likes' => $comments_likes,
+            'user' => $user,
+            'users' => $users,
+            'posts' => $posts,
+            'usersRandom' => $usersRandom,
+            'interet' => $interets,
+        ]);
+      }
+
+
+
 
  // Post like
  public function PostLike(Request $request)
