@@ -20,7 +20,7 @@
         <div class="modal-content py-4 text-left px-6">
           <!--Title-->
           <div class="flex justify-between items-center pb-3">
-            <p class="text-2xl font-bold">Simple Modal!</p>
+            <p class="text-2xl font-bold">Commenter</p>
             <div class="modal-close cursor-pointer z-50">
               <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                 <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
@@ -29,7 +29,17 @@
           </div>
   
     
-          <p>Modal content can go here</p>
+          <form method="post" action="/addcommcomm" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            <div class="flex flex-row w-full mx-auto my-2 space-x-2 md:w-3/4">
+                <img src="{{ Auth::user()->photo }}" class="w-12 h-12 rounded-full" />
+                <input name="comm"
+                    class="w-full ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-300 form-input"
+                    type="text" placeholder="Laisser un commentaire">
+            </div>
+        </form>
 
         </div>
       </div>

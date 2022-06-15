@@ -47,7 +47,7 @@
                                         <div
                                             class="flex items-center p-3 transition duration-150 ease-in-out transform bg-gray-100 shadow hover:bg-blue-200 hover:shadow-lg hover:rounded hover:scale-105">
 
-                                            <img class="w-10 h-10 mr-4 rounded-full"
+                                            <img class="w-10 h-10 rounded-full"
                                                 :src="`${item.photo}`" />
                                             <div class="text-sm">
                                                 <p class="leading-none text-gray-900" x-text="item.name"></p>
@@ -191,7 +191,7 @@
                                 <template x-for="item in filteredPosts" :key="item">
                                     <div
                                         class="flex flex-row justify-between p-3 mx-4 transition duration-150 ease-in-out transform bg-gray-100 shadow hover:bg-blue-200 hover:shadow-lg hover:rounded hover:scale-105">
-                                        <img class="w-24 h-auto mr-4" :src="`${item.image}`" />
+                                        <img class="w-24 h-auto" :src="`${item.image}`" />
                                         <div class="flex flex-col text-sm flex-start">
                                             <span class="text-xs text-gray-400" x-text="item.user.name"></span>
                                             <p class="leading-none text-gray-900 break-words" x-text="item.content"></p>

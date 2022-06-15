@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Likes;
-
+use App\Models\Interets;
 use App\Models\Posts;
 use App\Models\Comments;
 use Illuminate\Http\Request;
 use App\Models\comments_likes;
+use App\Models\comment_comments;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -34,11 +35,12 @@ class Controller extends BaseController
         } else {
             $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
         }
-       
+
         $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
         $comments_likes = comments_likes::All();
         $comments = Comments::where('post_id', '!=', '0')->with('user')->orderBy('created_at', 'DESC')->get();
         $likes = Likes::All();
+        $commcomms = comment_comments::All();
  
         $user = Auth::user();
         return view('index', [
@@ -50,6 +52,7 @@ class Controller extends BaseController
             'usersRandom' => $usersRandom,
             'users' => $users,
             'tim' => $timer,
+            'commcomms' => $commcomms,
 
         ]);
     }
@@ -108,6 +111,35 @@ class Controller extends BaseController
         ]);
     }
 
+
+
+    // Centres d'intérêts_________________________________
+
+    public function CentreInterets()
+
+    {
+        if (Auth::check()) {
+            $usersRandom = User::where('id', '!=', Auth::user()->id)->inRandomOrder()->take(5)->get();
+        } else {
+            $usersRandom = User::where('id', '!=', 0)->inRandomOrder()->take(5)->get();
+        }
+        $comments_likes = comments_likes::All();
+        $users = User::All();
+        $posts = Posts::with('user')->with('comment')->orderBy('created_at', 'DESC')->get();
+        $user = Auth::user();
+        $interets = Interets::All();
+        return view('interest', [
+            'comments_likes' => $comments_likes,
+            'user' => $user,
+            'users' => $users,
+            'posts' => $posts,
+            'usersRandom' => $usersRandom,
+            'interets' => $interets,
+        ]);
+      }
+
+
+
  // Post like
  public function PostLike(Request $request)
  {
@@ -159,6 +191,16 @@ class Controller extends BaseController
         return redirect('/')->with('commajouté', 'ok');
     }
 
+    // ajouter comm comm________________________________
+    public function AddCommcomm(Request $request)
+    {
+        $comm = new comment_comments();
+        $comm->user_id = $request->user_id;
+        $comm->comment_id = $request->post_id;
+        $comm->content = $request->comm;
+        $comm->save();
+        return redirect('/')->with('commajouté', 'ok');
+    }
 
 
     // get one post____________________________________________

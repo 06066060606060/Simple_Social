@@ -22,9 +22,9 @@
                     </a>
                 </div>
                 @if ($post->image === '/storage/img/hidden.png')
-                <img src="/storage/img/hidden.png" class="h-1 w-1" alt="" />
+                    <img src="/storage/img/hidden.png" class="h-1 w-1" alt="" />
                 @else
-                <img src="{{ $post->image }}" class="w-full h-auto mx-auto rounded" alt="post image" />
+                    <img src="{{ $post->image }}" class="w-full h-auto mx-auto rounded" alt="post image" />
                 @endif
             </div>
 
@@ -104,19 +104,18 @@
                                 </form>
                                 @include('includes.com_modal')
                             </div>
-                                      {{-- {{ comms de comms}} --}}
-
-                            <div class="border-t pt-2 border-gray-300">
-                                <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                <div class="flex flex-row justify-end w-2/3 mx-auto mb-2 space-x-2 md:w-3/4">
-                                    <p class="w-2/3 p-2 ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-400"
-                                        type="text" placeholder="">gfsthdthfgjhtfjdt</p>
-                                    <img src="{{ Auth::user()->photo }}" class="w-12 h-12 rounded-full" />
+                            {{-- {{ comms de comms}} --}}
+                            @foreach ($commcomms->where('comment_id', '=', $comment->id) as $commcomm)
+                                <div class="border-t pt-2 border-gray-300">
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                    <div class="flex flex-row justify-end w-2/3 mx-auto mb-2 space-x-2 md:w-3/4">
+                                        <p class="w-2/3 p-2 ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-400"
+                                            type="text" placeholder="">{{ $commcomm->content }}</p>
+                                        <img src="{{ Auth::user()->photo }}" class="w-12 h-12 rounded-full" />
+                                    </div>
                                 </div>
-                            </div>
-
-
+                            @endforeach
                         </div>
 
                     </div>

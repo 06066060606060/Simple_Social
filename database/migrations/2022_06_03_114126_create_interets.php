@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('label', 45);
             $table->timestamps();
+            $table->string('images', 255)->nullable();
         });
     }
 
