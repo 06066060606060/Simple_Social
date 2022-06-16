@@ -1,37 +1,88 @@
-<div x-data="{ modelOpen: false }">
 
-    <button @click="modelOpen =!modelOpen">
-    <i class="px-1 py-2 text-gray-700 fa-solid fa-comment-dots" onclick="CacherComm()"></i>
-</button>
 
-    <div x-cloak x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
-        role="dialog" aria-modal="true">
-        <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
-            <div x-cloak @click="modelOpen = false" x-show="modelOpen"
-                x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0"
-                x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200 transform"
-                x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40" aria-hidden="true"></div>
+ 
+    <i class="modal-open px-1 py-2 text-gray-700 fa-solid fa-comment-dots" onclick="CacherComm()"></i>
 
-            <div x-cloak x-show="modelOpen" x-transition:enter="transition ease-out duration-300 transform"
-                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-                x-transition:leave="transition ease-in duration-200 transform"
-                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                class="inline-block w-full max-w-xl p-8 my-12 overflow-hidden transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
-                <section class="bg-gray-50">  
-                  
-                  </section>
-
-            </div>
+    <!--Modal-->
+    <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+      <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+      
+      <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+        
+        <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+          <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+            <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+          </svg>
+          <span class="text-sm">(Esc)</span>
         </div>
+  
+        <!-- Add margin if you want to see some of the overlay behind the modal-->
+        <div class="modal-content py-4 text-left px-6">
+          <!--Title-->
+          <div class="flex justify-between items-center pb-3">
+            <p class="text-2xl font-bold">Commenter</p>
+            <div class="modal-close cursor-pointer z-50">
+              <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+              </svg>
+            </div>
+          </div>
+  
+    
+          <form method="post" action="/addcommcomm" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            <div class="flex flex-row w-full mx-auto my-2 space-x-2 md:w-3/4">
+                <img src="{{ Auth::user()->photo }}" class="w-12 h-12 rounded-full" />
+                <input name="comm"
+                    class="w-full ml-2 border-0 rounded-lg placeholder:text-gray-800 bg-slate-300 form-input"
+                    type="text" placeholder="Laisser un commentaire">
+            </div>
+        </form>
+
+        </div>
+      </div>
     </div>
-</div>
-<script>
-    function CacherComm() {
-        console.log("ok");
-        var updateElement = document.getElementById("comx");
-        updateElement.classList.toggle("active");
-    }
-</script>
+  
+    <script>
+      var openmodal = document.querySelectorAll('.modal-open')
+      for (var i = 0; i < openmodal.length; i++) {
+        openmodal[i].addEventListener('click', function(event){
+          event.preventDefault()
+          toggleModal()
+        })
+      }
+      
+      const overlay = document.querySelector('.modal-overlay')
+      overlay.addEventListener('click', toggleModal)
+      
+      var closemodal = document.querySelectorAll('.modal-close')
+      for (var i = 0; i < closemodal.length; i++) {
+        closemodal[i].addEventListener('click', toggleModal)
+      }
+      
+      document.onkeydown = function(evt) {
+        evt = evt || window.event
+        var isEscape = false
+        if ("key" in evt) {
+          isEscape = (evt.key === "Escape" || evt.key === "Esc")
+        } else {
+          isEscape = (evt.keyCode === 27)
+        }
+        if (isEscape && document.body.classList.contains('modal-active')) {
+          toggleModal()
+        }
+      };
+      
+      
+      function toggleModal () {
+        const body = document.querySelector('body')
+        const modal = document.querySelector('.modal')
+        modal.classList.toggle('opacity-0')
+        modal.classList.toggle('pointer-events-none')
+        body.classList.toggle('modal-active')
+      }
+      
+       
+    </script>

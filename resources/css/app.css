@@ -27,7 +27,6 @@ img{
 
     min-height: 100vh;
     background-color: #111827;
- 
 
   }
 
@@ -53,7 +52,7 @@ img{
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  height: 195px;
+  height: 95px;
   display: block;
   justify-content: center;
   align-items: center;
@@ -71,7 +70,7 @@ img{
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  top: 195px;
+  top: 95px;
   overflow: hidden;
   background-color: #333;
 }
@@ -89,7 +88,7 @@ img{
 }
 .left{
   position: fixed;
-  top: 250px;
+  top: 150px;
 }
 .column.sideR {
   width: 20%;
@@ -99,12 +98,12 @@ img{
 
 .right{
   position: fixed;
-  top: 250px;
+  top: 150px;
 }
 
 /* Middle column */
 .column.middle {
-  margin-top: 242px;
+  margin-top: 142px;
   width: 60%;
 
 }

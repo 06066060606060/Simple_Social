@@ -68,7 +68,7 @@
                                         <option>Base-ball</option>
                                         <option>Animaux sauvages</option>
                                         <option>La pêche</option>
-                                        <option>La chasse</option>      
+                                        <option>La chasse</option>            
                                     </select>
                                 </div>
 

@@ -4,21 +4,16 @@
             <input placeholder="Rechercher un centre d'interêt..." type="search"
                 class="block w-full px-4 py-3 font-bold text-gray-700 bg-gray-200 rounded-lg focus:outline-none focus:bg-white focus:shadow" />
             <div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-3 lg:grid-cols-4">
-                @foreach ($interet as $interets)
+                @foreach ($interets as $interet)
                     <div
                         class="flex flex-col items-center justify-center  border border-gray-400 rounded-md friends">
                         <tr>
-                           
-                            <td class="px-2"><span>{{$interets->label}}<i class="px-1 py-2 fa-solid fa-heart"></i></span>
+                            <td class="px-2"><span>{{ $interet->label }}<i class="px-1 py-2 fa-solid fa-heart"></i></span>
                             </td>
-                            <td class="px-2 py-2 "><img class="flex items-center p-3 " src="{{ $interets->images}}"alt=""></td>
-
-                            
+                            <td class="px-2 py-2 "><img class="flex items-center p-3 " src="{{ $interet->images }}"alt=""></td>
                         </tr>
                     </div>
                     </a>
                 @endforeach
-
-
             </div>
 </section>
