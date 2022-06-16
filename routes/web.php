@@ -42,6 +42,8 @@ Route::post('/addpost', [Controller::class, 'AddPost'])->name('addpost');
 
 Route::post('/addcomm', [Controller::class, 'AddComm'])->name('addcomm');
 
+Route::post('/addcommcomm', [Controller::class, 'AddCommcomm'])->name('addcommcomm');
+
 Route::post('/PostLike', [Controller::class, 'PostLike'])->name('PostLike');
 
 Route::post('/CommLike', [Controller::class, 'CommLike'])->name('CommLike');
@@ -52,6 +54,7 @@ Route::get('/editUsers/{id}', [AuthController::class, 'getOneUser'])->whereNumbe
 
 Route::post('/editerUser/{id}', [AuthController::class, 'editerUser'])->whereNumber('id')->name('editerUser');
 
+Route::get('/interest', [Controller::class, 'CentreInterets']);
 
 Route::get('/editPosts/{id}', [Controller::class, 'getOnePost'])->whereNumber('id');
 

@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
         Likes::factory(20)->create();
         Comments::factory(10)->create();
         UsersInterets::factory(10)->create();
-        UsersAmis::factory(10)->create();
+        $this->call([
+            AdminUserSeeder::class,
+        ]);
     }
 }
